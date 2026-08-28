@@ -1360,6 +1360,8 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
     title = VERSION_GOLD;
     language = LANG_ENGLISH;
 
+    species =  1 + gf_rand()%10;
+
     BoxMonInit(boxmon);
 
     flag = BoxMonSetFastModeOn(boxmon);
