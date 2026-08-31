@@ -16,7 +16,7 @@ const TrainerData sTrainerData[] = {
     [1] = {
         .name = "Silver",
         .data = {
-            .trainerType = TRAINER_DATA_TYPE_NOTHING,
+            .trainerType = TRAINER_DATA_TYPE_ADDITIONAL_FLAGS | TRAINER_DATA_TYPE_ABILITY | TRAINER_DATA_TYPE_SHINY_LOCK,
             .trainerClass = TRAINERCLASS_RIVAL,
             .items = { ITEM_NONE, ITEM_NONE, ITEM_NONE, ITEM_NONE },
             .aiFlags = F_PRIORITIZE_SUPER_EFFECTIVE | F_EVALUATE_ATTACKS | F_PRIORITIZE_DAMAGE,
@@ -27,7 +27,12 @@ const TrainerData sTrainerData[] = {
                 .ivs = 30,
                 .abilitySlot = TRAINER_POKEMON_ABILITY_1,
                 .level = 14,
-                .species = SPECIES_GASTLY,
+                .species = SPECIES_LARVITAR,
+                .ability = ABILITY_DRIZZLE,
+                .additionalFlags = TRAINER_DATA_EXTRA_TYPE_NICKNAME,
+                .nickname = _G, _o_, _L, _d_, _e_, _n_, CHAR_SPACE, _R, _o_, _c_, _k_, _s_, _endstr,
+                .nicknameStr = "Colita",
+                .shinyLock = 1,
                 .ballSeal = 0,
             },
             {
