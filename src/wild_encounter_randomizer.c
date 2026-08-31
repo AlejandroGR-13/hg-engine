@@ -247,3 +247,84 @@ u16 LONG_CALL WildEncounterRandomizer_GetReplacementSpecies(u16 originalSpecies,
     return originalSpecies;
 #endif
 }
+
+// -----------------------------------------------------------------------------------------
+// Starter randomizer. Kept as 3 separate, same-typed pools (rather than reusing the wild
+// encounter pool above) so slot 0 always stays grass, slot 1 always stays fire and slot 2
+// always stays water - that keeps the classic type triangle (and the rival's fixed,
+// type-advantaged answer in data/Trainers.c, which this feature does not touch) intact even
+// though the actual species differs from the vanilla Chikorita/Cyndaquil/Totodile line.
+static const u16 sStarterPoolGrass[] = {
+    SPECIES_BULBASAUR, SPECIES_IVYSAUR, SPECIES_VENUSAUR,
+    SPECIES_CHIKORITA, SPECIES_BAYLEEF, SPECIES_MEGANIUM,
+    SPECIES_TREECKO, SPECIES_GROVYLE, SPECIES_SCEPTILE,
+    SPECIES_TURTWIG, SPECIES_GROTLE, SPECIES_TORTERRA,
+    SPECIES_SNIVY, SPECIES_SERVINE, SPECIES_SERPERIOR,
+    SPECIES_CHESPIN, SPECIES_QUILLADIN, SPECIES_CHESNAUGHT,
+    SPECIES_ROWLET, SPECIES_DARTRIX, SPECIES_DECIDUEYE,
+    SPECIES_GROOKEY, SPECIES_THWACKEY, SPECIES_RILLABOOM,
+    SPECIES_SPRIGATITO, SPECIES_FLORAGATO, SPECIES_MEOWSCARADA,
+};
+#define STARTER_POOL_GRASS_COUNT (sizeof(sStarterPoolGrass) / sizeof(sStarterPoolGrass[0]))
+
+static const u16 sStarterPoolFire[] = {
+    SPECIES_CHARMANDER, SPECIES_CHARMELEON, SPECIES_CHARIZARD,
+    SPECIES_CYNDAQUIL, SPECIES_QUILAVA, SPECIES_TYPHLOSION,
+    SPECIES_TORCHIC, SPECIES_COMBUSKEN, SPECIES_BLAZIKEN,
+    SPECIES_CHIMCHAR, SPECIES_MONFERNO, SPECIES_INFERNAPE,
+    SPECIES_TEPIG, SPECIES_PIGNITE, SPECIES_EMBOAR,
+    SPECIES_FENNEKIN, SPECIES_BRAIXEN, SPECIES_DELPHOX,
+    SPECIES_LITTEN, SPECIES_TORRACAT, SPECIES_INCINEROAR,
+    SPECIES_SCORBUNNY, SPECIES_RABOOT, SPECIES_CINDERACE,
+    SPECIES_FUECOCO, SPECIES_CROCALOR, SPECIES_SKELEDIRGE,
+};
+#define STARTER_POOL_FIRE_COUNT (sizeof(sStarterPoolFire) / sizeof(sStarterPoolFire[0]))
+
+static const u16 sStarterPoolWater[] = {
+    SPECIES_SQUIRTLE, SPECIES_WARTORTLE, SPECIES_BLASTOISE,
+    SPECIES_TOTODILE, SPECIES_CROCONAW, SPECIES_FERALIGATR,
+    SPECIES_MUDKIP, SPECIES_MARSHTOMP, SPECIES_SWAMPERT,
+    SPECIES_PIPLUP, SPECIES_PRINPLUP, SPECIES_EMPOLEON,
+    SPECIES_OSHAWOTT, SPECIES_DEWOTT, SPECIES_SAMUROTT,
+    SPECIES_FROAKIE, SPECIES_FROGADIER, SPECIES_GRENINJA,
+    SPECIES_POPPLIO, SPECIES_BRIONNE, SPECIES_PRIMARINA,
+    SPECIES_SOBBLE, SPECIES_DRIZZILE, SPECIES_INTELEON,
+    SPECIES_QUAXLY, SPECIES_QUAXWELL, SPECIES_QUAQUAVAL,
+};
+#define STARTER_POOL_WATER_COUNT (sizeof(sStarterPoolWater) / sizeof(sStarterPoolWater[0]))
+
+u16 LONG_CALL StarterRandomizer_GetReplacementSpecies(u8 slot)
+{
+    const u16 *pool;
+    u32 poolCount;
+
+    switch (slot) {
+    case 0:
+        pool = sStarterPoolGrass;
+        poolCount = STARTER_POOL_GRASS_COUNT;
+        break;
+    case 1:
+        pool = sStarterPoolFire;
+        poolCount = STARTER_POOL_FIRE_COUNT;
+        break;
+    case 2:
+        pool = sStarterPoolWater;
+        poolCount = STARTER_POOL_WATER_COUNT;
+        break;
+    default:
+        return SPECIES_NONE;
+    }
+
+#ifdef ALLOW_SAVE_CHANGES
+    {
+        u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+        // different constant than the wild-encounter hash so the two features don't line up
+        u32 mixed = WildRandomizer_Hash(seed ^ ((u32)slot << 24) ^ 0x27D4EB2Fu);
+        u32 index = mixed % poolCount;
+
+        return pool[index];
+    }
+#else
+    return pool[0];
+#endif
+}

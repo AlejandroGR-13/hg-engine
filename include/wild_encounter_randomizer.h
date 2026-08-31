@@ -27,4 +27,18 @@ u32 LONG_CALL WildEncounterRandomizer_GetOrCreateSeed(void);
  */
 u16 LONG_CALL WildEncounterRandomizer_GetReplacementSpecies(u16 originalSpecies, u8 level);
 
+/**
+ *  @brief deterministically pick a replacement species for one of the 3 starter slots.
+ *
+ *         slot 0 (grass, vanilla Chikorita), slot 1 (fire, vanilla Cyndaquil) and slot 2
+ *         (water, vanilla Totodile) each resolve to a same-typed starter from any of the 9
+ *         generations, at any evolution stage. Uses the same per-save seed as
+ *         WildEncounterRandomizer_GetOrCreateSeed, so the result is fixed for the rest of
+ *         that playthrough once rolled.
+ *
+ *  @param slot which starter slot (0 = grass, 1 = fire, 2 = water)
+ *  @return the species to offer for that slot. Returns SPECIES_NONE for an invalid slot.
+ */
+u16 LONG_CALL StarterRandomizer_GetReplacementSpecies(u8 slot);
+
 #endif // WILD_ENCOUNTER_RANDOMIZER_H

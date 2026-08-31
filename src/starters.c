@@ -1,6 +1,8 @@
+#include "../include/config.h"
 #include "../include/constants/species.h"
 #include "../include/pokemon.h"
 #include "../include/types.h"
+#include "../include/wild_encounter_randomizer.h"
 
 extern u32 space_for_setmondata;
 extern u32 sStarterChoiceCries[];
@@ -30,8 +32,12 @@ static const u16 sStarterChoices[3] = {
 void LONG_CALL CreateStarter_SetStarterSpecies(int *species)
 {
     for (int i = 0; i < 3; i++) {
+#ifdef STARTER_RANDOMIZER
+        species[i] = StarterRandomizer_GetReplacementSpecies(i);
+#else
         // strip off form
         species[i] = sStarterChoices[i] & 0x7FF;
+#endif
     }
 }
 

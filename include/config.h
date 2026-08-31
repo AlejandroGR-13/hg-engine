@@ -35,6 +35,18 @@
 // Trainer parties are never affected by this - see WildEncounterRandomizer_GetReplacementSpecies.
 #define WILD_ENCOUNTER_RANDOMIZER
 
+// STARTER_RANDOMIZER randomizes the 3 starter Pokemon you're offered at the start of the game.
+// Each of the 3 slots keeps its original type (grass/fire/water, matching Chikorita/Cyndaquil/
+// Totodile) but can become any evolution stage of any generation 1-9 starter of that same type
+// (e.g. the "grass" slot could become Bulbasaur, Grovyle, Torterra, Serperior, Chesnaught,
+// Decidueye, Rillaboom, or Meowscarada, among others). Uses the same per-save seed as
+// WILD_ENCOUNTER_RANDOMIZER (so it also requires ALLOW_SAVE_CHANGES), and is otherwise fully
+// independent of it - you can enable either feature without the other.
+// The rival's own team in data/Trainers.c is intentionally NOT touched: it keeps giving you the
+// vanilla type-advantaged starter (Cyndaquil/Totodile/Chikorita) regardless of what you got,
+// same as trainer parties are never touched by WILD_ENCOUNTER_RANDOMIZER.
+#define STARTER_RANDOMIZER
+
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 #define CRY_PSEUDOBANK_START 778
 
