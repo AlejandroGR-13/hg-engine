@@ -33,6 +33,12 @@ void LONG_CALL InitStoredMons(struct SAVE_MISC_DATA *saveMiscData)
 void LONG_CALL Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData)
 {
     InitStoredMons(saveMiscData);
+
+#ifdef ALLOW_SAVE_CHANGES
+    // do NOT touch wildRandomizerSeed here: leaving wildRandomizerSeedSet at 0 is what tells
+    // WildEncounterRandomizer_GetOrCreateSeed() to roll a fresh seed the first time it's needed.
+    saveMiscData->wildRandomizerSeedSet = 0;
+#endif
 }
 
 // convenience flag/var access functions

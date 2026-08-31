@@ -26,6 +26,15 @@
 // commenting out this define will disable kyurem's forme change method and keep saves compatible with pkhex
 #define ALLOW_SAVE_CHANGES
 
+// WILD_ENCOUNTER_RANDOMIZER randomizes the species of every wild encounter (grass, surf, fishing,
+// rock smash, headbutt, safari zone, and scripted/static wild battles such as legendaries) at
+// runtime instead of at compile time. A random seed is generated once per save file (the first
+// time a wild encounter happens on that save) and stored in the save data, so the randomization
+// is different for every new save/player but stays fixed for the rest of that playthrough.
+// Requires ALLOW_SAVE_CHANGES to be defined (it stores the seed in the expanded save fields).
+// Trainer parties are never affected by this - see WildEncounterRandomizer_GetReplacementSpecies.
+#define WILD_ENCOUNTER_RANDOMIZER
+
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 #define CRY_PSEUDOBANK_START 778
 

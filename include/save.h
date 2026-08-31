@@ -118,6 +118,11 @@ struct SAVE_MISC_DATA {
     struct PartyPokemon storedMons[NUM_OF_STORED_MONS];
     u8 isMonStored[NUM_OF_STORED_MONS];
 
+    // wild encounter randomizer: one seed generated the first time it's needed for this
+    // save file, then reused for the rest of the playthrough. see wild_encounter_randomizer.h
+    u32 wildRandomizerSeed;
+    u8 wildRandomizerSeedSet;
+
 #endif
 };
 

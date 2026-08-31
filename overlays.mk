@@ -23,7 +23,8 @@ ALL_ASM_SRCS += $(wildcard $(ASM_SUBDIR)/$1/*.s)
 
 
 $(BUILD)/$1_linked.o:$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s)) $(BUILD)/rom_gen.ld
-	$(LD) $(BUILD)/rom_gen.ld -T $(C_SUBDIR)/$1/linker.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s)) $(THUMB_HELP)
+	cat $(BUILD)/rom_gen.ld $(C_SUBDIR)/$1/linker.ld > $(BUILD)/$1_combined.ld
+	$(LD) -T $(BUILD)/$1_combined.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(wildcard $(C_SUBDIR)/$1/*.c)) $(patsubst $(ASM_SUBDIR)/%.s,$(BUILD)/%.o,$(wildcard $(ASM_SUBDIR)/$1/*.s)) $(THUMB_HELP)
 
 $(BUILD)/output_$1.bin:$(BUILD)/$1_linked.o
 	$(OBJCOPY) -O binary $(BUILD)/$1_linked.o $(BUILD)/output_$1.bin
@@ -54,7 +55,8 @@ LINKED_OUTPUTS += $(BUILD)/$1_linked.o
 ALL_C_SRCS += $(C_SUBDIR)/$(INDIVIDUAL)/$1.c
 
 $(BUILD)/$1_linked.o:$(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SUBDIR)/$(INDIVIDUAL)/$1.c) $(THUMB_HELP) $(BUILD)/rom_gen_battle.ld
-	$(LD) $(BUILD)/rom_gen_battle.ld -T $(C_SUBDIR)/$(INDIVIDUAL)/linker/$1.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SUBDIR)/$(INDIVIDUAL)/$1.c) $(THUMB_HELP)
+	cat $(BUILD)/rom_gen_battle.ld $(C_SUBDIR)/$(INDIVIDUAL)/linker/$1.ld > $(BUILD)/$1_combined.ld
+	$(LD) -T $(BUILD)/$1_combined.ld -o $(BUILD)/$1_linked.o $(patsubst $(C_SUBDIR)/%.c,$(BUILD)/%.o,$(C_SUBDIR)/$(INDIVIDUAL)/$1.c) $(THUMB_HELP)
 
 $(BUILD)/output_$1.bin:$(BUILD)/$1_linked.o
 	$(OBJCOPY) -O binary $(BUILD)/$1_linked.o $(BUILD)/output_$1.bin

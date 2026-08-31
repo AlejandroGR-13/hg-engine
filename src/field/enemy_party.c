@@ -18,6 +18,7 @@
 #include "save.h"
 #include "script.h"
 #include "trainer_data.h"
+#include "wild_encounter_randomizer.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 #include "test_battle.h"
@@ -448,6 +449,30 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
         form_no = space_for_setmondata; //(species & 0xF800) >> 11;
         space_for_setmondata = 0;
     }
+#ifdef WILD_ENCOUNTER_RANDOMIZER
+    else if (encounterInfo->isEgg == 0) {
+        // skip forced-form (e.g. Totem) encounters above: swapping species there would leave
+        // form_no pointing at a form the new species doesn't have. everything else - grass,
+        // surf, fishing, rock smash, headbutt, safari zone, and scripted/static wild battles
+        // (legendaries included) - gets randomized here, once per save file.
+        u8 level = GetMonData(encounterPartyPokemon, MON_DATA_LEVEL, NULL);
+        u16 randomizedSpecies = WildEncounterRandomizer_GetReplacementSpecies(species, level);
+
+        if (randomizedSpecies != species) {
+            u8 zeroForm = 0;
+
+            species = randomizedSpecies;
+            SetMonData(encounterPartyPokemon, MON_DATA_SPECIES, &species);
+            SetMonData(encounterPartyPokemon, MON_DATA_FORM, &zeroForm);
+            // refresh the default nickname/displayed name to match the new species,
+            // same as CreateBoxMonData does right after setting MON_DATA_SPECIES.
+            SetMonData(encounterPartyPokemon, MON_DATA_SPECIES_NAME, NULL);
+            ResetPartyPokemonAbility(encounterPartyPokemon);
+            InitBoxMonMoveset(&encounterPartyPokemon->box);
+            RecalcPartyPokemonStats(encounterPartyPokemon);
+        }
+    }
+#endif
 
     WildMonSetRandomHeldItem(encounterPartyPokemon, encounterBattleParam->fight_type, range);
 
