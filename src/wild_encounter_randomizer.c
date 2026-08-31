@@ -392,3 +392,119 @@ u16 LONG_CALL ItemRandomizer_GetReplacementRockSmashItem(u16 originalItem, u32 t
     return originalItem;
 #endif
 }
+
+// -----------------------------------------------------------------------------------------
+// Shared helper for "offer a random subset of a shop's full item pool" features (Mega Stone
+// shop, competitive item shop, ...). Shuffles (only) the first numToPick slots of pool into a
+// deterministic-per-save order (a partial Fisher-Yates shuffle) and copies them to outItems.
+// saltXor should be a constant unique to the calling feature, so two features drawing from
+// the same seed don't end up correlated with each other.
+static u32 RandomSubset_Pick(u16 *pool, u32 poolCount, u16 *outItems, u32 maxOut, u32 saltXor)
+{
+    u32 numToPick = maxOut;
+    u32 i;
+
+    if (numToPick > poolCount) {
+        numToPick = poolCount;
+    }
+
+#ifdef ALLOW_SAVE_CHANGES
+    {
+        u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+
+        // partial Fisher-Yates shuffle, seeded deterministically per save - only shuffles as
+        // many slots as we actually need (numToPick), not the whole pool.
+        for (i = 0; i < numToPick; i++) {
+            u32 mixed = WildRandomizer_Hash(seed ^ (i << 16) ^ saltXor);
+            u32 j = i + (mixed % (poolCount - i));
+            u16 tmp = pool[i];
+            pool[i] = pool[j];
+            pool[j] = tmp;
+        }
+    }
+#endif
+
+    for (i = 0; i < numToPick; i++) {
+        outItems[i] = pool[i];
+    }
+
+    return numToPick;
+}
+
+// -----------------------------------------------------------------------------------------
+// Mega Stone shop pool. Every Mega Stone in the game: the official Gen 6 set plus every
+// custom stone this hack adds on top (same ranges as the existing IS_ITEM_MEGA_STONE macro
+// in include/constants/item.h - keep the two in sync if new Mega Stones are ever added).
+#define MEGA_STONE_POOL_CAPACITY 128
+
+static u32 BuildMegaStonePool(u16 *outPool, u32 capacity)
+{
+    u32 count = 0;
+    u32 item;
+
+    for (item = ITEM_GENGARITE; item <= ITEM_LATIOSITE && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+    for (item = ITEM_SWAMPERTITE; item <= ITEM_DIANCITE && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+    for (item = ITEM_CAMERUPTITE; item <= ITEM_BEEDRILLITE && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+    for (item = ITEM_CLEFABLITE; item <= ITEM_FALINKSITE && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+    for (item = ITEM_RAICHUNITE_X; item <= ITEM_GLIMMORANITE && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+
+    return count;
+}
+
+u32 LONG_CALL MegaStoneShop_GetItems(u16 *outItems, u32 maxOut)
+{
+    u16 pool[MEGA_STONE_POOL_CAPACITY];
+    u32 poolCount = BuildMegaStonePool(pool, MEGA_STONE_POOL_CAPACITY);
+
+#ifdef MEGA_STONE_SHOP_MAX_ITEMS
+    if (maxOut > MEGA_STONE_SHOP_MAX_ITEMS) {
+        maxOut = MEGA_STONE_SHOP_MAX_ITEMS;
+    }
+#endif
+
+    return RandomSubset_Pick(pool, poolCount, outItems, maxOut, 0x2545F491u);
+}
+
+// -----------------------------------------------------------------------------------------
+// Competitive item shop pool. A curated list of held items useful in competitive play - none
+// of these are key items, TMs, or anything that could block progression.
+static const u16 sCompetitiveItemPool[] = {
+    ITEM_LEFTOVERS, ITEM_LIFE_ORB, ITEM_CHOICE_BAND, ITEM_CHOICE_SPECS, ITEM_CHOICE_SCARF,
+    ITEM_FOCUS_SASH, ITEM_ASSAULT_VEST, ITEM_ROCKY_HELMET, ITEM_EVIOLITE, ITEM_BLACK_SLUDGE,
+    ITEM_EXPERT_BELT, ITEM_AIR_BALLOON, ITEM_SAFETY_GOGGLES, ITEM_WEAKNESS_POLICY, ITEM_WIDE_LENS,
+    ITEM_MUSCLE_BAND, ITEM_WISE_GLASSES, ITEM_SCOPE_LENS, ITEM_KINGS_ROCK, ITEM_SHELL_BELL,
+    ITEM_LIGHT_CLAY, ITEM_MENTAL_HERB, ITEM_HEAVY_DUTY_BOOTS, ITEM_GRIP_CLAW, ITEM_LOADED_DICE,
+    ITEM_CLEAR_AMULET, ITEM_COVERT_CLOAK, ITEM_PUNCHING_GLOVE, ITEM_MIRROR_HERB, ITEM_ABILITY_SHIELD,
+    ITEM_BOOSTER_ENERGY, ITEM_THROAT_SPRAY, ITEM_ROOM_SERVICE, ITEM_BLUNDER_POLICY, ITEM_UTILITY_UMBRELLA,
+    ITEM_ADRENALINE_ORB, ITEM_TERRAIN_EXTENDER,
+};
+#define COMPETITIVE_ITEM_POOL_COUNT (sizeof(sCompetitiveItemPool) / sizeof(sCompetitiveItemPool[0]))
+
+u32 LONG_CALL CompetitiveItemShop_GetItems(u16 *outItems, u32 maxOut)
+{
+    u16 pool[COMPETITIVE_ITEM_POOL_COUNT];
+    u32 i;
+
+    for (i = 0; i < COMPETITIVE_ITEM_POOL_COUNT; i++) {
+        pool[i] = sCompetitiveItemPool[i];
+    }
+
+#ifdef COMPETITIVE_ITEM_SHOP_MAX_ITEMS
+    if (maxOut > COMPETITIVE_ITEM_SHOP_MAX_ITEMS) {
+        maxOut = COMPETITIVE_ITEM_SHOP_MAX_ITEMS;
+    }
+#endif
+
+    // different salt than the Mega Stone shop so the two random picks don't line up
+    return RandomSubset_Pick(pool, COMPETITIVE_ITEM_POOL_COUNT, outItems, maxOut, 0x9E3779B1u);
+}

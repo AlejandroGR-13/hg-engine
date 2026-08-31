@@ -1,3 +1,4 @@
+#include "config.h"
 #include "debug.h"
 #include "types.h"
 
@@ -6,6 +7,7 @@
 #include "pokemon.h"
 #include "save.h"
 #include "script.h"
+#include "wild_encounter_randomizer.h"
 
 #ifdef MART_EXPANSION
 
@@ -43,6 +45,16 @@ const struct BadgeMartItems sBadgeMart[] = {
 };
 
 void LONG_CALL InitMartUI(void *taskManager, FieldSystem *fieldSystem, const u16 *items, int kind, int buySell, int decoWhich, const struct MartItem *priceOverrides);
+
+#ifdef MEGA_STONE_MART_EXPANSION
+// unlocks the Mega Stone shop stock (see MegaStoneShop_GetItems) once you've earned this many badges.
+#define MEGA_STONE_SHOP_REQUIRED_BADGES 6
+#endif
+
+// competitive item shop unlocks once PlayerProfile.gameClear is set (i.e. you've beaten the
+// Champion) - same flag ProgressiveLevelCap_Get (src/pokemon.c) uses. Its item pool
+// (sCompetitiveItemPool) and selection (CompetitiveItemShop_GetItems) live in
+// src/wild_encounter_randomizer.c alongside the other shop/randomizer pools.
 
 u16 sCherrygroveCityMart[] = {
     ITEM_AIR_MAIL, ITEM_HEAL_BALL, 0xFFFF
@@ -164,17 +176,32 @@ u16 sMahoganyPostRocketHideout[] = {
     ITEM_GREAT_BALL, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_SUPER_REPEL, ITEM_REVIVE, ITEM_AIR_MAIL, 0xFFFF
 };
 
+// how many extra slots ScrCmd_MartBuy's items[] buffer needs beyond sBadgeMart for the
+// optional Mega Stone / competitive item shops (0 when a feature is disabled).
+#ifdef MEGA_STONE_MART_EXPANSION
+#define MART_BUY_MEGA_STONE_SLOTS MEGA_STONE_SHOP_MAX_ITEMS
+#else
+#define MART_BUY_MEGA_STONE_SLOTS 0
+#endif
+
+#ifdef COMPETITIVE_ITEM_MART_EXPANSION
+#define MART_BUY_COMPETITIVE_SLOTS COMPETITIVE_ITEM_SHOP_MAX_ITEMS
+#else
+#define MART_BUY_COMPETITIVE_SLOTS 0
+#endif
+
 BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx)
 {
     u16 unused UNUSED = ScriptGetVar(ctx);
 
-    u16 items[NELEMS(sBadgeMart) + 1];
+    u16 items[NELEMS(sBadgeMart) + MART_BUY_MEGA_STONE_SLOTS + MART_BUY_COMPETITIVE_SLOTS + 1];
+    struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(ctx->fsys->savedata);
     u8 badgeCount = 0;
     u8 index = 0;
     u32 i;
 
     for (i = 0; i < 16; i++) {
-        if (PlayerProfile_TestBadgeFlag(Sav2_PlayerData_GetProfileAddr(ctx->fsys->savedata), i) == TRUE) {
+        if (PlayerProfile_TestBadgeFlag(profile, i) == TRUE) {
             badgeCount++;
         }
     }
@@ -185,6 +212,37 @@ BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx)
             index++;
         }
     }
+
+#ifdef MEGA_STONE_MART_EXPANSION
+    // Mega Stone shop: unlocks once you've earned your MEGA_STONE_SHOP_REQUIRED_BADGES-th
+    // badge. Offers a random subset of every Mega Stone in the game - fixed for the rest of
+    // the save the first time it's rolled, so it's the same stock every time you check, but
+    // different from one playthrough to the next.
+    if (badgeCount >= MEGA_STONE_SHOP_REQUIRED_BADGES) {
+        u16 megaStones[MEGA_STONE_SHOP_MAX_ITEMS];
+        u32 megaStoneCount = MegaStoneShop_GetItems(megaStones, MEGA_STONE_SHOP_MAX_ITEMS);
+
+        for (i = 0; i < megaStoneCount; i++) {
+            items[index] = megaStones[i];
+            index++;
+        }
+    }
+#endif
+
+#ifdef COMPETITIVE_ITEM_MART_EXPANSION
+    // Competitive item shop: unlocks once you've become Champion (PlayerProfile.gameClear).
+    // Offers a random subset (about half) of the competitive item pool - fixed for the rest
+    // of the save the first time it's rolled, different from one playthrough to the next.
+    if (profile->gameClear) {
+        u16 competitiveItems[COMPETITIVE_ITEM_SHOP_MAX_ITEMS];
+        u32 competitiveItemCount = CompetitiveItemShop_GetItems(competitiveItems, COMPETITIVE_ITEM_SHOP_MAX_ITEMS);
+
+        for (i = 0; i < competitiveItemCount; i++) {
+            items[index] = competitiveItems[i];
+            index++;
+        }
+    }
+#endif
 
     items[index] = 0xFFFF;
     InitMartUI(ctx->taskman, ctx->fsys, items, 0, 0, 0, 0); // this doesn't honor price overrides

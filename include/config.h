@@ -228,6 +228,27 @@
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 
+// MEGA_STONE_MART_EXPANSION adds Mega Stones to the regular Poké Mart stock (the same shared
+// list every town's mart pulls from, gated by badge count) once you've earned your 6th badge.
+// A random subset of every Mega Stone in the game (official + this hack's custom ones) is
+// offered - see MEGA_STONE_SHOP_MAX_ITEMS below and MegaStoneShop_GetItems in
+// src/wild_encounter_randomizer.c. Requires MART_EXPANSION.
+#define MEGA_STONE_MART_EXPANSION
+
+// how many Mega Stones (out of every one in the game) the Mega Stone shop offers per save file.
+#define MEGA_STONE_SHOP_MAX_ITEMS 50
+
+// COMPETITIVE_ITEM_MART_EXPANSION adds a curated list of held items useful in competitive play
+// (Leftovers, Choice items, Life Orb, etc. - see sCompetitiveItemPool in
+// src/wild_encounter_randomizer.c) to the regular Poké Mart stock once you've become Champion.
+// A random subset of the pool is offered - see COMPETITIVE_ITEM_SHOP_MAX_ITEMS below and
+// CompetitiveItemShop_GetItems. Requires MART_EXPANSION.
+#define COMPETITIVE_ITEM_MART_EXPANSION
+
+// how many competitive items (out of the ~37-item pool) the competitive item shop offers per
+// save file - about half of the pool, so which exact items you get varies between playthroughs.
+#define COMPETITIVE_ITEM_SHOP_MAX_ITEMS 18
+
 // POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
 // #define POKEATHLON_SHOP_EXPANSION
 

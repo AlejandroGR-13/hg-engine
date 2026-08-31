@@ -68,4 +68,32 @@ u16 LONG_CALL ItemRandomizer_GetReplacementHiddenItem(u16 originalItem, u16 loca
  */
 u16 LONG_CALL ItemRandomizer_GetReplacementRockSmashItem(u16 originalItem, u32 tableIndex, u32 quality);
 
+/**
+ *  @brief deterministically pick a random subset of every Mega Stone in the game (official
+ *         Gen 6 stones plus every custom stone this hack adds) for the Mega Stone shop.
+ *
+ *         same save seed always yields the same subset, in the same order, within a given
+ *         save file - so the shop's stock is fixed for that playthrough once first opened,
+ *         but a fresh save file gets a different, independent subset.
+ *
+ *  @param outItems buffer to write the selected item IDs into
+ *  @param maxOut the buffer's capacity (also capped internally to MEGA_STONE_SHOP_MAX_ITEMS)
+ *  @return the number of items actually written to outItems
+ */
+u32 LONG_CALL MegaStoneShop_GetItems(u16 *outItems, u32 maxOut);
+
+/**
+ *  @brief deterministically pick a random subset of the curated competitive-item pool
+ *         (Leftovers, Choice items, Life Orb, etc.) for the competitive item shop.
+ *
+ *         same save seed always yields the same subset, in the same order, within a given
+ *         save file - so the shop's stock is fixed for that playthrough once first opened,
+ *         but a fresh save file gets a different, independent subset.
+ *
+ *  @param outItems buffer to write the selected item IDs into
+ *  @param maxOut the buffer's capacity (also capped internally to COMPETITIVE_ITEM_SHOP_MAX_ITEMS)
+ *  @return the number of items actually written to outItems
+ */
+u32 LONG_CALL CompetitiveItemShop_GetItems(u16 *outItems, u32 maxOut);
+
 #endif // WILD_ENCOUNTER_RANDOMIZER_H
