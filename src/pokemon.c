@@ -1800,10 +1800,60 @@ u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
     return TRUE;
 }
 
+#ifdef PROGRESSIVE_LEVEL_CAP
+
+// Level cap per Johto badge count (index = number of Johto badges owned), taken from the
+// highest-level Pokemon on the next Gym Leader you haven't beaten yet (first encounter, not
+// the post-game rematch team). A couple of entries hold steady instead of dropping (Pryce's
+// own team tops out one level below Jasmine's) so the cap never goes down as you progress:
+//   0 badges: about to face Falkner (13)      4 badges: about to face Chuck (31)
+//   1 badge:  about to face Bugsy (17)        5 badges: about to face Jasmine (35)
+//   2 badges: about to face Whitney (19)      6 badges: about to face Pryce (35, holds)
+//   3 badges: about to face Morty (25)        7 badges: about to face Clair (41)
+// index 8 (all 8 Johto badges) covers the whole Elite Four + Champion Lance gauntlet at once
+// (50, Lance's own level) - you fight all 5 back-to-back with no way to grind in between.
+static const u8 sJohtoLevelCapByBadges[9] = { 13, 17, 19, 25, 31, 35, 35, 41, 50 };
+
+// Level cap per Kanto badge count, used once PlayerProfile.gameClear is set (i.e. you've beaten
+// the Champion and moved on to Kanto). Kanto's 8 gyms can be tackled in almost any order, so
+// this is deliberately NOT tied to which specific gyms you've beaten - it's the badge count's
+// index into every Kanto leader's level sorted from lowest to highest, so the cap only ever
+// goes up regardless of which order you visit them in. Index 8 (all 8 Kanto badges) is Red's
+// own level (88), the last opponent in the vanilla story.
+static const u8 sKantoLevelCapByBadges[9] = { 50, 53, 54, 54, 55, 56, 59, 60, 88 };
+
 /**
- *  @brief get level cap from the script variable defined by LEVEL_CAP_VARIABLE
+ *  @brief compute the level cap from the player's current badge progress.
  *
- *  @return level cap from LEVEL_CAP_VARIABLE script variable or 100 if it's not set at all
+ *  @return the level cap for wherever the player currently is in the story
+ */
+static u32 ProgressiveLevelCap_Get(void)
+{
+    struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(SaveBlock2_get());
+    u8 johtoBadges = profile->johtoBadges;
+    u8 kantoBadges = profile->kantoBadges;
+
+    if (johtoBadges > 8) {
+        johtoBadges = 8;
+    }
+    if (kantoBadges > 8) {
+        kantoBadges = 8;
+    }
+
+    if (!profile->gameClear) {
+        return sJohtoLevelCapByBadges[johtoBadges];
+    }
+
+    return sKantoLevelCapByBadges[kantoBadges];
+}
+
+#endif // PROGRESSIVE_LEVEL_CAP
+
+/**
+ *  @brief get level cap - either computed from badge progress (PROGRESSIVE_LEVEL_CAP) or read
+ *         from the script variable defined by LEVEL_CAP_VARIABLE
+ *
+ *  @return the level cap, or 100 if the level cap system isn't enabled at all
  */
 u32 LONG_CALL GetLevelCap(void)
 {
@@ -1811,7 +1861,11 @@ u32 LONG_CALL GetLevelCap(void)
     return 0;
 #else
 #ifdef IMPLEMENT_LEVEL_CAP
+#ifdef PROGRESSIVE_LEVEL_CAP
+    u32 levelCap = ProgressiveLevelCap_Get();
+#else
     u32 levelCap = GetScriptVar(LEVEL_CAP_VARIABLE);
+#endif
     if (levelCap > 100 || levelCap == 0) {
         levelCap = 100;
     }

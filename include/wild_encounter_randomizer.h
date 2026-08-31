@@ -41,4 +41,31 @@ u16 LONG_CALL WildEncounterRandomizer_GetReplacementSpecies(u16 originalSpecies,
  */
 u16 LONG_CALL StarterRandomizer_GetReplacementSpecies(u8 slot);
 
+/**
+ *  @brief deterministically pick a replacement item for a hidden item (Itemfinder) location.
+ *
+ *         same (save seed, locationIndex) always maps to the same item within a given save
+ *         file, so a specific hidden item spot always gives the same thing every time you dig
+ *         it up, but a fresh save file gets a different mapping.
+ *
+ *  @param originalItem the item the vanilla hidden item table would have given
+ *  @param locationIndex the hidden item's unique index (HiddenItemData.index)
+ *  @return the item to actually give. Returns originalItem unchanged if it was ITEM_NONE.
+ */
+u16 LONG_CALL ItemRandomizer_GetReplacementHiddenItem(u16 originalItem, u16 locationIndex);
+
+/**
+ *  @brief deterministically pick a replacement item for a Rock Smash reward slot.
+ *
+ *         same (save seed, tableIndex, quality) always maps to the same item within a given
+ *         save file. The existing odds/quality system (including ability bonuses) is untouched -
+ *         this only changes which item comes out of each slot.
+ *
+ *  @param originalItem the item the vanilla Rock Smash table would have given for this slot
+ *  @param tableIndex which Rock Smash item table (Default/Ruins of Alph/Cliff Cave/etc.)
+ *  @param quality the quality index within that table (0 = worst, higher = better)
+ *  @return the item to actually give. Returns originalItem unchanged if it was ITEM_NONE.
+ */
+u16 LONG_CALL ItemRandomizer_GetReplacementRockSmashItem(u16 originalItem, u32 tableIndex, u32 quality);
+
 #endif // WILD_ENCOUNTER_RANDOMIZER_H

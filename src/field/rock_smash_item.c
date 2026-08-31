@@ -1,3 +1,4 @@
+#include "config.h"
 #include "debug.h"
 #include "types.h"
 
@@ -7,6 +8,7 @@
 
 #include "map_events_internal.h"
 #include "script.h"
+#include "wild_encounter_randomizer.h"
 
 /*
 This table can be expanded as you please.
@@ -96,7 +98,13 @@ u32 DetermineRockSmashItem(u32 tableIndex, u32 quality)
         quality = MAX_ROCK_SMASH_ITEMS_PER_TABLE - 1;
     }
 
-    return RockSmashItemTable[tableIndex][quality];
+    {
+        u32 item = RockSmashItemTable[tableIndex][quality];
+#ifdef ROCK_SMASH_ITEM_RANDOMIZER
+        item = ItemRandomizer_GetReplacementRockSmashItem(item, tableIndex, quality);
+#endif
+        return item;
+    }
 }
 
 BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemCheckWork *env);

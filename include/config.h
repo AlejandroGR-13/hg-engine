@@ -47,6 +47,22 @@
 // same as trainer parties are never touched by WILD_ENCOUNTER_RANDOMIZER.
 #define STARTER_RANDOMIZER
 
+// HIDDEN_ITEM_RANDOMIZER randomizes which item each hidden item location (the ones found with
+// the Itemfinder, data/HiddenItems.c) gives, from a pool of the same everyday items already used
+// vanilla for hidden items (potions, revives, vitamins, battle items, evolution-adjacent stuff
+// like Nugget/Star Piece, Poke/Great/Ultra Balls, etc.) - never a key item, TM, or anything that
+// could block progression. Same per-save seed as WILD_ENCOUNTER_RANDOMIZER (requires
+// ALLOW_SAVE_CHANGES), independent of the other randomizer toggles.
+#define HIDDEN_ITEM_RANDOMIZER
+
+// ROCK_SMASH_ITEM_RANDOMIZER randomizes which item each Rock Smash reward slot gives, from a pool
+// of the same items already used vanilla across the 3 Rock Smash tables (shards, fossils, Heart
+// Scale, Star Piece, Revive/Max Revive, Max Ether). The existing odds/quality system (including
+// the Serene Grace/Super Luck/ability bonuses) is untouched - only which item comes out of each
+// slot is randomized. Same per-save seed as WILD_ENCOUNTER_RANDOMIZER (requires
+// ALLOW_SAVE_CHANGES), independent of the other randomizer toggles.
+#define ROCK_SMASH_ITEM_RANDOMIZER
+
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 #define CRY_PSEUDOBANK_START 778
 
@@ -107,10 +123,28 @@
 // uncommenting IMPLEMENT_LEVEL_CAP enables the level cap system.  make sure to also uncomment LEVEL_CAP_VARIABLE in the process
 // uncommenting UNCAP_CANDIES_FROM_LEVEL_CAP will allow for rare candies to not be capped by the level cap even with the level cap in place, like run & bun
 // uncommenting ALLOW_LEVEL_CAP_EVOLVE will allow for rare candies to evolve pokemon already at the level cap that can evolve at that level already
-// #define IMPLEMENT_LEVEL_CAP
+#define IMPLEMENT_LEVEL_CAP
 // #define LEVEL_CAP_VARIABLE 0x416F
 // #define UNCAP_CANDIES_FROM_LEVEL_CAP
-// #define ALLOW_LEVEL_CAP_EVOLVE
+#define ALLOW_LEVEL_CAP_EVOLVE
+
+// PROGRESSIVE_LEVEL_CAP makes GetLevelCap() compute the cap automatically from the player's
+// current badges (Sav2 PlayerProfile johtoBadges/kantoBadges/gameClear) instead of reading it
+// from LEVEL_CAP_VARIABLE, so no field script needs to set the variable anywhere - the cap is
+// always "the strongest Pokemon on the next Gym Leader/Elite Four/Champion/Red you haven't
+// beaten yet", covering the whole game: Johto's 8 gyms, Elite Four + Champion (Lance), Kanto's
+// 8 gyms, and finally Red. Requires IMPLEMENT_LEVEL_CAP. See ProgressiveLevelCap_Get in
+// src/pokemon.c for the exact level table and the reasoning behind it.
+#define PROGRESSIVE_LEVEL_CAP
+
+// MAX_EVOLUTION_LEVEL caps how high a level-up evolution's required level can effectively be.
+// Any level-up evolution method (EVO_LEVEL, EVO_LEVEL_MALE/FEMALE, EVO_LEVEL_DAY/NIGHT/DUSK/RAIN,
+// EVO_LEVEL_ATK_GT_DEF/EQ_DEF/LT_DEF, EVO_LEVEL_PID_LO/HI, EVO_LEVEL_NINJASK,
+// EVO_LEVEL_DARK_TYPE_MON_IN_PARTY, EVO_LEVEL_NATURE_AMPED/LOW_KEY) whose vanilla required level
+// is higher than this value will instead become evolvable starting at this level - species that
+// already evolve earlier than this are untouched. Comment out to leave every evolution at its
+// vanilla required level.
+#define MAX_EVOLUTION_LEVEL 35
 
 // System flags that need to be enabled for the player to use the gimmick. If you want to change them, remember to change them in flags.s as well for consistency
 #define FLAG_MEGA_EVOLUTION_ENABLED  2518

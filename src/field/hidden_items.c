@@ -1,3 +1,4 @@
+#include "config.h"
 #include "types.h"
 
 #include "constants/file.h"
@@ -6,6 +7,7 @@
 #include "map_events_internal.h"
 #include "pokemon.h"
 #include "script.h"
+#include "wild_encounter_randomizer.h"
 
 typedef struct HiddenItemData {
     u16 itemId;
@@ -79,6 +81,10 @@ BOOL LONG_CALL GetHiddenItemParams(ScriptEnvironment *env, u16 script)
     var8000 = FieldSysGetAttrAddrInternal(env, SCRIPTENV_SPECIAL_VAR_8000);
     var8001 = FieldSysGetAttrAddrInternal(env, SCRIPTENV_SPECIAL_VAR_8001);
     var8002 = FieldSysGetAttrAddrInternal(env, SCRIPTENV_SPECIAL_VAR_8002);
+
+#ifdef HIDDEN_ITEM_RANDOMIZER
+    hiddenItem.itemId = ItemRandomizer_GetReplacementHiddenItem(hiddenItem.itemId, hiddenItem.index);
+#endif
 
     *var8000 = hiddenItem.itemId;
     *var8001 = hiddenItem.quantity;

@@ -24,6 +24,16 @@
 
 extern u16 gEvolutionSceneOverride[2][2];
 
+// clamps a level-up evolution's required level to MAX_EVOLUTION_LEVEL when that's defined -
+// species that vanilla-evolve later than that level become evolvable at MAX_EVOLUTION_LEVEL
+// instead; species that already evolve earlier are unaffected. no-op when MAX_EVOLUTION_LEVEL
+// isn't defined, so every EVO_LEVEL* check below keeps working normally either way.
+#ifdef MAX_EVOLUTION_LEVEL
+#define EVO_LEVEL_PARAM(param) ((param) > MAX_EVOLUTION_LEVEL ? MAX_EVOLUTION_LEVEL : (param))
+#else
+#define EVO_LEVEL_PARAM(param) (param)
+#endif
+
 /**
  *  @brief get the evolution species for a pokemon.  generalized depending on context
  *         also set form depending on the evolution structure read from armips/data/evodata.s
@@ -104,7 +114,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 }
                 break;
             case EVO_LEVEL:
-                if (evoTable[i].param <= level) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL;
                 }
@@ -116,37 +126,37 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
             case EVO_STONE:
                 break;
             case EVO_LEVEL_ATK_GT_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) > GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) > GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_ATK_GT_DEF;
                 }
                 break;
             case EVO_LEVEL_ATK_EQ_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) == GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) == GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_ATK_EQ_DEF;
                 }
                 break;
             case EVO_LEVEL_ATK_LT_DEF:
-                if (evoTable[i].param <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) < GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level && GetMonData(pokemon, MON_DATA_ATTACK, NULL) < GetMonData(pokemon, MON_DATA_DEFENSE, NULL)) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_ATK_LT_DEF;
                 }
                 break;
             case EVO_LEVEL_PID_LO:
-                if (evoTable[i].param <= level && pid_hi % 10 < 5) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level && pid_hi % 10 < 5) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_PID_LO;
                 }
                 break;
             case EVO_LEVEL_PID_HI:
-                if (evoTable[i].param <= level && pid_hi % 10 >= 5) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level && pid_hi % 10 >= 5) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_PID_HI;
                 }
                 break;
             case EVO_LEVEL_NINJASK:
-                if (evoTable[i].param <= level) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_NINJASK;
                 }
@@ -189,13 +199,13 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 }
                 break;
             case EVO_LEVEL_MALE:
-                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_MALE && evoTable[i].param <= level) {
+                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_MALE && EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_MALE;
                 }
                 break;
             case EVO_LEVEL_FEMALE:
-                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_FEMALE && evoTable[i].param <= level) {
+                if (GetMonData(pokemon, MON_DATA_GENDER, NULL) == POKEMON_GENDER_FEMALE && EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_FEMALE;
                 }
@@ -229,13 +239,13 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
             } break;
 
             case EVO_LEVEL_DAY:
-                if (IsNighttime() == 0 && evoTable[i].param <= level) {
+                if (IsNighttime() == 0 && EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_DAY;
                 }
                 break;
             case EVO_LEVEL_NIGHT:
-                if (IsNighttime() == 1 && evoTable[i].param <= level) {
+                if (IsNighttime() == 1 && EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_NIGHT;
                 }
@@ -244,13 +254,13 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 struct RTCTime time;
                 GF_RTC_CopyTime(&time);
 
-                if (time.hour == 17 && evoTable[i].param <= level) {
+                if (time.hour == 17 && EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL_DUSK;
                 }
             } break;
             case EVO_LEVEL_RAIN:
-                if (evoTable[i].param <= level) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     u32 weather = Fsys_GetWeather_HandleDiamondDust(gFieldSysPtr, gFieldSysPtr->location->mapId);
 
                     switch (weather) {
@@ -274,7 +284,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 }
             } break;
             case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-                if (evoTable[i].param <= level && party != NULL) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level && party != NULL) {
                     for (int k = 0; k < 6; k++) {
                         if (!CheckIfMonsAreEqual(pokemon, Party_GetMonByIndex(party, k)) // make sure that pancham doesn't satisfy its own requirement
                             && (GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_1, NULL) == TYPE_DARK || GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
@@ -290,7 +300,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 lowkey = 1;
                 FALLTHROUGH;
             case EVO_LEVEL_NATURE_AMPED:
-                if (evoTable[i].param <= level) {
+                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
                     // toxel evolution disrespects nature mints
                     u32 nature = GetNatureFromPersonality(GetMonData(pokemon, MON_DATA_PERSONALITY, NULL));
                     switch (nature) {

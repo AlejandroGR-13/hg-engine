@@ -1,6 +1,7 @@
 #include "config.h"
 #include "types.h"
 
+#include "constants/item.h"
 #include "constants/species.h"
 
 #include "save.h"
@@ -326,5 +327,68 @@ u16 LONG_CALL StarterRandomizer_GetReplacementSpecies(u8 slot)
     }
 #else
     return pool[0];
+#endif
+}
+
+// -----------------------------------------------------------------------------------------
+// Item randomizers. Both pools are exactly the distinct items vanilla already hands out
+// through these two systems (data/HiddenItems.c and the Rock Smash tables respectively) -
+// nothing in either pool is a key item, TM, or anything that could block progression, since
+// the vanilla designers already vetted every one of these as a fine, disposable pickup.
+static const u16 sHiddenItemPool[] = {
+    ITEM_ANTIDOTE, ITEM_AWAKENING, ITEM_BIG_MUSHROOM, ITEM_BIG_PEARL, ITEM_CALCIUM, ITEM_CARBOS,
+    ITEM_DEEP_SEA_SCALE, ITEM_DEEP_SEA_TOOTH, ITEM_DIRE_HIT, ITEM_ELIXIR, ITEM_ESCAPE_ROPE, ITEM_ETHER,
+    ITEM_FULL_HEAL, ITEM_FULL_RESTORE, ITEM_GREAT_BALL, ITEM_GUARD_SPEC, ITEM_HEART_SCALE, ITEM_HP_UP,
+    ITEM_HYPER_POTION, ITEM_ICE_HEAL, ITEM_IRON, ITEM_MAX_ELIXIR, ITEM_MAX_ETHER, ITEM_MAX_POTION,
+    ITEM_MAX_REPEL, ITEM_MAX_REVIVE, ITEM_NUGGET, ITEM_PARALYZE_HEAL, ITEM_PEARL, ITEM_POKE_BALL,
+    ITEM_POTION, ITEM_PP_MAX, ITEM_PP_UP, ITEM_PROTEIN, ITEM_RARE_CANDY, ITEM_REPEL, ITEM_REVIVE,
+    ITEM_STARDUST, ITEM_STAR_PIECE, ITEM_SUPER_POTION, ITEM_SUPER_REPEL, ITEM_TINY_MUSHROOM,
+    ITEM_ULTRA_BALL, ITEM_X_ACCURACY, ITEM_X_ATTACK, ITEM_X_DEFENSE, ITEM_X_SPEED, ITEM_X_SP_ATK,
+    ITEM_X_SP_DEF, ITEM_ZINC,
+};
+#define HIDDEN_ITEM_POOL_COUNT (sizeof(sHiddenItemPool) / sizeof(sHiddenItemPool[0]))
+
+static const u16 sRockSmashItemPool[] = {
+    ITEM_BIG_PEARL, ITEM_BLUE_SHARD, ITEM_CLAW_FOSSIL, ITEM_GREEN_SHARD, ITEM_HEART_SCALE,
+    ITEM_HELIX_FOSSIL, ITEM_MAX_ETHER, ITEM_MAX_REVIVE, ITEM_OLD_AMBER, ITEM_PEARL, ITEM_RARE_BONE,
+    ITEM_RED_SHARD, ITEM_REVIVE, ITEM_STAR_PIECE, ITEM_YELLOW_SHARD,
+};
+#define ROCK_SMASH_ITEM_POOL_COUNT (sizeof(sRockSmashItemPool) / sizeof(sRockSmashItemPool[0]))
+
+u16 LONG_CALL ItemRandomizer_GetReplacementHiddenItem(u16 originalItem, u16 locationIndex)
+{
+    if (originalItem == ITEM_NONE) {
+        return originalItem;
+    }
+
+#ifdef ALLOW_SAVE_CHANGES
+    {
+        u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+        u32 mixed = WildRandomizer_Hash(seed ^ ((u32)locationIndex << 16) ^ 0x1B873593u);
+        u32 index = mixed % HIDDEN_ITEM_POOL_COUNT;
+
+        return sHiddenItemPool[index];
+    }
+#else
+    return originalItem;
+#endif
+}
+
+u16 LONG_CALL ItemRandomizer_GetReplacementRockSmashItem(u16 originalItem, u32 tableIndex, u32 quality)
+{
+    if (originalItem == ITEM_NONE) {
+        return originalItem;
+    }
+
+#ifdef ALLOW_SAVE_CHANGES
+    {
+        u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+        u32 mixed = WildRandomizer_Hash(seed ^ ((tableIndex & 0xFFu) << 20) ^ ((quality & 0xFFu) << 12) ^ 0x85EBCA6Bu);
+        u32 index = mixed % ROCK_SMASH_ITEM_POOL_COUNT;
+
+        return sRockSmashItemPool[index];
+    }
+#else
+    return originalItem;
 #endif
 }
