@@ -30,7 +30,6 @@ const TrainerData sTrainerData[] = {
                 .species = SPECIES_LARVITAR,
                 .ability = ABILITY_DRIZZLE,
                 .additionalFlags = TRAINER_DATA_EXTRA_TYPE_NICKNAME,
-                .nickname = _G, _o_, _L, _d_, _e_, _n_, CHAR_SPACE, _R, _o_, _c_, _k_, _s_, _endstr,
                 .nicknameStr = "Colita",
                 .shinyLock = 1,
                 .ballSeal = 0,
