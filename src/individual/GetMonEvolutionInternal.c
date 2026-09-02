@@ -34,6 +34,14 @@ extern u16 gEvolutionSceneOverride[2][2];
 #define EVO_LEVEL_PARAM(param) (param)
 #endif
 
+// Rhydon and Dusclops are themselves only reachable at/after MAX_EVOLUTION_LEVEL (their own
+// evolution from Rhyhorn/Duskull already gets capped above), so capping their own level-up
+// evolution (into Rhyperior/Dusknoir) the same way would make it fire on the very next level-up,
+// right after evolving into Rhydon/Dusclops. These two are kept uncapped so there's still a real
+// level gap before their final evolution.
+#define EVO_LEVEL_PARAM_FOR(species, param) \
+    (((species) == SPECIES_RHYDON || (species) == SPECIES_DUSCLOPS) ? (param) : EVO_LEVEL_PARAM(param))
+
 /**
  *  @brief get the evolution species for a pokemon.  generalized depending on context
  *         also set form depending on the evolution structure read from armips/data/evodata.s
@@ -114,7 +122,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 }
                 break;
             case EVO_LEVEL:
-                if (EVO_LEVEL_PARAM(evoTable[i].param) <= level) {
+                if (EVO_LEVEL_PARAM_FOR(species, evoTable[i].param) <= level) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_LEVEL;
                 }
