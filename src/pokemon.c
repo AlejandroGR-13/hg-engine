@@ -1804,23 +1804,24 @@ u32 CheckCanUseBallOnDoublesFromBag(struct BattleStruct *sp)
 
 // Level cap per Johto badge count (index = number of Johto badges owned), taken from the
 // highest-level Pokemon on the next Gym Leader you haven't beaten yet (first encounter, not
-// the post-game rematch team). A couple of entries hold steady instead of dropping (Pryce's
-// own team tops out one level below Jasmine's) so the cap never goes down as you progress:
-//   0 badges: about to face Falkner (13)      4 badges: about to face Chuck (31)
-//   1 badge:  about to face Bugsy (17)        5 badges: about to face Jasmine (35)
-//   2 badges: about to face Whitney (19)      6 badges: about to face Pryce (35, holds)
-//   3 badges: about to face Morty (25)        7 badges: about to face Clair (41)
+// the post-game rematch team). All 16 gym/Elite Four/Champion/Red trainers were leveled up
+// 40% from their previous values, and this table was recomputed from those new levels so the
+// cap never goes down as you progress:
+//   0 badges: about to face Falkner (18)      4 badges: about to face Chuck (43)
+//   1 badge:  about to face Bugsy (24)        5 badges: about to face Jasmine (49)
+//   2 badges: about to face Whitney (27)      6 badges: about to face Pryce (50)
+//   3 badges: about to face Morty (35)        7 badges: about to face Clair (57)
 // index 8 (all 8 Johto badges) covers the whole Elite Four + Champion Lance gauntlet at once
-// (50, Lance's own level) - you fight all 5 back-to-back with no way to grind in between.
-static const u8 sJohtoLevelCapByBadges[9] = { 13, 17, 19, 25, 31, 35, 35, 41, 50 };
+// (70, Lance's own level) - you fight all 5 back-to-back with no way to grind in between.
+static const u8 sJohtoLevelCapByBadges[9] = { 18, 24, 27, 35, 43, 49, 50, 57, 70 };
 
 // Level cap per Kanto badge count, used once PlayerProfile.gameClear is set (i.e. you've beaten
 // the Champion and moved on to Kanto). Kanto's 8 gyms can be tackled in almost any order, so
 // this is deliberately NOT tied to which specific gyms you've beaten - it's the badge count's
 // index into every Kanto leader's level sorted from lowest to highest, so the cap only ever
 // goes up regardless of which order you visit them in. Index 8 (all 8 Kanto badges) is Red's
-// own level (88), the last opponent in the vanilla story.
-static const u8 sKantoLevelCapByBadges[9] = { 50, 53, 54, 54, 55, 56, 59, 60, 88 };
+// own level, which after the 40% increase hits the level-100 ceiling.
+static const u8 sKantoLevelCapByBadges[9] = { 70, 74, 76, 76, 77, 78, 83, 84, 100 };
 
 /**
  *  @brief compute the level cap from the player's current badge progress.
