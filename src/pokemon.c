@@ -1356,6 +1356,11 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
     u32 i, j;
     BOOL flag;
 
+    // Force every Pokemon created through this function - wild encounters, trainer parties,
+    // static/gift Pokemon, roamers, fossils, everything - to roll perfect (31) IVs on all six
+    // stats, no matter what IV value the caller asked for.
+    pow = MAX_IVS;
+
     u32 title, language;
     title = VERSION_GOLD;
     language = LANG_ENGLISH;

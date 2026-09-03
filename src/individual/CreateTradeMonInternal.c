@@ -11,6 +11,8 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     u32 mapsec;
     int heapId_2;
 
+    u8 perfectIv;
+
     PokeParaSet(mon, trade_dat->give_species, level, 32, TRUE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId);
 
     heapId_2 = (int)heapId;
@@ -21,12 +23,14 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     nickname_flag = TRUE;
     SetMonData(mon, MON_DATA_HAS_NICKNAME, &nickname_flag);
 
-    SetMonData(mon, MON_DATA_HP_IV, &trade_dat->hpIv);
-    SetMonData(mon, MON_DATA_ATK_IV, &trade_dat->atkIv);
-    SetMonData(mon, MON_DATA_DEF_IV, &trade_dat->defIv);
-    SetMonData(mon, MON_DATA_SPEED_IV, &trade_dat->speedIv);
-    SetMonData(mon, MON_DATA_SPATK_IV, &trade_dat->spAtkIv);
-    SetMonData(mon, MON_DATA_SPDEF_IV, &trade_dat->spDefIv);
+    // Perfect IVs on traded-in Pokemon too, regardless of what this trade's own data table says.
+    perfectIv = MAX_IVS;
+    SetMonData(mon, MON_DATA_HP_IV, &perfectIv);
+    SetMonData(mon, MON_DATA_ATK_IV, &perfectIv);
+    SetMonData(mon, MON_DATA_DEF_IV, &perfectIv);
+    SetMonData(mon, MON_DATA_SPEED_IV, &perfectIv);
+    SetMonData(mon, MON_DATA_SPATK_IV, &perfectIv);
+    SetMonData(mon, MON_DATA_SPDEF_IV, &perfectIv);
 
     SetMonData(mon, MON_DATA_COOL, &trade_dat->cool);
     SetMonData(mon, MON_DATA_BEAUTY, &trade_dat->beauty);
