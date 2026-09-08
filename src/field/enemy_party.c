@@ -103,6 +103,9 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     u16 *nickname = sys_AllocMemory(heapID, 11 * sizeof(u16));
     u8 form_no = 0, abilityslot = 0, nature = 0, ballseal = 0, shinylock = 0, status = 0;
     u32 additionalflags = 0;
+#ifdef TRAINER_RANDOMIZER
+    BOOL speciesWasRandomized = FALSE;
+#endif
 
     int partyOrder[pokecount];
     if (randomorder_flag) {
@@ -150,6 +153,20 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
         offset += 2;
         form_no = (species & 0xF800) >> 11;
         species &= 0x07FF;
+
+#ifdef TRAINER_RANDOMIZER
+        speciesWasRandomized = FALSE;
+        if (form_no == 0) {
+            // skip anything with a forced form (Rotom appliances, regional/Mega forms, etc.):
+            // swapping species there would leave form_no pointing at a form the new species
+            // doesn't have. everything else is fair game.
+            u16 randomizedSpecies = TrainerRandomizer_GetReplacementSpecies(bp->trainer_id[num], i, species, level);
+            if (randomizedSpecies != species) {
+                species = randomizedSpecies;
+                speciesWasRandomized = TRUE;
+            }
+        }
+#endif
 
         // item field - conditional
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_ITEMS) {
@@ -310,13 +327,23 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
             SetMonData(mons[i], MON_DATA_HELD_ITEM, &item);
         }
         if (bp->trainer_data[num].data_type & TRAINER_DATA_TYPE_MOVES) {
-            for (j = 0; j < 4; j++) {
-#ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES
-                if (IsMoveUnimplemented(moves[j])) {
-                    moves[j] = MOVE_NONE;
-                }
+#ifdef TRAINER_RANDOMIZER
+            if (speciesWasRandomized) {
+                // these moves were hand-picked for the original species and might not even
+                // exist on the new one's learnset - give it a fresh, level-appropriate moveset
+                // instead.
+                InitBoxMonMoveset(&mons[i]->box);
+            } else
 #endif
-                SetPartyPokemonMoveAtPos(mons[i], moves[j], j);
+            {
+                for (j = 0; j < 4; j++) {
+#ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES
+                    if (IsMoveUnimplemented(moves[j])) {
+                        moves[j] = MOVE_NONE;
+                    }
+#endif
+                    SetPartyPokemonMoveAtPos(mons[i], moves[j], j);
+                }
             }
         }
         TrainerCBSet(ballseal, mons[i], heapID);

@@ -250,6 +250,70 @@ u16 LONG_CALL WildEncounterRandomizer_GetReplacementSpecies(u16 originalSpecies,
 }
 
 // -----------------------------------------------------------------------------------------
+// Trainer randomizer. Reuses the exact same per-save seed, hash and species pool as the wild
+// encounter randomizer above, so it needs no seed of its own. Gym leaders, the Elite Four and
+// the Champion are always excluded, no matter what, so a run still ends with a fair, vanilla
+// boss fight even though every rank-and-file trainer (route trainers, gym grunts, the rival,
+// Team Rocket, etc.) can have a randomized team.
+//
+// This can't check the trainer's class at runtime: data/Trainers.c's sTrainerData array only
+// exists on the PC, read by tools/trainerdatagen to build the trainer narcs baked into the
+// ROM - it is never linked into the game itself, so referencing it here fails at link time.
+// Instead this is a fixed list of trainer IDs (the same numbers as data/Trainers.c's own
+// [N] = { ... } indices, which is exactly what ends up in bp->trainer_id[num] at runtime)
+// for every entry whose .trainerClass is a gym leader, an Elite Four member or the Champion.
+// Regenerate this list from data/Trainers.c (grep for trainerClass = TRAINERCLASS_LEADER_*/
+// _CHAMPION/_ELITE_FOUR_* and note each match's [N] index) if trainers are added, removed,
+// reordered, or a rematch/postgame version of a boss fight is added.
+static const u16 sTrainerRandomizerExcludedIds[] = {
+    20, 21, 30, 31, 32, 33, 34, 35, // Falkner, Bugsy, Whitney, Morty, Pryce, Jasmine, Chuck, Clair
+    244, 245, 246, 247, // Champion, Elite Four (Will, Karen, Koga)
+    253, 254, 255, 256, 257, 258, 259, 261, // Brock, Misty, Lt. Surge, Erika, Janine, Sabrina, Blaine, Blue
+    418, // Elite Four (Bruno)
+    701, 702, 703, 704, 705, // rematch: Champion, Elite Four (Will, Koga, Bruno, Karen)
+    712, 713, 714, 715, 716, 717, 718, 719, 720, 721, 722, 723, 724, 725, 726, 727, // rematch: all 16 gym leaders
+    733, 734, // rematch: Champion, Clair (again)
+};
+#define TRAINER_RANDOMIZER_EXCLUDED_ID_COUNT (sizeof(sTrainerRandomizerExcludedIds) / sizeof(sTrainerRandomizerExcludedIds[0]))
+
+static BOOL TrainerRandomizer_IsExcludedId(u32 trainerId)
+{
+    u32 i;
+
+    for (i = 0; i < TRAINER_RANDOMIZER_EXCLUDED_ID_COUNT; i++) {
+        if (sTrainerRandomizerExcludedIds[i] == trainerId) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+u16 LONG_CALL TrainerRandomizer_GetReplacementSpecies(u32 trainerId, u8 partySlot, u16 originalSpecies, u8 level)
+{
+    if (originalSpecies == SPECIES_NONE || WILD_RANDOMIZER_SPECIES_POOL_COUNT == 0) {
+        return originalSpecies;
+    }
+
+    if (TrainerRandomizer_IsExcludedId(trainerId)) {
+        return originalSpecies;
+    }
+
+#ifdef ALLOW_SAVE_CHANGES
+    u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+    // trainer + party slot mixed in (and a different constant than the wild-encounter hash)
+    // so this doesn't line up with wild encounters, and so two Pokemon on the same trainer's
+    // team don't collide with each other even when they share a species/level.
+    u32 mixed = WildRandomizer_Hash(seed ^ (trainerId * 0x2545F491u) ^ ((u32)partySlot << 24) ^ ((u32)originalSpecies << 16) ^ ((u32)level << 8) ^ 0x27D4EB2Fu);
+    u32 index = mixed % WILD_RANDOMIZER_SPECIES_POOL_COUNT;
+
+    return sWildRandomizerSpeciesPool[index];
+#else
+    return originalSpecies;
+#endif
+}
+
+// -----------------------------------------------------------------------------------------
 // Starter randomizer. Kept as 3 separate, same-typed pools (rather than reusing the wild
 // encounter pool above) so slot 0 always stays grass, slot 1 always stays fire and slot 2
 // always stays water - that keeps the classic type triangle (and the rival's fixed,

@@ -626,6 +626,59 @@ scr_seq_0003_008:
     end
 
 _080A:
+    // --- ground item randomizer -------------------------------------------------------
+    // Fixed swap table for every visible (Poke Ball sprite) field item currently placed on
+    // a map, built from what's actually in the compiled ROM at the time this was written.
+    // Each original item is swapped for something more interesting from a curated pool
+    // (evolution stones, Heart Scale, PP Up, ...) rather than just reshuffling the same
+    // handful of items among themselves.
+    // Same for every save file/every player (this build has no way to seed this per-save -
+    // unlike wild encounters/trainers, individual map scripts aren't rebuilt from source).
+    // Key items and TMs/HMs are deliberately left out of the table below - they still give
+    // the vanilla item unchanged, same as this repo's other item randomizers never touch
+    // anything that could block progression. Regenerate this list (see the item-ball scan
+    // script the project keeps around) if more maps/item balls get added later - just pick
+    // a fresh (still non-key-item, non-TM/HM) replacement for whatever new items turn up.
+    compare VAR_SPECIAL_x8004, 10
+    goto_if_eq _GISwap_from10 // ITEM_TIMER_BALL -> ITEM_FIRE_STONE
+    compare VAR_SPECIAL_x8004, 17
+    goto_if_eq _GISwap_from17 // ITEM_POTION -> ITEM_HEART_SCALE
+    compare VAR_SPECIAL_x8004, 92
+    goto_if_eq _GISwap_from92 // ITEM_NUGGET -> ITEM_WATER_STONE
+    compare VAR_SPECIAL_x8004, 149
+    goto_if_eq _GISwap_from149 // ITEM_CHERI_BERRY -> ITEM_LEAF_STONE
+    compare VAR_SPECIAL_x8004, 225
+    goto_if_eq _GISwap_from225 // ITEM_SOUL_DEW -> ITEM_THUNDER_STONE
+    compare VAR_SPECIAL_x8004, 249
+    goto_if_eq _GISwap_from249 // ITEM_CHARCOAL -> ITEM_DUSK_STONE
+    compare VAR_SPECIAL_x8004, 492
+    goto_if_eq _GISwap_from492 // ITEM_FAST_BALL -> ITEM_PP_UP
+    goto _GISwap_continue
+
+_GISwap_from10:
+    setvar VAR_SPECIAL_x8004, 82 // ITEM_FIRE_STONE
+    goto _GISwap_continue
+_GISwap_from17:
+    setvar VAR_SPECIAL_x8004, 93 // ITEM_HEART_SCALE
+    goto _GISwap_continue
+_GISwap_from92:
+    setvar VAR_SPECIAL_x8004, 84 // ITEM_WATER_STONE
+    goto _GISwap_continue
+_GISwap_from149:
+    setvar VAR_SPECIAL_x8004, 85 // ITEM_LEAF_STONE
+    goto _GISwap_continue
+_GISwap_from225:
+    setvar VAR_SPECIAL_x8004, 83 // ITEM_THUNDER_STONE
+    goto _GISwap_continue
+_GISwap_from249:
+    setvar VAR_SPECIAL_x8004, 108 // ITEM_DUSK_STONE
+    goto _GISwap_continue
+_GISwap_from492:
+    setvar VAR_SPECIAL_x8004, 51 // ITEM_PP_UP
+    goto _GISwap_continue
+
+_GISwap_continue:
+    // --- end ground item randomizer ---------------------------------------------------
     call _04F2
     giveitem VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
     getitempocket VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT

@@ -96,4 +96,24 @@ u32 LONG_CALL MegaStoneShop_GetItems(u16 *outItems, u32 maxOut);
  */
 u32 LONG_CALL CompetitiveItemShop_GetItems(u16 *outItems, u32 maxOut);
 
+/**
+ *  @brief deterministically pick a replacement species for a trainer's Pokemon.
+ *
+ *         same (save seed, trainer, party slot, originalSpecies, level) always maps to the
+ *         same result within a given save file, so a trainer (rematches included) keeps the
+ *         same randomized team for the whole playthrough, but a fresh save file gets a
+ *         different mapping. Gym leaders, the Elite Four and the Champion are always excluded
+ *         (see sTrainerRandomizerExcludedIds - a fixed trainer-id list, since trainer class
+ *         isn't something this can check at runtime) - every other trainer (route/gym
+ *         rank-and-file trainers, the rival, Team Rocket, etc.) is eligible.
+ *
+ *  @param trainerId the trainer's index into data/Trainers.c's sTrainerData (bp->trainer_id[num])
+ *  @param partySlot which party slot this Pokemon occupies for that trainer (0-5)
+ *  @param originalSpecies the species the trainer data file would have produced
+ *  @param level the level of that trainer Pokemon
+ *  @return the species to actually use. Returns originalSpecies unchanged if the trainer id
+ *          is excluded, or the pool could not be resolved.
+ */
+u16 LONG_CALL TrainerRandomizer_GetReplacementSpecies(u32 trainerId, u8 partySlot, u16 originalSpecies, u8 level);
+
 #endif // WILD_ENCOUNTER_RANDOMIZER_H

@@ -63,6 +63,18 @@
 // ALLOW_SAVE_CHANGES), independent of the other randomizer toggles.
 #define ROCK_SMASH_ITEM_RANDOMIZER
 
+// TRAINER_RANDOMIZER randomizes the species of every rank-and-file trainer's Pokemon: route
+// trainers, the regular trainers inside gyms, and the rival. Gym leaders, the Elite Four and
+// the Champion are always left untouched, no matter what, so every run still ends with a fair,
+// vanilla boss fight - see sTrainerRandomizerExcludedIds in src/wild_encounter_randomizer.c
+// for the exact list of excluded trainer classes. Held items, EVs/IVs, nature and stats stay
+// exactly as designed; only the species changes, and the moveset is regenerated to fit the new
+// species instead of keeping moves it might not even learn. Same per-save seed as
+// WILD_ENCOUNTER_RANDOMIZER (requires ALLOW_SAVE_CHANGES), independent of the other randomizer
+// toggles - a trainer keeps the same randomized team for the whole playthrough, rematches
+// included, but a fresh save file gets a different mapping.
+#define TRAINER_RANDOMIZER
+
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 #define CRY_PSEUDOBANK_START 778
 
