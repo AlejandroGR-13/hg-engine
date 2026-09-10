@@ -4,6 +4,17 @@
 .data
 
 _Start:
+    // one capture attempt per route (informational only, see ONE_CAPTURE_PER_ROUTE in config.h):
+    // BATTLE_TYPE_13 is set by AddWildPartyPokemon (src/field/enemy_party.c) when a wild
+    // encounter has already started on this map before, this save file. This does not block
+    // catching - it only shows a warning message before the encounter continues as normal.
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_13, _SkipRouteAlreadyUsedMessage
+    // Ya has agotado tu intento de\ncaptura en esta ruta.
+    PrintMessage 1780, TAG_NONE
+    Wait
+    WaitButtonABTime 30
+
+_SkipRouteAlreadyUsedMessage:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _TrainerEncounter
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_SAFARI, _SafariEncounter
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_PAL_PARK, _PalParkEncounter

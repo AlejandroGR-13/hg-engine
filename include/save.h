@@ -123,6 +123,12 @@ struct SAVE_MISC_DATA {
     u32 wildRandomizerSeed;
     u8 wildRandomizerSeedSet;
 
+    // one capture attempt per route: 1 bit per map id (up to MAP_ID_MAX = 540, see
+    // constants/maps.h), set the first time a wild encounter starts on that route this save
+    // file. see route_capture_tracker.h - this only drives an informational warning message,
+    // it never blocks catching. 68 bytes = 544 bits, enough for every map id.
+    u8 routeCaptureAttempted[68];
+
 #endif
 };
 

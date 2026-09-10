@@ -14,6 +14,8 @@
 #include "bag.h"
 #include "battle.h"
 #include "pokemon.h"
+#include "roamer.h"
+#include "route_capture_tracker.h"
 #include "rtc.h"
 #include "save.h"
 #include "script.h"
@@ -497,6 +499,22 @@ BOOL LONG_CALL AddWildPartyPokemon(int inTarget, EncounterInfo *encounterInfo, s
             ResetPartyPokemonAbility(encounterPartyPokemon);
             InitBoxMonMoveset(&encounterPartyPokemon->box);
             RecalcPartyPokemonStats(encounterPartyPokemon);
+        }
+    }
+#endif
+
+#ifdef ONE_CAPTURE_PER_ROUTE
+    // one capture attempt per route (informational only - see config.h): flag this battle if a
+    // wild encounter has already started on this map before this save file, so the encounter
+    // battle script can show a warning message. Does not affect whether catching is possible.
+    {
+        void *roamerSave = EncDataSave_GetSaveDataPtr(SaveBlock2_get());
+        u32 mapId = PlayerLocationHistoryGetBack(roamerSave);
+
+        if (RouteCaptureTracker_WasAttempted(mapId)) {
+            encounterBattleParam->fight_type |= BATTLE_TYPE_13;
+        } else {
+            RouteCaptureTracker_MarkAttempted(mapId);
         }
     }
 #endif

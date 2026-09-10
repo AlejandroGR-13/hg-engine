@@ -75,6 +75,20 @@
 // included, but a fresh save file gets a different mapping.
 #define TRAINER_RANDOMIZER
 
+// ONE_CAPTURE_PER_ROUTE tracks, per save file, which routes (maps) have already had a wild
+// encounter start on them. The very first wild encounter on a route plays out completely
+// normally. On any later wild encounter on a route that's already had one, a warning message is
+// shown at the start of that battle ("Ya has agotado tu intento de captura en esta ruta."),
+// intended for players running a "one capture attempt per route" Nuzlocke-style challenge.
+// This is purely informational - it does NOT stop the player from throwing Poke Balls or
+// catching the Pokemon anyway. There is no safe way to actually block just the ball throw: the
+// catch routine itself is uncompiled ROM binary with no hook point, and flagging the encounter as
+// a trainer battle to block it via the existing trainer-battle catch restriction would also
+// disable running away and could count a loss as a serious trainer-style defeat. The restriction
+// is left to the player's honor, same as any other Nuzlocke rule. Requires ALLOW_SAVE_CHANGES
+// (the per-route tracker is stored in the expanded save fields).
+#define ONE_CAPTURE_PER_ROUTE
+
 // CRY_PSEUDOBANK_START defines the first pseudobank to be used as cries in the sdat.  cries are loaded differently to save on RAM space
 #define CRY_PSEUDOBANK_START 778
 
