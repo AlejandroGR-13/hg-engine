@@ -734,12 +734,14 @@ _085F:
     // up here too, one of each guaranteed among the picks below), seed 20260912.
     // ITEM_MASTER_BALL is deliberately left OUT of this table on purpose even though the scan
     // found it here (it's the one-time Radio Tower gift) - it always still gives a real Master
-    // Ball, same as every key item/TM/HM already does. Same caveat as _080A: this can only catch
-    // an instance whose item value is a literal set right before the call - an item set
-    // dynamically (e.g. the Route 29 Antidote) is invisible to this and passes through
-    // unchanged; report it and it can be added by hand the same way.
-    compare VAR_SPECIAL_x8004, 4
-    goto_if_eq _NPCGiftSwap_from4 // ITEM_POKE_BALL -> ITEM_VENUSAURITE
+    // Ball, same as every key item/TM/HM already does. ITEM_POKE_BALL is ALSO deliberately left
+    // OUT for the same reason (reported: it was turning the catch tutorial NPC's guaranteed 5
+    // Poke Balls into a random item - e.g. a Mega Stone - which is a Nuzlocke-run-ending softlock
+    // if that NPC is your only source of balls at that point in the game). Both ball types now
+    // always give the real thing, no matter which NPC event hands them out. Same caveat as _080A:
+    // this can only catch an instance whose item value is a literal set right before the call -
+    // an item set dynamically (e.g. the Route 29 Antidote) is invisible to this and passes
+    // through unchanged; report it and it can be added by hand the same way.
     compare VAR_SPECIAL_x8004, 37
     goto_if_eq _NPCGiftSwap_from37 // ITEM_REVIVAL_HERB -> ITEM_MENTAL_HERB
     compare VAR_SPECIAL_x8004, 38
@@ -848,9 +850,6 @@ _085F:
     goto_if_eq _NPCGiftSwap_from494 // ITEM_LURE_BALL -> ITEM_MEDICHAMITE
     goto _NPCGiftSwap_continue
 
-_NPCGiftSwap_from4:
-    setvar VAR_SPECIAL_x8004, 659 // ITEM_VENUSAURITE
-    goto _NPCGiftSwap_continue
 _NPCGiftSwap_from37:
     setvar VAR_SPECIAL_x8004, 219 // ITEM_MENTAL_HERB
     goto _NPCGiftSwap_continue
