@@ -724,6 +724,295 @@ scr_seq_0003_033_give_item_verbose:
     end
 
 _085F:
+    // --- NPC gift item randomizer -----------------------------------------------------
+    // Fixed swap table for every regular (non key-item, non-TM/HM) item an NPC hands you
+    // directly through this shared "give item" routine - found by scanning the compiled ROM
+    // for every call into this exact std (2033) with a literal item value, the same technique
+    // used for the ground-item-ball table in _080A above. 54 distinct items covered; pool and
+    // exclusions are identical to _080A (item ID 1-1000, no key items/TM-HM/unnamed "ITEM_
+    // UNKNOWN_*" slots/Z-Crystals - Mega Stones and the curated competitive-item set can turn
+    // up here too, one of each guaranteed among the picks below), seed 20260912.
+    // ITEM_MASTER_BALL is deliberately left OUT of this table on purpose even though the scan
+    // found it here (it's the one-time Radio Tower gift) - it always still gives a real Master
+    // Ball, same as every key item/TM/HM already does. Same caveat as _080A: this can only catch
+    // an instance whose item value is a literal set right before the call - an item set
+    // dynamically (e.g. the Route 29 Antidote) is invisible to this and passes through
+    // unchanged; report it and it can be added by hand the same way.
+    compare VAR_SPECIAL_x8004, 4
+    goto_if_eq _NPCGiftSwap_from4 // ITEM_POKE_BALL -> ITEM_VENUSAURITE
+    compare VAR_SPECIAL_x8004, 37
+    goto_if_eq _NPCGiftSwap_from37 // ITEM_REVIVAL_HERB -> ITEM_MENTAL_HERB
+    compare VAR_SPECIAL_x8004, 38
+    goto_if_eq _NPCGiftSwap_from38 // ITEM_ETHER -> ITEM_PERMIT
+    compare VAR_SPECIAL_x8004, 44
+    goto_if_eq _NPCGiftSwap_from44 // ITEM_SACRED_ASH -> ITEM_LIGHT_BALL
+    compare VAR_SPECIAL_x8004, 45
+    goto_if_eq _NPCGiftSwap_from45 // ITEM_HP_UP -> ITEM_BUBBLE_MAIL
+    compare VAR_SPECIAL_x8004, 50
+    goto_if_eq _NPCGiftSwap_from50 // ITEM_RARE_CANDY -> ITEM_SODA_POP
+    compare VAR_SPECIAL_x8004, 53
+    goto_if_eq _NPCGiftSwap_from53 // ITEM_PP_MAX -> ITEM_PSYCHIC_MEMORY
+    compare VAR_SPECIAL_x8004, 83
+    goto_if_eq _NPCGiftSwap_from83 // ITEM_THUNDER_STONE -> ITEM_RED_NECTAR
+    compare VAR_SPECIAL_x8004, 92
+    goto_if_eq _NPCGiftSwap_from92 // ITEM_NUGGET -> ITEM_NIDORAN_MALE_CANDY
+    compare VAR_SPECIAL_x8004, 149
+    goto_if_eq _NPCGiftSwap_from149 // ITEM_CHERI_BERRY -> ITEM_GOLD_LEAF
+    compare VAR_SPECIAL_x8004, 150
+    goto_if_eq _NPCGiftSwap_from150 // ITEM_CHESTO_BERRY -> ITEM_CHARIZARDITE_Y
+    compare VAR_SPECIAL_x8004, 151
+    goto_if_eq _NPCGiftSwap_from151 // ITEM_PECHA_BERRY -> ITEM_WATER_STONE
+    compare VAR_SPECIAL_x8004, 152
+    goto_if_eq _NPCGiftSwap_from152 // ITEM_RAWST_BERRY -> ITEM_KINGS_ROCK
+    compare VAR_SPECIAL_x8004, 153
+    goto_if_eq _NPCGiftSwap_from153 // ITEM_ASPEAR_BERRY -> ITEM_MOON_STONE
+    compare VAR_SPECIAL_x8004, 154
+    goto_if_eq _NPCGiftSwap_from154 // ITEM_LEPPA_BERRY -> ITEM_POWER_PLANT_PASS
+    compare VAR_SPECIAL_x8004, 155
+    goto_if_eq _NPCGiftSwap_from155 // ITEM_ORAN_BERRY -> ITEM_SAFETY_GOGGLES
+    compare VAR_SPECIAL_x8004, 156
+    goto_if_eq _NPCGiftSwap_from156 // ITEM_PERSIM_BERRY -> ITEM_METEORITE_SHARD
+    compare VAR_SPECIAL_x8004, 157
+    goto_if_eq _NPCGiftSwap_from157 // ITEM_LUM_BERRY -> ITEM_FORAGE_BAG
+    compare VAR_SPECIAL_x8004, 158
+    goto_if_eq _NPCGiftSwap_from158 // ITEM_SITRUS_BERRY -> ITEM_X_ATTACK
+    compare VAR_SPECIAL_x8004, 160
+    goto_if_eq _NPCGiftSwap_from160 // ITEM_WIKI_BERRY -> ITEM_SMART_CANDY_L
+    compare VAR_SPECIAL_x8004, 162
+    goto_if_eq _NPCGiftSwap_from162 // ITEM_AGUAV_BERRY -> ITEM_MISTY_SEED
+    compare VAR_SPECIAL_x8004, 163
+    goto_if_eq _NPCGiftSwap_from163 // ITEM_IAPAPA_BERRY -> ITEM_YELLOW_FLUTE
+    compare VAR_SPECIAL_x8004, 164
+    goto_if_eq _NPCGiftSwap_from164 // ITEM_RAZZ_BERRY -> ITEM_DATA_CARD_14
+    compare VAR_SPECIAL_x8004, 165
+    goto_if_eq _NPCGiftSwap_from165 // ITEM_BLUK_BERRY -> ITEM_MEGA_STICKPIN
+    compare VAR_SPECIAL_x8004, 167
+    goto_if_eq _NPCGiftSwap_from167 // ITEM_WEPEAR_BERRY -> ITEM_TRAVEL_TRUNK
+    compare VAR_SPECIAL_x8004, 168
+    goto_if_eq _NPCGiftSwap_from168 // ITEM_PINAP_BERRY -> ITEM_PROTEIN
+    compare VAR_SPECIAL_x8004, 169
+    goto_if_eq _NPCGiftSwap_from169 // ITEM_POMEG_BERRY -> ITEM_AMAZE_MULCH
+    compare VAR_SPECIAL_x8004, 170
+    goto_if_eq _NPCGiftSwap_from170 // ITEM_KELPSY_BERRY -> ITEM_ACRO_BIKE
+    compare VAR_SPECIAL_x8004, 172
+    goto_if_eq _NPCGiftSwap_from172 // ITEM_HONDEW_BERRY -> ITEM_DAWN_STONE
+    compare VAR_SPECIAL_x8004, 173
+    goto_if_eq _NPCGiftSwap_from173 // ITEM_GREPA_BERRY -> ITEM_ABSOLITE
+    compare VAR_SPECIAL_x8004, 175
+    goto_if_eq _NPCGiftSwap_from175 // ITEM_CORNN_BERRY -> ITEM_ROLLER_SKATES
+    compare VAR_SPECIAL_x8004, 178
+    goto_if_eq _NPCGiftSwap_from178 // ITEM_NOMEL_BERRY -> ITEM_SHOAL_SALT
+    compare VAR_SPECIAL_x8004, 182
+    goto_if_eq _NPCGiftSwap_from182 // ITEM_DURIN_BERRY -> ITEM_KELPSY_BERRY
+    compare VAR_SPECIAL_x8004, 213
+    goto_if_eq _NPCGiftSwap_from213 // ITEM_BRIGHT_POWDER -> ITEM_UP_GRADE
+    compare VAR_SPECIAL_x8004, 216
+    goto_if_eq _NPCGiftSwap_from216 // ITEM_EXP_SHARE -> ITEM_MOSAIC_MAIL
+    compare VAR_SPECIAL_x8004, 217
+    goto_if_eq _NPCGiftSwap_from217 // ITEM_QUICK_CLAW -> ITEM_SHELL_BELL
+    compare VAR_SPECIAL_x8004, 221
+    goto_if_eq _NPCGiftSwap_from221 // ITEM_KINGS_ROCK -> ITEM_LIFE_ORB
+    compare VAR_SPECIAL_x8004, 224
+    goto_if_eq _NPCGiftSwap_from224 // ITEM_CLEANSE_TAG -> ITEM_DATA_CARD_10
+    compare VAR_SPECIAL_x8004, 229
+    goto_if_eq _NPCGiftSwap_from229 // ITEM_EVERSTONE -> ITEM_DURIN_BERRY
+    compare VAR_SPECIAL_x8004, 233
+    goto_if_eq _NPCGiftSwap_from233 // ITEM_METAL_COAT -> ITEM_SPORT_BALL
+    compare VAR_SPECIAL_x8004, 237
+    goto_if_eq _NPCGiftSwap_from237 // ITEM_SOFT_SAND -> ITEM_LEPPA_BERRY
+    compare VAR_SPECIAL_x8004, 238
+    goto_if_eq _NPCGiftSwap_from238 // ITEM_HARD_STONE -> ITEM_WACAN_BERRY
+    compare VAR_SPECIAL_x8004, 240
+    goto_if_eq _NPCGiftSwap_from240 // ITEM_BLACK_GLASSES -> ITEM_NEVER_MELT_ICE
+    compare VAR_SPECIAL_x8004, 241
+    goto_if_eq _NPCGiftSwap_from241 // ITEM_BLACK_BELT -> ITEM_DEVON_SCUBA_GEAR
+    compare VAR_SPECIAL_x8004, 242
+    goto_if_eq _NPCGiftSwap_from242 // ITEM_MAGNET -> ITEM_BOOST_MULCH
+    compare VAR_SPECIAL_x8004, 243
+    goto_if_eq _NPCGiftSwap_from243 // ITEM_MYSTIC_WATER -> ITEM_GRISEOUS_ORB
+    compare VAR_SPECIAL_x8004, 244
+    goto_if_eq _NPCGiftSwap_from244 // ITEM_SHARP_BEAK -> ITEM_CHOICE_SPECS
+    compare VAR_SPECIAL_x8004, 245
+    goto_if_eq _NPCGiftSwap_from245 // ITEM_POISON_BARB -> ITEM_LOVE_BALL
+    compare VAR_SPECIAL_x8004, 247
+    goto_if_eq _NPCGiftSwap_from247 // ITEM_SPELL_TAG -> ITEM_GUARD_SPEC
+    compare VAR_SPECIAL_x8004, 248
+    goto_if_eq _NPCGiftSwap_from248 // ITEM_TWISTED_SPOON -> ITEM_ELIXIR
+    compare VAR_SPECIAL_x8004, 252
+    goto_if_eq _NPCGiftSwap_from252 // ITEM_UP_GRADE -> ITEM_DATA_CARD_07
+    compare VAR_SPECIAL_x8004, 256
+    goto_if_eq _NPCGiftSwap_from256 // ITEM_LUCKY_PUNCH -> ITEM_LAX_INCENSE
+    compare VAR_SPECIAL_x8004, 271
+    goto_if_eq _NPCGiftSwap_from271 // ITEM_POWER_HERB -> ITEM_GRAM_1
+    compare VAR_SPECIAL_x8004, 494
+    goto_if_eq _NPCGiftSwap_from494 // ITEM_LURE_BALL -> ITEM_MEDICHAMITE
+    goto _NPCGiftSwap_continue
+
+_NPCGiftSwap_from4:
+    setvar VAR_SPECIAL_x8004, 659 // ITEM_VENUSAURITE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from37:
+    setvar VAR_SPECIAL_x8004, 219 // ITEM_MENTAL_HERB
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from38:
+    setvar VAR_SPECIAL_x8004, 630 // ITEM_PERMIT
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from44:
+    setvar VAR_SPECIAL_x8004, 236 // ITEM_LIGHT_BALL
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from45:
+    setvar VAR_SPECIAL_x8004, 139 // ITEM_BUBBLE_MAIL
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from50:
+    setvar VAR_SPECIAL_x8004, 31 // ITEM_SODA_POP
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from53:
+    setvar VAR_SPECIAL_x8004, 916 // ITEM_PSYCHIC_MEMORY
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from83:
+    setvar VAR_SPECIAL_x8004, 853 // ITEM_RED_NECTAR
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from92:
+    setvar VAR_SPECIAL_x8004, 990 // ITEM_NIDORAN_MALE_CANDY
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from149:
+    setvar VAR_SPECIAL_x8004, 890 // ITEM_GOLD_LEAF
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from150:
+    setvar VAR_SPECIAL_x8004, 678 // ITEM_CHARIZARDITE_Y
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from151:
+    setvar VAR_SPECIAL_x8004, 84 // ITEM_WATER_STONE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from152:
+    setvar VAR_SPECIAL_x8004, 221 // ITEM_KINGS_ROCK
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from153:
+    setvar VAR_SPECIAL_x8004, 81 // ITEM_MOON_STONE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from154:
+    setvar VAR_SPECIAL_x8004, 695 // ITEM_POWER_PLANT_PASS
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from155:
+    setvar VAR_SPECIAL_x8004, 650 // ITEM_SAFETY_GOGGLES
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from156:
+    setvar VAR_SPECIAL_x8004, 774 // ITEM_METEORITE_SHARD
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from157:
+    setvar VAR_SPECIAL_x8004, 841 // ITEM_FORAGE_BAG
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from158:
+    setvar VAR_SPECIAL_x8004, 57 // ITEM_X_ATTACK
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from160:
+    setvar VAR_SPECIAL_x8004, 969 // ITEM_SMART_CANDY_L
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from162:
+    setvar VAR_SPECIAL_x8004, 883 // ITEM_MISTY_SEED
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from163:
+    setvar VAR_SPECIAL_x8004, 66 // ITEM_YELLOW_FLUTE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from164:
+    setvar VAR_SPECIAL_x8004, 518 // ITEM_DATA_CARD_14
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from165:
+    setvar VAR_SPECIAL_x8004, 748 // ITEM_MEGA_STICKPIN
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from167:
+    setvar VAR_SPECIAL_x8004, 707 // ITEM_TRAVEL_TRUNK
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from168:
+    setvar VAR_SPECIAL_x8004, 46 // ITEM_PROTEIN
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from169:
+    setvar VAR_SPECIAL_x8004, 655 // ITEM_AMAZE_MULCH
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from170:
+    setvar VAR_SPECIAL_x8004, 719 // ITEM_ACRO_BIKE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from172:
+    setvar VAR_SPECIAL_x8004, 109 // ITEM_DAWN_STONE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from173:
+    setvar VAR_SPECIAL_x8004, 677 // ITEM_ABSOLITE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from175:
+    setvar VAR_SPECIAL_x8004, 643 // ITEM_ROLLER_SKATES
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from178:
+    setvar VAR_SPECIAL_x8004, 70 // ITEM_SHOAL_SALT
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from182:
+    setvar VAR_SPECIAL_x8004, 170 // ITEM_KELPSY_BERRY
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from213:
+    setvar VAR_SPECIAL_x8004, 252 // ITEM_UP_GRADE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from216:
+    setvar VAR_SPECIAL_x8004, 147 // ITEM_MOSAIC_MAIL
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from217:
+    setvar VAR_SPECIAL_x8004, 253 // ITEM_SHELL_BELL
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from221:
+    setvar VAR_SPECIAL_x8004, 270 // ITEM_LIFE_ORB
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from224:
+    setvar VAR_SPECIAL_x8004, 514 // ITEM_DATA_CARD_10
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from229:
+    setvar VAR_SPECIAL_x8004, 182 // ITEM_DURIN_BERRY
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from233:
+    setvar VAR_SPECIAL_x8004, 499 // ITEM_SPORT_BALL
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from237:
+    setvar VAR_SPECIAL_x8004, 154 // ITEM_LEPPA_BERRY
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from238:
+    setvar VAR_SPECIAL_x8004, 186 // ITEM_WACAN_BERRY
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from240:
+    setvar VAR_SPECIAL_x8004, 246 // ITEM_NEVER_MELT_ICE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from241:
+    setvar VAR_SPECIAL_x8004, 738 // ITEM_DEVON_SCUBA_GEAR
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from242:
+    setvar VAR_SPECIAL_x8004, 654 // ITEM_BOOST_MULCH
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from243:
+    setvar VAR_SPECIAL_x8004, 112 // ITEM_GRISEOUS_ORB
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from244:
+    setvar VAR_SPECIAL_x8004, 297 // ITEM_CHOICE_SPECS
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from245:
+    setvar VAR_SPECIAL_x8004, 496 // ITEM_LOVE_BALL
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from247:
+    setvar VAR_SPECIAL_x8004, 55 // ITEM_GUARD_SPEC
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from248:
+    setvar VAR_SPECIAL_x8004, 40 // ITEM_ELIXIR
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from252:
+    setvar VAR_SPECIAL_x8004, 511 // ITEM_DATA_CARD_07
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from256:
+    setvar VAR_SPECIAL_x8004, 255 // ITEM_LAX_INCENSE
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from271:
+    setvar VAR_SPECIAL_x8004, 623 // ITEM_GRAM_1
+    goto _NPCGiftSwap_continue
+_NPCGiftSwap_from494:
+    setvar VAR_SPECIAL_x8004, 665 // ITEM_MEDICHAMITE
+    goto _NPCGiftSwap_continue
+
+_NPCGiftSwap_continue:
+
     call _04F2
     giveitem VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
     getitempocket VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
