@@ -629,52 +629,73 @@ _080A:
     // --- ground item randomizer -------------------------------------------------------
     // Fixed swap table for every visible (Poke Ball sprite) field item currently placed on
     // a map, built from what's actually in the compiled ROM at the time this was written.
-    // Each original item is swapped for something more interesting from a curated pool
-    // (evolution stones, Heart Scale, PP Up, ...) rather than just reshuffling the same
-    // handful of items among themselves.
+    // Each original item is swapped for a replacement drawn from every item ID 1-1000 that
+    // isn't a key item, a TM/HM, an unnamed/unused "ITEM_UNKNOWN_*" slot, or a Z-Crystal
+    // (Z-moves are disabled in this hack, see config.h) - so Mega Stones and the curated
+    // competitive-item set (Leftovers, Choice items, Eviolite, ...) can turn up here too,
+    // same pool the Mega Stone/competitive item shops draw from (see MegaStoneShop_GetItems /
+    // CompetitiveItemShop_GetItems in src/wild_encounter_randomizer.c). One Mega Stone and one
+    // competitive item are guaranteed among the picks below so the feature is actually visible
+    // in-game; the rest are a straight random draw from that ~770-item pool (seed 20260910).
     // Same for every save file/every player (this build has no way to seed this per-save -
     // unlike wild encounters/trainers, individual map scripts aren't rebuilt from source).
     // Key items and TMs/HMs are deliberately left out of the table below - they still give
     // the vanilla item unchanged, same as this repo's other item randomizers never touch
-    // anything that could block progression. Regenerate this list (see the item-ball scan
-    // script the project keeps around) if more maps/item balls get added later - just pick
-    // a fresh (still non-key-item, non-TM/HM) replacement for whatever new items turn up.
+    // anything that could block progression.
+    //
+    // IMPORTANT: this table can only cover an item ball if the scan tool actually found it -
+    // it only sees an original item value when the per-map script sets VAR_SPECIAL_x8004 to a
+    // plain literal right before calling into this std; an item ball whose script sets that
+    // variable some other way (copied from another variable, computed, etc.) is invisible to
+    // the scan and silently falls through unchanged below, which is exactly what was happening
+    // to the Antidote on Route 29 - it isn't compared against at all further down, so it always
+    // reached giveitem completely untouched. Added by hand once reported; if any other ground
+    // item is found still giving its original vanilla item, it's almost certainly the same gap -
+    // just add another compare/goto_if_eq + _GISwap_fromXXX pair below for it the same way.
+    // Regenerate/extend this list (see the item-ball scan script the project keeps around) if
+    // more maps/item balls get added or found later - just pick a fresh (still non-key-item,
+    // non-TM/HM, non-Z-Crystal) replacement for whatever new items turn up.
     compare VAR_SPECIAL_x8004, 10
-    goto_if_eq _GISwap_from10 // ITEM_TIMER_BALL -> ITEM_FIRE_STONE
+    goto_if_eq _GISwap_from10 // ITEM_TIMER_BALL -> ITEM_MEWTWONITE_Y
     compare VAR_SPECIAL_x8004, 17
-    goto_if_eq _GISwap_from17 // ITEM_POTION -> ITEM_HEART_SCALE
+    goto_if_eq _GISwap_from17 // ITEM_POTION -> ITEM_EVIOLITE
+    compare VAR_SPECIAL_x8004, 18
+    goto_if_eq _GISwap_from18 // ITEM_ANTIDOTE -> ITEM_ICE_GEM (Route 29 - reported missing, added by hand)
     compare VAR_SPECIAL_x8004, 92
-    goto_if_eq _GISwap_from92 // ITEM_NUGGET -> ITEM_WATER_STONE
+    goto_if_eq _GISwap_from92 // ITEM_NUGGET -> ITEM_SUN_STONE
     compare VAR_SPECIAL_x8004, 149
-    goto_if_eq _GISwap_from149 // ITEM_CHERI_BERRY -> ITEM_LEAF_STONE
+    goto_if_eq _GISwap_from149 // ITEM_CHERI_BERRY -> ITEM_OCCA_BERRY
     compare VAR_SPECIAL_x8004, 225
-    goto_if_eq _GISwap_from225 // ITEM_SOUL_DEW -> ITEM_THUNDER_STONE
+    goto_if_eq _GISwap_from225 // ITEM_SOUL_DEW -> ITEM_ELECTRIC_MEMORY
     compare VAR_SPECIAL_x8004, 249
-    goto_if_eq _GISwap_from249 // ITEM_CHARCOAL -> ITEM_DUSK_STONE
+    goto_if_eq _GISwap_from249 // ITEM_CHARCOAL -> ITEM_FLYING_GEM
     compare VAR_SPECIAL_x8004, 492
-    goto_if_eq _GISwap_from492 // ITEM_FAST_BALL -> ITEM_PP_UP
+    goto_if_eq _GISwap_from492 // ITEM_FAST_BALL -> ITEM_TOUGH_CANDY
     goto _GISwap_continue
 
 _GISwap_from10:
-    setvar VAR_SPECIAL_x8004, 82 // ITEM_FIRE_STONE
+    setvar VAR_SPECIAL_x8004, 663 // ITEM_MEWTWONITE_Y
     goto _GISwap_continue
 _GISwap_from17:
-    setvar VAR_SPECIAL_x8004, 93 // ITEM_HEART_SCALE
+    setvar VAR_SPECIAL_x8004, 538 // ITEM_EVIOLITE
+    goto _GISwap_continue
+_GISwap_from18:
+    setvar VAR_SPECIAL_x8004, 552 // ITEM_ICE_GEM
     goto _GISwap_continue
 _GISwap_from92:
-    setvar VAR_SPECIAL_x8004, 84 // ITEM_WATER_STONE
+    setvar VAR_SPECIAL_x8004, 80 // ITEM_SUN_STONE
     goto _GISwap_continue
 _GISwap_from149:
-    setvar VAR_SPECIAL_x8004, 85 // ITEM_LEAF_STONE
+    setvar VAR_SPECIAL_x8004, 184 // ITEM_OCCA_BERRY
     goto _GISwap_continue
 _GISwap_from225:
-    setvar VAR_SPECIAL_x8004, 83 // ITEM_THUNDER_STONE
+    setvar VAR_SPECIAL_x8004, 915 // ITEM_ELECTRIC_MEMORY
     goto _GISwap_continue
 _GISwap_from249:
-    setvar VAR_SPECIAL_x8004, 108 // ITEM_DUSK_STONE
+    setvar VAR_SPECIAL_x8004, 556 // ITEM_FLYING_GEM
     goto _GISwap_continue
 _GISwap_from492:
-    setvar VAR_SPECIAL_x8004, 51 // ITEM_PP_UP
+    setvar VAR_SPECIAL_x8004, 962 // ITEM_TOUGH_CANDY
     goto _GISwap_continue
 
 _GISwap_continue:

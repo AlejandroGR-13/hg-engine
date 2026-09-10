@@ -1833,11 +1833,32 @@ static const u8 sKantoLevelCapByBadges[9] = { 70, 74, 76, 76, 77, 78, 83, 84, 10
  *
  *  @return the level cap for wherever the player currently is in the story
  */
+/**
+ *  @brief count how many bits are set in an 8-bit badge bitmask.
+ *
+ *  @param value the raw badge byte (one bit per badge earned)
+ *  @return how many of those bits are set, i.e. the actual badge count
+ */
+static u32 CountSetBits8(u8 value)
+{
+    u32 count = 0;
+    while (value) {
+        count += value & 1;
+        value >>= 1;
+    }
+    return count;
+}
+
 static u32 ProgressiveLevelCap_Get(void)
 {
     struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(SaveBlock2_get());
-    u8 johtoBadges = profile->johtoBadges;
-    u8 kantoBadges = profile->kantoBadges;
+    // johtoBadges/kantoBadges are bitmasks (one bit per badge earned, see
+    // PlayerProfile_TestBadgeFlag / its usage in mart.c), NOT a badge count - indexing the
+    // tables below with the raw byte breaks as soon as more than one bit is set (e.g. 2 badges
+    // earned is the bitmask 0b11 = 3, not 2), so the actual badge count has to be popcounted
+    // out of it first.
+    u8 johtoBadges = (u8)CountSetBits8(profile->johtoBadges);
+    u8 kantoBadges = (u8)CountSetBits8(profile->kantoBadges);
 
     if (johtoBadges > 8) {
         johtoBadges = 8;

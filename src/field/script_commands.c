@@ -19,6 +19,7 @@
 #include "rtc.h"
 #include "save.h"
 #include "script.h"
+#include "wild_encounter_randomizer.h"
 
 void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL shiny);
 
@@ -91,10 +92,34 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx)
         return FALSE;
     }
 
+    // Randomize which species this "Togepi" egg actually gives, the same way the rest of this
+    // hack's randomizer features work: mix the per-save seed (WildEncounterRandomizer_GetOrCreateSeed,
+    // shared with the wild encounter/trainer/starter randomizers) with a fixed salt so this roll
+    // never collides with any of those, then fold it down to species ID 1-493. IDs 1-493 are every
+    // real, fully-named Kanto/Johto/Hoenn/Sinnoh species up to Arceus with no gaps; ID 494 onward
+    // starts with SPECIES_EGG/SPECIES_BAD_EGG and the unused/nameless "-----" placeholder slots
+    // (see data/Species.c), which must never come out of a gift. Same save file always gets the
+    // same species (consistent with every other randomizer in this hack); a fresh save gets a
+    // different one. Note this can hand out a legendary/mythical this early - the wild encounter
+    // randomizer already documents that as acceptable for this hack.
+    u16 giftSpecies = SPECIES_TOGEPI;
+#ifdef ALLOW_SAVE_CHANGES
+    {
+        u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+        u32 mixed = seed ^ 0x544F4745u; // "TOGE" salt
+        mixed ^= mixed >> 16;
+        mixed *= 0x7feb352du;
+        mixed ^= mixed >> 15;
+        mixed *= 0x846ca68bu;
+        mixed ^= mixed >> 16;
+        giftSpecies = (u16)((mixed % 493) + 1);
+    }
+#endif
+
     togepi = AllocMonZeroed(11);
     ZeroMonData(togepi);
 
-    SetEggStats(togepi, SPECIES_TOGEPI, 1, profile, 3, sub_02017FE4(1, 13));
+    SetEggStats(togepi, giftSpecies, 1, profile, 3, sub_02017FE4(1, 13));
 
     // SetMonData(togepi, MON_DATA_FORM, &form); // add form capability
 
@@ -111,7 +136,27 @@ BOOL ScrCmd_GiveTogepiEgg(SCRIPTCONTEXT *ctx)
         i = 3;
     }
 
-    moveData = MOVE_EXTRASENSORY; // add extrasensory to the togepi
+    // Give it a bonus move drawn from its own (randomized) egg-move pool instead of hardcoding
+    // Extrasensory (Togepi's original egg move) - keeps the bonus move thematically appropriate
+    // no matter which species got picked above. Falls back to Extrasensory if that species has
+    // no egg moves at all, or if save-backed randomization is disabled.
+    moveData = MOVE_EXTRASENSORY;
+#ifdef ALLOW_SAVE_CHANGES
+    {
+        u16 eggMoves[MAX_EGG_MOVES];
+        u8 eggMoveCount = LoadEggMoves(togepi, eggMoves);
+        if (eggMoveCount > 0) {
+            u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+            u32 mixed = seed ^ ((u32)giftSpecies << 16) ^ 0x00544D45u; // "TME" salt, independent roll from the species pick above
+            mixed ^= mixed >> 16;
+            mixed *= 0x7feb352du;
+            mixed ^= mixed >> 15;
+            mixed *= 0x846ca68bu;
+            mixed ^= mixed >> 16;
+            moveData = eggMoves[mixed % eggMoveCount];
+        }
+    }
+#endif
     SetMonData(togepi, MON_DATA_MOVE1 + i, &moveData);
 
     pp = GetMonData(togepi, MON_DATA_MOVE1MAXPP + i, 0);
