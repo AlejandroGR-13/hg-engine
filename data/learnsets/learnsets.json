@@ -63,7 +63,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID_SPRAY",
       "MOVE_AEROBLAST",
       "MOVE_ASSURANCE",
@@ -124,6 +123,7 @@
       "MOVE_SEED_BOMB",
       "MOVE_SHADOW_FORCE",
       "MOVE_SHADOW_PUNCH",
+      "MOVE_SLUDGE",
       "MOVE_SLUDGE_WAVE",
       "MOVE_SMART_STRIKE",
       "MOVE_SOAK",
@@ -435,7 +435,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AEROBLAST",
       "MOVE_AFTER_YOU",
       "MOVE_AQUA_TAIL",
@@ -480,6 +479,7 @@
       "MOVE_LASER_FOCUS",
       "MOVE_LEAF_BLADE",
       "MOVE_LEAF_STORM",
+      "MOVE_LEAF_TORNADO",
       "MOVE_LICK",
       "MOVE_LUMINA_CRASH",
       "MOVE_MACH_PUNCH",
@@ -1020,7 +1020,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACCELEROCK",
       "MOVE_ACID",
       "MOVE_AERIAL_ACE",
@@ -1118,6 +1117,7 @@
       "MOVE_SHEER_COLD",
       "MOVE_SHELTER",
       "MOVE_SKILL_SWAP",
+      "MOVE_SKY_DROP",
       "MOVE_SLUDGE_WAVE",
       "MOVE_SONIC_BOOM",
       "MOVE_SPIKES",
@@ -1652,7 +1652,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_ACID_ARMOR",
       "MOVE_ACROBATICS",
@@ -1699,6 +1698,7 @@
       "MOVE_HYPERSPACE_FURY",
       "MOVE_HYPER_DRILL",
       "MOVE_IVY_CUDGEL",
+      "MOVE_JET_PUNCH",
       "MOVE_KOWTOW_CLEAVE",
       "MOVE_LASH_OUT",
       "MOVE_LIQUIDATION",
@@ -1775,9 +1775,9 @@
       "MOVE_DIG"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_ASTONISH",
       "MOVE_BULLDOZE",
+      "MOVE_CHILLING_WATER",
       "MOVE_COLLISION_COURSE",
       "MOVE_DEFEND_ORDER",
       "MOVE_DRAGON_DANCE",
@@ -1873,7 +1873,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_PHYSICAL"
+        "Move": "MOVE_ATTACK_ORDER"
       },
       {
         "Level": 22,
@@ -2207,11 +2207,11 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_SPECIAL"
+        "Move": "MOVE_SMOG"
       },
       {
         "Level": 33,
-        "Move": "MOVE_ACID_DOWNPOUR_SPECIAL"
+        "Move": "MOVE_SHELL_SIDE_ARM"
       },
       {
         "Level": 39,
@@ -3948,8 +3948,8 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ABSORB",
+      "MOVE_ACID",
       "MOVE_ACID_SPRAY",
       "MOVE_AQUA_JET",
       "MOVE_ATTRACT",
@@ -4386,7 +4386,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AIR_SLASH",
       "MOVE_ANCHOR_SHOT",
       "MOVE_APPLE_ACID",
@@ -4482,6 +4481,7 @@
       "MOVE_THUNDER_SHOCK",
       "MOVE_TRANSFORM",
       "MOVE_TRIPLE_AXEL",
+      "MOVE_VOLT_SWITCH",
       "MOVE_WAKE_UP_SLAP",
       "MOVE_WATERFALL",
       "MOVE_WATER_SPOUT",
@@ -4814,7 +4814,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AIR_SLASH",
       "MOVE_ANCIENT_POWER",
       "MOVE_ASSIST",
@@ -4868,6 +4867,7 @@
       "MOVE_MOONBLAST",
       "MOVE_NATURE_POWER",
       "MOVE_NOXIOUS_TORQUE",
+      "MOVE_PRECIPICE_BLADES",
       "MOVE_PROTECT",
       "MOVE_PSYCHO_CUT",
       "MOVE_PSYSTRIKE",
@@ -5288,7 +5288,7 @@
       },
       {
         "Level": 4,
-        "Move": "MOVE_MAX_QUAKE"
+        "Move": "MOVE_MUD_BOMB"
       },
       {
         "Level": 6,
@@ -5300,7 +5300,7 @@
       },
       {
         "Level": 12,
-        "Move": "MOVE_ACID_DOWNPOUR_SPECIAL"
+        "Move": "MOVE_NOXIOUS_TORQUE"
       },
       {
         "Level": 14,
@@ -5520,7 +5520,6 @@
       "MOVE_THOUSAND_WAVES"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_BATON_PASS",
       "MOVE_BODY_PRESS",
       "MOVE_BUG_BUZZ",
@@ -5555,6 +5554,7 @@
       "MOVE_RAZOR_LEAF",
       "MOVE_ROAR_OF_TIME",
       "MOVE_ROCK_THROW",
+      "MOVE_SANDSEAR_STORM",
       "MOVE_SCARY_FACE",
       "MOVE_SLACK_OFF",
       "MOVE_STUFF_CHEEKS",
@@ -5996,7 +5996,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACUPRESSURE",
       "MOVE_AERIAL_ACE",
       "MOVE_AFTER_YOU",
@@ -6074,6 +6073,7 @@
       "MOVE_MIRROR_MOVE",
       "MOVE_MIRROR_SHOT",
       "MOVE_MOUNTAIN_GALE",
+      "MOVE_MUD_SLAP",
       "MOVE_OMINOUS_WIND",
       "MOVE_PERISH_SONG",
       "MOVE_PIKA_PAPOW",
@@ -6932,7 +6932,6 @@
       "MOVE_DUAL_CHOP"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_ASTONISH",
       "MOVE_BLOCK",
       "MOVE_BLOOD_MOON",
@@ -6949,6 +6948,7 @@
       "MOVE_PSYCHIC_TERRAIN",
       "MOVE_RAZOR_WIND",
       "MOVE_REFLECT",
+      "MOVE_SACRED_FIRE",
       "MOVE_SCALD",
       "MOVE_SWAGGER",
       "MOVE_VOLT_SWITCH",
@@ -7265,7 +7265,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACUPRESSURE",
       "MOVE_AERIAL_ACE",
       "MOVE_AGILITY",
@@ -7311,6 +7310,7 @@
       "MOVE_FIERY_DANCE",
       "MOVE_FIRE_LASH",
       "MOVE_FIRE_SPIN",
+      "MOVE_FLEUR_CANNON",
       "MOVE_FLING",
       "MOVE_FLY",
       "MOVE_FREEZE_DRY",
@@ -8362,7 +8362,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AEROBLAST",
       "MOVE_ANCHOR_SHOT",
       "MOVE_AURORA_VEIL",
@@ -8423,6 +8422,7 @@
       "MOVE_SEARING_SHOT",
       "MOVE_SEED_BOMB",
       "MOVE_SHEER_COLD",
+      "MOVE_SHELL_SIDE_ARM",
       "MOVE_SLAM",
       "MOVE_SLUDGE_BOMB",
       "MOVE_SLUDGE_WAVE",
@@ -8516,7 +8516,7 @@
       },
       {
         "Level": 26,
-        "Move": "MOVE_BLOOM_DOOM_SPECIAL"
+        "Move": "MOVE_LEAFAGE"
       },
       {
         "Level": 29,
@@ -8668,7 +8668,6 @@
       "MOVE_VENOM_DRENCH"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_AXE_KICK",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_EGG_BOMB",
@@ -8682,6 +8681,7 @@
       "MOVE_POPULATION_BOMB",
       "MOVE_REST",
       "MOVE_SECRET_SWORD",
+      "MOVE_SLUDGE",
       "MOVE_SWITCHEROO",
       "MOVE_THIEF",
       "MOVE_THUNDER_CAGE"
@@ -8739,7 +8739,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AEROBLAST",
       "MOVE_AGILITY",
       "MOVE_ATTACK_ORDER",
@@ -8817,6 +8816,7 @@
       "MOVE_SYNTHESIS",
       "MOVE_THUNDER_FANG",
       "MOVE_TRICK",
+      "MOVE_TWINEEDLE",
       "MOVE_U_TURN",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
@@ -9102,7 +9102,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACCELEROCK",
       "MOVE_ACID_SPRAY",
       "MOVE_ACUPRESSURE",
@@ -9167,6 +9166,7 @@
       "MOVE_SPARKLY_SWIRL",
       "MOVE_SPLISHY_SPLASH",
       "MOVE_SPORE",
+      "MOVE_STEAMROLLER",
       "MOVE_STEAM_ERUPTION",
       "MOVE_STRENGTH",
       "MOVE_STUN_SPORE",
@@ -9785,7 +9785,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AIR_SLASH",
       "MOVE_ASTONISH",
       "MOVE_BLOCK",
@@ -9825,6 +9824,7 @@
       "MOVE_GUNK_SHOT",
       "MOVE_HEALING_WISH",
       "MOVE_HIDDEN_POWER",
+      "MOVE_HORN_DRILL",
       "MOVE_HYPERSPACE_HOLE",
       "MOVE_HYPER_BEAM",
       "MOVE_HYPER_DRILL",
@@ -10225,7 +10225,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID_SPRAY",
       "MOVE_ACROBATICS",
       "MOVE_AQUA_RING",
@@ -10274,6 +10273,7 @@
       "MOVE_HYPERSPACE_FURY",
       "MOVE_ICICLE_CRASH",
       "MOVE_INGRAIN",
+      "MOVE_JET_PUNCH",
       "MOVE_LIFE_DEW",
       "MOVE_LIGHT_SCREEN",
       "MOVE_LIQUIDATION",
@@ -10343,12 +10343,12 @@
       "MOVE_SURF"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_AGILITY",
       "MOVE_BOOMBURST",
       "MOVE_BULLET_PUNCH",
       "MOVE_CHLOROBLAST",
       "MOVE_CLANGOROUS_SOUL",
+      "MOVE_CRABHAMMER",
       "MOVE_DRAGON_TAIL",
       "MOVE_FUTURE_SIGHT",
       "MOVE_GASTRO_ACID",
@@ -10904,8 +10904,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_BARRIER",
       "MOVE_BATON_PASS",
       "MOVE_BODY_PRESS",
@@ -10920,6 +10918,7 @@
       "MOVE_CLOSE_COMBAT",
       "MOVE_COMET_PUNCH",
       "MOVE_COVET",
+      "MOVE_CROSS_CHOP",
       "MOVE_CUT",
       "MOVE_DARK_VOID",
       "MOVE_DEFENSE_CURL",
@@ -10930,6 +10929,7 @@
       "MOVE_DREAM_EATER",
       "MOVE_FACADE",
       "MOVE_FAKE_OUT",
+      "MOVE_FINAL_GAMBIT",
       "MOVE_FLAME_BURST",
       "MOVE_FLAME_WHEEL",
       "MOVE_FLASH_CANNON",
@@ -12476,7 +12476,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ASSIST",
       "MOVE_AUTOTOMIZE",
       "MOVE_BARRIER",
@@ -12563,6 +12562,7 @@
       "MOVE_STRUGGLE_BUG",
       "MOVE_SURF",
       "MOVE_SWEET_SCENT",
+      "MOVE_SYNCHRONOISE",
       "MOVE_TACHYON_CUTTER",
       "MOVE_TECHNO_BLAST",
       "MOVE_TELEPORT",
@@ -12909,7 +12909,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_ARMOR",
       "MOVE_AFTER_YOU",
       "MOVE_AIR_CUTTER",
@@ -12993,6 +12992,7 @@
       "MOVE_SUPERPOWER",
       "MOVE_SURF",
       "MOVE_TEMPER_FLARE",
+      "MOVE_THUNDEROUS_KICK",
       "MOVE_TRIPLE_AXEL",
       "MOVE_UPPER_HAND",
       "MOVE_VACUUM_WAVE",
@@ -13775,7 +13775,6 @@
       "MOVE_WATERFALL"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_CHIP_AWAY",
       "MOVE_DOOM_DESIRE",
       "MOVE_FIRE_FANG",
@@ -13790,6 +13789,7 @@
       "MOVE_ROAR",
       "MOVE_ROOST",
       "MOVE_SKETCH",
+      "MOVE_SLUDGE",
       "MOVE_TERRAIN_PULSE",
       "MOVE_TRIPLE_AXEL",
       "MOVE_TWIN_BEAM"
@@ -14417,7 +14417,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACCELEROCK",
       "MOVE_AGILITY",
       "MOVE_AQUA_RING",
@@ -14480,6 +14479,7 @@
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SLIDE",
       "MOVE_ROCK_SMASH",
+      "MOVE_ROCK_THROW",
       "MOVE_ROCK_TOMB",
       "MOVE_SAND_TOMB",
       "MOVE_SCORCHING_SANDS",
@@ -14614,7 +14614,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID",
       "MOVE_ACID_SPRAY",
       "MOVE_AEROBLAST",
@@ -14671,6 +14670,7 @@
       "MOVE_PSYSHIELD_BASH",
       "MOVE_PURSUIT",
       "MOVE_RAGE_POWDER",
+      "MOVE_ROCK_BLAST",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SLIDE",
       "MOVE_ROCK_SMASH",
@@ -15672,7 +15672,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID",
       "MOVE_ACID_SPRAY",
       "MOVE_ATTACK_ORDER",
@@ -15717,6 +15716,7 @@
       "MOVE_LOCK_ON",
       "MOVE_LUCKY_CHANT",
       "MOVE_MAGICAL_TORQUE",
+      "MOVE_MAGNET_BOMB",
       "MOVE_MAKE_IT_RAIN",
       "MOVE_MEMENTO",
       "MOVE_MIST_BALL",
@@ -15854,7 +15854,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACROBATICS",
       "MOVE_AEROBLAST",
       "MOVE_AURORA_BEAM",
@@ -15891,6 +15890,7 @@
       "MOVE_LOVELY_KISS",
       "MOVE_LUCKY_CHANT",
       "MOVE_MAGIC_POWDER",
+      "MOVE_MAGNET_BOMB",
       "MOVE_MAGNITUDE",
       "MOVE_METAL_BURST",
       "MOVE_MIRROR_COAT",
@@ -16595,7 +16595,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ASTRAL_BARRAGE",
       "MOVE_AURA_SPHERE",
       "MOVE_BODY_PRESS",
@@ -16669,6 +16668,7 @@
       "MOVE_TAIL_GLOW",
       "MOVE_TELEPORT",
       "MOVE_TERRAIN_PULSE",
+      "MOVE_TRIPLE_DIVE",
       "MOVE_WATERFALL",
       "MOVE_WATER_PLEDGE",
       "MOVE_WATER_SHURIKEN",
@@ -16782,7 +16782,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AGILITY",
       "MOVE_ARM_THRUST",
       "MOVE_ASSIST",
@@ -16826,6 +16825,7 @@
       "MOVE_HYPNOSIS",
       "MOVE_ICE_BEAM",
       "MOVE_ICE_SPINNER",
+      "MOVE_ICICLE_CRASH",
       "MOVE_ICICLE_SPEAR",
       "MOVE_KARATE_CHOP",
       "MOVE_LASH_OUT",
@@ -16976,7 +16976,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_ARMOR",
       "MOVE_APPLE_ACID",
       "MOVE_ARMOR_CANNON",
@@ -16987,6 +16986,7 @@
       "MOVE_CIRCLE_THROW",
       "MOVE_CONFUSE_RAY",
       "MOVE_CONFUSION",
+      "MOVE_CROSS_POISON",
       "MOVE_CUT",
       "MOVE_DIVE",
       "MOVE_DOOM_DESIRE",
@@ -17709,8 +17709,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
       "MOVE_AQUA_RING",
       "MOVE_ARM_THRUST",
       "MOVE_BANEFUL_BUNKER",
@@ -17762,6 +17760,7 @@
       "MOVE_PETAL_DANCE",
       "MOVE_PHANTOM_FORCE",
       "MOVE_PIKA_PAPOW",
+      "MOVE_POISON_FANG",
       "MOVE_POISON_JAB",
       "MOVE_POLLEN_PUFF",
       "MOVE_POLTERGEIST",
@@ -17774,6 +17773,7 @@
       "MOVE_ROOST",
       "MOVE_SEISMIC_TOSS",
       "MOVE_SHADOW_CLAW",
+      "MOVE_SHADOW_PUNCH",
       "MOVE_SHEER_COLD",
       "MOVE_SILVER_WIND",
       "MOVE_SKILL_SWAP",
@@ -18562,8 +18562,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
       "MOVE_AXE_KICK",
       "MOVE_BABY_DOLL_EYES",
       "MOVE_BANEFUL_BUNKER",
@@ -18574,6 +18572,7 @@
       "MOVE_CHARGE_BEAM",
       "MOVE_CLEAR_SMOG",
       "MOVE_COIL",
+      "MOVE_CONFUSION",
       "MOVE_CONSTRICT",
       "MOVE_COPYCAT",
       "MOVE_CUT",
@@ -18625,6 +18624,7 @@
       "MOVE_POLTERGEIST",
       "MOVE_POWDER",
       "MOVE_POWER_SWAP",
+      "MOVE_PRISMATIC_LASER",
       "MOVE_PROTECT",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_PSYCHIC_NOISE",
@@ -19694,7 +19694,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_SPRAY",
       "MOVE_ACROBATICS",
       "MOVE_AGILITY",
@@ -19782,6 +19781,7 @@
       "MOVE_STUFF_CHEEKS",
       "MOVE_SURF",
       "MOVE_SWALLOW",
+      "MOVE_SYNCHRONOISE",
       "MOVE_TACHYON_CUTTER",
       "MOVE_THOUSAND_WAVES",
       "MOVE_THROAT_CHOP",
@@ -19842,7 +19842,7 @@
       },
       {
         "Level": 6,
-        "Move": "MOVE_BLOOM_DOOM_PHYSICAL"
+        "Move": "MOVE_HYPERSPACE_HOLE"
       },
       {
         "Level": 9,
@@ -19866,7 +19866,7 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_MAX_OVERGROWTH"
+        "Move": "MOVE_ESPER_WING"
       },
       {
         "Level": 24,
@@ -20571,7 +20571,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ASTRAL_BARRAGE",
       "MOVE_AURA_SPHERE",
       "MOVE_AVALANCHE",
@@ -20663,6 +20662,7 @@
       "MOVE_SYNTHESIS",
       "MOVE_TACHYON_CUTTER",
       "MOVE_TAKE_HEART",
+      "MOVE_TRIPLE_KICK",
       "MOVE_UPPER_HAND",
       "MOVE_VACUUM_WAVE",
       "MOVE_WATERFALL",
@@ -21769,7 +21769,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
+      "MOVE_ACCELEROCK",
       "MOVE_ACID_SPRAY",
       "MOVE_AEROBLAST",
       "MOVE_ASTRAL_BARRAGE",
@@ -22043,7 +22043,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AERIAL_ACE",
       "MOVE_AEROBLAST",
       "MOVE_ANCIENT_POWER",
@@ -22183,6 +22182,7 @@
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
       "MOVE_WORRY_SEED",
+      "MOVE_WRAP",
       "MOVE_ZING_ZAP"
     ],
     "EggMoves": [
@@ -23258,13 +23258,13 @@
       "MOVE_TEATIME"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_ACCELEROCK",
       "MOVE_BREAKING_SWIPE",
       "MOVE_BRICK_BREAK",
       "MOVE_CAMOUFLAGE",
       "MOVE_CHILLING_WATER",
       "MOVE_CHIP_AWAY",
+      "MOVE_CLAMP",
       "MOVE_DOUBLE_EDGE",
       "MOVE_DRAGON_TAIL",
       "MOVE_HEART_SWAP",
@@ -23350,11 +23350,11 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_BELLY_DRUM",
       "MOVE_BITTER_BLADE",
       "MOVE_BLOCK",
       "MOVE_BRINE",
+      "MOVE_BUBBLE_BEAM",
       "MOVE_BURN_UP",
       "MOVE_COSMIC_POWER",
       "MOVE_CUT",
@@ -23777,7 +23777,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_ALLURING_VOICE",
       "MOVE_ANCIENT_POWER",
@@ -23825,6 +23824,7 @@
       "MOVE_GRASS_KNOT",
       "MOVE_HAMMER_ARM",
       "MOVE_HEAL_PULSE",
+      "MOVE_HEART_STAMP",
       "MOVE_HONE_CLAWS",
       "MOVE_HYDRO_CANNON",
       "MOVE_HYDRO_PUMP",
@@ -24017,7 +24017,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AEROBLAST",
       "MOVE_ARMOR_CANNON",
       "MOVE_ASTRAL_BARRAGE",
@@ -24048,6 +24047,7 @@
       "MOVE_EMBARGO",
       "MOVE_FAIRY_WIND",
       "MOVE_FAKE_OUT",
+      "MOVE_FELL_STINGER",
       "MOVE_FIRE_FANG",
       "MOVE_FIRE_PUNCH",
       "MOVE_FLEUR_CANNON",
@@ -25381,7 +25381,7 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_468",
+      "MOVE_AEROBLAST",
       "MOVE_AIR_SLASH",
       "MOVE_BLAST_BURN",
       "MOVE_BOLT_BEAK",
@@ -25652,7 +25652,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_MAX_STRIKE"
+        "Move": "MOVE_RETALIATE"
       },
       {
         "Level": 33,
@@ -26228,7 +26228,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACCELEROCK",
       "MOVE_AEROBLAST",
       "MOVE_AIR_SLASH",
@@ -26314,6 +26313,7 @@
       "MOVE_WATER_GUN",
       "MOVE_WATER_SPOUT",
       "MOVE_WHIRLPOOL",
+      "MOVE_WILDBOLT_STORM",
       "MOVE_WILD_CHARGE",
       "MOVE_WISH"
     ],
@@ -26629,7 +26629,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACROBATICS",
       "MOVE_AMNESIA",
       "MOVE_APPLE_ACID",
@@ -26694,6 +26693,7 @@
       "MOVE_PSYCHO_SHIFT",
       "MOVE_PSYWAVE",
       "MOVE_PYRO_BALL",
+      "MOVE_RAGE",
       "MOVE_REFLECT",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
@@ -26820,7 +26820,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_ARMOR",
       "MOVE_ASTONISH",
       "MOVE_ASTRAL_BARRAGE",
@@ -26884,6 +26883,7 @@
       "MOVE_SMOKESCREEN",
       "MOVE_STEAM_ERUPTION",
       "MOVE_STOMP",
+      "MOVE_STONE_AXE",
       "MOVE_STONE_EDGE",
       "MOVE_STRENGTH",
       "MOVE_STRUGGLE_BUG",
@@ -27113,8 +27113,8 @@
       "MOVE_FILLET_AWAY"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_BRANCH_POKE",
+      "MOVE_BUBBLE",
       "MOVE_COMBAT_TORQUE",
       "MOVE_CUT",
       "MOVE_ENERGY_BALL",
@@ -27395,7 +27395,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AQUA_STEP",
       "MOVE_BEHEMOTH_BLADE",
       "MOVE_BESTOW",
@@ -27407,6 +27406,7 @@
       "MOVE_BUG_BUZZ",
       "MOVE_BURN_UP",
       "MOVE_CHARGE",
+      "MOVE_CHILLING_WATER",
       "MOVE_CLANGING_SCALES",
       "MOVE_COTTON_SPORE",
       "MOVE_CUT",
@@ -27852,8 +27852,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
       "MOVE_ABSORB",
       "MOVE_AFTER_YOU",
       "MOVE_AQUA_STEP",
@@ -27864,6 +27862,7 @@
       "MOVE_BARB_BARRAGE",
       "MOVE_BEAT_UP",
       "MOVE_BEHEMOTH_BASH",
+      "MOVE_BIDE",
       "MOVE_BLIZZARD",
       "MOVE_BODY_SLAM",
       "MOVE_BOUNCY_BUBBLE",
@@ -27906,6 +27905,7 @@
       "MOVE_GUST",
       "MOVE_HAPPY_HOUR",
       "MOVE_HEADBUTT",
+      "MOVE_HEAD_CHARGE",
       "MOVE_HEALING_WISH",
       "MOVE_HEAT_WAVE",
       "MOVE_HIDDEN_POWER",
@@ -28297,7 +28297,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AERIAL_ACE",
       "MOVE_ASSURANCE",
       "MOVE_AURORA_BEAM",
@@ -28377,6 +28376,7 @@
       "MOVE_TRIPLE_DIVE",
       "MOVE_VICTORY_DANCE",
       "MOVE_VITAL_THROW",
+      "MOVE_VOLT_SWITCH",
       "MOVE_WATERFALL",
       "MOVE_WATER_GUN",
       "MOVE_WATER_SHURIKEN",
@@ -29045,7 +29045,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACROBATICS",
       "MOVE_AERIAL_ACE",
       "MOVE_AQUA_TAIL",
@@ -29119,6 +29118,7 @@
       "MOVE_MORNING_SUN",
       "MOVE_MORTAL_SPIN",
       "MOVE_MUD_SHOT",
+      "MOVE_OBLIVION_WING",
       "MOVE_ODOR_SLEUTH",
       "MOVE_OUTRAGE",
       "MOVE_PAIN_SPLIT",
@@ -29300,7 +29300,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ABSORB",
       "MOVE_ACCELEROCK",
       "MOVE_ACID",
@@ -29342,6 +29341,7 @@
       "MOVE_DRAGON_PULSE",
       "MOVE_DRAIN_PUNCH",
       "MOVE_DREAM_EATER",
+      "MOVE_ESPER_WING",
       "MOVE_EXPANDING_FORCE",
       "MOVE_FALSE_SURRENDER",
       "MOVE_FEINT",
@@ -29566,8 +29566,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_ACID",
       "MOVE_ACID_SPRAY",
       "MOVE_AERIAL_ACE",
@@ -29774,6 +29772,7 @@
       "MOVE_PRESENT",
       "MOVE_PROTECT",
       "MOVE_PSYBEAM",
+      "MOVE_PSYBLADE",
       "MOVE_PSYCHIC",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_PSYCHIC_NOISE",
@@ -29862,6 +29861,7 @@
       "MOVE_SWAGGER",
       "MOVE_SWIFT",
       "MOVE_SWITCHEROO",
+      "MOVE_SYNCHRONOISE",
       "MOVE_TAIL_WHIP",
       "MOVE_TAKE_DOWN",
       "MOVE_TAKE_HEART",
@@ -33142,13 +33142,13 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACCELEROCK",
       "MOVE_ACID_SPRAY",
       "MOVE_ARM_THRUST",
       "MOVE_ASSURANCE",
       "MOVE_AURA_SPHERE",
       "MOVE_BADDY_BAD",
+      "MOVE_BARB_BARRAGE",
       "MOVE_BLEAKWIND_STORM",
       "MOVE_BODY_PRESS",
       "MOVE_BUG_BITE",
@@ -33813,7 +33813,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ASSIST",
       "MOVE_BADDY_BAD",
       "MOVE_BITE",
@@ -33826,6 +33825,7 @@
       "MOVE_COIL",
       "MOVE_CUT",
       "MOVE_DESTINY_BOND",
+      "MOVE_DISCHARGE",
       "MOVE_DIVE",
       "MOVE_DOUBLE_TEAM",
       "MOVE_DYNAMAX_CANNON",
@@ -35833,7 +35833,6 @@
       "MOVE_GRASSY_GLIDE"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_ANCHOR_SHOT",
       "MOVE_AUTOTOMIZE",
       "MOVE_CHARM",
@@ -35843,6 +35842,7 @@
       "MOVE_ETERNABEAM",
       "MOVE_FRUSTRATION",
       "MOVE_ICE_PUNCH",
+      "MOVE_LEAFAGE",
       "MOVE_MORTAL_SPIN",
       "MOVE_PIKA_PAPOW",
       "MOVE_PSYSHOCK",
@@ -36552,7 +36552,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ANCIENT_POWER",
       "MOVE_BOLT_BEAK",
       "MOVE_BRICK_BREAK",
@@ -36585,6 +36584,7 @@
       "MOVE_HEART_STAMP",
       "MOVE_HYDRO_CANNON",
       "MOVE_HYDRO_PUMP",
+      "MOVE_HYDRO_STEAM",
       "MOVE_HYPER_BEAM",
       "MOVE_HYPNOSIS",
       "MOVE_ICE_BEAM",
@@ -37311,7 +37311,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AIR_CUTTER",
       "MOVE_AIR_SLASH",
       "MOVE_AQUA_JET",
@@ -37361,6 +37360,7 @@
       "MOVE_HEAD_SMASH",
       "MOVE_HEAVY_SLAM",
       "MOVE_HIDDEN_POWER",
+      "MOVE_HOLD_BACK",
       "MOVE_HYPER_BEAM",
       "MOVE_HYPER_FANG",
       "MOVE_HYPER_VOICE",
@@ -37863,7 +37863,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AERIAL_ACE",
       "MOVE_BELLY_DRUM",
       "MOVE_BUG_BITE",
@@ -37889,6 +37888,7 @@
       "MOVE_HOWL",
       "MOVE_ICE_BURN",
       "MOVE_ICE_HAMMER",
+      "MOVE_INFESTATION",
       "MOVE_IRON_HEAD",
       "MOVE_KINESIS",
       "MOVE_KOWTOW_CLEAVE",
@@ -38337,7 +38337,6 @@
       "MOVE_DIVE"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_BUBBLE",
       "MOVE_EMBER",
       "MOVE_EXTRASENSORY",
@@ -38361,6 +38360,7 @@
       "MOVE_SING",
       "MOVE_SNATCH",
       "MOVE_SPACIAL_REND",
+      "MOVE_STOMPING_TANTRUM",
       "MOVE_SWEET_KISS",
       "MOVE_TELEPORT",
       "MOVE_TICKLE",
@@ -38570,7 +38570,6 @@
       "MOVE_LUNAR_BLESSING"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_AQUA_RING",
       "MOVE_ATTRACT",
       "MOVE_CLEAR_SMOG",
@@ -38584,6 +38583,7 @@
       "MOVE_ENERGY_BALL",
       "MOVE_EXTRASENSORY",
       "MOVE_FAIRY_WIND",
+      "MOVE_GLITZY_GLOW",
       "MOVE_GRAVITY",
       "MOVE_GUARD_SWAP",
       "MOVE_IRON_DEFENSE",
@@ -39499,7 +39499,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_GENESIS_SUPERNOVA"
+        "Move": "MOVE_MYSTICAL_POWER"
       },
       {
         "Level": 22,
@@ -39590,7 +39590,7 @@
       },
       {
         "Level": 13,
-        "Move": "MOVE_SHATTERED_PSYCHE_SPECIAL"
+        "Move": "MOVE_TWIN_BEAM"
       },
       {
         "Level": 17,
@@ -39606,7 +39606,7 @@
       },
       {
         "Level": 29,
-        "Move": "MOVE_GENESIS_SUPERNOVA"
+        "Move": "MOVE_LUSTER_PURGE"
       },
       {
         "Level": 32,
@@ -39735,7 +39735,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_ARMOR",
       "MOVE_AQUA_CUTTER",
       "MOVE_BEHEMOTH_BLADE",
@@ -39762,6 +39761,7 @@
       "MOVE_ENDEAVOR",
       "MOVE_ENDURE",
       "MOVE_ERUPTION",
+      "MOVE_ESPER_WING",
       "MOVE_EXPANDING_FORCE",
       "MOVE_EXPLOSION",
       "MOVE_FACADE",
@@ -41671,8 +41671,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_AFTER_YOU",
       "MOVE_AQUA_RING",
@@ -41728,6 +41726,7 @@
       "MOVE_MAGICAL_LEAF",
       "MOVE_MEGAHORN",
       "MOVE_METAL_BURST",
+      "MOVE_METAL_CLAW",
       "MOVE_METEOR_MASH",
       "MOVE_NATURE_POWER",
       "MOVE_NIGHT_SHADE",
@@ -41758,6 +41757,7 @@
       "MOVE_SPIKES",
       "MOVE_SPIN_OUT",
       "MOVE_SPIRIT_SHACKLE",
+      "MOVE_STEAMROLLER",
       "MOVE_STEEL_BEAM",
       "MOVE_STRENGTH",
       "MOVE_SUPER_FANG",
@@ -41785,7 +41785,6 @@
       "MOVE_SUNNY_DAY"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_ASSURANCE",
       "MOVE_BOUNCE",
       "MOVE_BOUNCY_BUBBLE",
@@ -41806,6 +41805,7 @@
       "MOVE_POWER_SWAP",
       "MOVE_RAIN_DANCE",
       "MOVE_SKY_ATTACK",
+      "MOVE_STEEL_ROLLER",
       "MOVE_STEEL_WING"
     ]
   },
@@ -42250,7 +42250,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AIR_SLASH",
       "MOVE_AROMATHERAPY",
       "MOVE_ATTRACT",
@@ -42328,6 +42327,7 @@
       "MOVE_RAPID_SPIN",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
+      "MOVE_RUINATION",
       "MOVE_SANDSEAR_STORM",
       "MOVE_SCRATCH",
       "MOVE_SECRET_POWER",
@@ -43075,9 +43075,9 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AERIAL_ACE",
       "MOVE_AGILITY",
+      "MOVE_ARMOR_CANNON",
       "MOVE_BATON_PASS",
       "MOVE_BELLY_DRUM",
       "MOVE_BIND",
@@ -43518,7 +43518,6 @@
       "MOVE_ROTOTILLER"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_BONE_RUSH",
       "MOVE_DRAGON_BREATH",
       "MOVE_DUAL_WINGBEAT",
@@ -43529,6 +43528,7 @@
       "MOVE_LUNAR_DANCE",
       "MOVE_MAGMA_STORM",
       "MOVE_MAGNET_RISE",
+      "MOVE_MOUNTAIN_GALE",
       "MOVE_NOBLE_ROAR",
       "MOVE_POISON_TAIL",
       "MOVE_SCRATCH",
@@ -43861,7 +43861,6 @@
       "MOVE_DOUBLE_KICK"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_ANCHOR_SHOT",
       "MOVE_ANCIENT_POWER",
       "MOVE_ARM_THRUST",
@@ -43869,6 +43868,7 @@
       "MOVE_FREEZE_DRY",
       "MOVE_GIGA_DRAIN",
       "MOVE_HORN_DRILL",
+      "MOVE_HYDRO_STEAM",
       "MOVE_HYPERSPACE_FURY",
       "MOVE_IVY_CUDGEL",
       "MOVE_JET_PUNCH",
@@ -44676,7 +44676,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AUTOTOMIZE",
       "MOVE_AXE_KICK",
       "MOVE_BARRIER",
@@ -44727,6 +44726,7 @@
       "MOVE_KNOCK_OFF",
       "MOVE_LASH_OUT",
       "MOVE_LUSTER_PURGE",
+      "MOVE_MAGMA_STORM",
       "MOVE_MEGA_PUNCH",
       "MOVE_MORNING_SUN",
       "MOVE_NASTY_PLOT",
@@ -46097,7 +46097,7 @@
       },
       {
         "Level": 55,
-        "Move": "MOVE_EXTREME_EVOBOOST"
+        "Move": "MOVE_FORCE_PALM"
       },
       {
         "Level": 60,
@@ -46561,7 +46561,6 @@
       "MOVE_HEALING_WISH"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_AQUA_TAIL",
       "MOVE_COLLISION_COURSE",
       "MOVE_DRACO_METEOR",
@@ -46572,6 +46571,7 @@
       "MOVE_GRASS_KNOT",
       "MOVE_GYRO_BALL",
       "MOVE_HYDRO_PUMP",
+      "MOVE_ICE_FANG",
       "MOVE_ICE_SPINNER",
       "MOVE_INFERNAL_PARADE",
       "MOVE_KINESIS",
@@ -46657,7 +46657,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_SPRAY",
       "MOVE_AERIAL_ACE",
       "MOVE_APPLE_ACID",
@@ -46676,6 +46675,7 @@
       "MOVE_DIVE",
       "MOVE_ELECTROWEB",
       "MOVE_ELECTRO_BALL",
+      "MOVE_ELECTRO_DRIFT",
       "MOVE_EXTREME_SPEED",
       "MOVE_FICKLE_BEAM",
       "MOVE_FIERY_WRATH",
@@ -47005,7 +47005,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACROBATICS",
       "MOVE_ACUPRESSURE",
       "MOVE_AVALANCHE",
@@ -47089,6 +47088,7 @@
       "MOVE_TACHYON_CUTTER",
       "MOVE_TAIL_GLOW",
       "MOVE_TAIL_WHIP",
+      "MOVE_TAKE_DOWN",
       "MOVE_TAKE_HEART",
       "MOVE_TAUNT",
       "MOVE_TEARFUL_LOOK",
@@ -47245,7 +47245,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AERIAL_ACE",
       "MOVE_AEROBLAST",
       "MOVE_AFTER_YOU",
@@ -47356,6 +47355,7 @@
       "MOVE_SYNTHESIS",
       "MOVE_TECHNO_BLAST",
       "MOVE_TERA_BLAST",
+      "MOVE_THRASH",
       "MOVE_THUNDER_SHOCK",
       "MOVE_TIDY_UP",
       "MOVE_TOXIC_SPIKES",
@@ -47683,9 +47683,9 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACUPRESSURE",
       "MOVE_AEROBLAST",
+      "MOVE_ARMOR_CANNON",
       "MOVE_ATTRACT",
       "MOVE_AURA_SPHERE",
       "MOVE_BABY_DOLL_EYES",
@@ -47862,7 +47862,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AEROBLAST",
       "MOVE_AQUA_TAIL",
       "MOVE_AURA_SPHERE",
@@ -47886,6 +47885,7 @@
       "MOVE_FIRE_BLAST",
       "MOVE_FIRE_PUNCH",
       "MOVE_FIRE_SPIN",
+      "MOVE_FISHIOUS_REND",
       "MOVE_FLIP_TURN",
       "MOVE_FLY",
       "MOVE_FOUL_PLAY",
@@ -47949,7 +47949,6 @@
       "MOVE_BRINE"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_BLAZE_KICK",
       "MOVE_BOOMBURST",
       "MOVE_CRAFTY_SHIELD",
@@ -47962,6 +47961,7 @@
       "MOVE_HONE_CLAWS",
       "MOVE_LASH_OUT",
       "MOVE_MILK_DRINK",
+      "MOVE_ORIGIN_PULSE",
       "MOVE_PIKA_PAPOW",
       "MOVE_QUIVER_DANCE",
       "MOVE_REFRESH",
@@ -48450,7 +48450,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ABSORB",
       "MOVE_AERIAL_ACE",
       "MOVE_APPLE_ACID",
@@ -48549,6 +48548,7 @@
       "MOVE_ROCK_SMASH",
       "MOVE_ROCK_TOMB",
       "MOVE_ROLLING_KICK",
+      "MOVE_SALT_CURE",
       "MOVE_SAND_ATTACK",
       "MOVE_SAPPY_SEED",
       "MOVE_SECRET_POWER",
@@ -48593,7 +48593,6 @@
       "MOVE_PSYSTRIKE"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_BESTOW",
       "MOVE_BIDE",
       "MOVE_BIND",
@@ -48627,6 +48626,7 @@
       "MOVE_POWDER",
       "MOVE_POWER_TRICK",
       "MOVE_POWER_UP_PUNCH",
+      "MOVE_PURSUIT",
       "MOVE_ROCK_SLIDE",
       "MOVE_SECRET_SWORD",
       "MOVE_SPARKLING_ARIA",
@@ -50137,7 +50137,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_ARMOR",
       "MOVE_ANCIENT_POWER",
       "MOVE_AURA_SPHERE",
@@ -50197,6 +50196,7 @@
       "MOVE_PSYSTRIKE",
       "MOVE_RAGE",
       "MOVE_RAGE_POWDER",
+      "MOVE_RAGING_FURY",
       "MOVE_REVERSAL",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
@@ -50588,7 +50588,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ARM_THRUST",
       "MOVE_BADDY_BAD",
       "MOVE_BRINE",
@@ -50650,6 +50649,7 @@
       "MOVE_STRUGGLE_BUG",
       "MOVE_SUNNY_DAY",
       "MOVE_SURF",
+      "MOVE_SURGING_STRIKES",
       "MOVE_SWEET_KISS",
       "MOVE_THOUSAND_WAVES",
       "MOVE_THUNDERBOLT",
@@ -50970,7 +50970,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AERIAL_ACE",
       "MOVE_AQUA_STEP",
       "MOVE_ARM_THRUST",
@@ -51015,6 +51014,7 @@
       "MOVE_FRUSTRATION",
       "MOVE_FURY_ATTACK",
       "MOVE_GEOMANCY",
+      "MOVE_HEADLONG_RUSH",
       "MOVE_HEAD_CHARGE",
       "MOVE_HEX",
       "MOVE_HIGH_HORSEPOWER",
@@ -51740,7 +51740,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AVALANCHE",
       "MOVE_BARRAGE",
       "MOVE_BEAT_UP",
@@ -51799,6 +51798,7 @@
       "MOVE_QUICK_GUARD",
       "MOVE_RAIN_DANCE",
       "MOVE_RAZOR_SHELL",
+      "MOVE_RELIC_SONG",
       "MOVE_RETURN",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
@@ -51838,13 +51838,13 @@
       "MOVE_GIGA_DRAIN"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_AURA_SPHERE",
       "MOVE_BEHEMOTH_BLADE",
       "MOVE_BONE_CLUB",
       "MOVE_CONVERSION_2",
       "MOVE_DIZZY_PUNCH",
       "MOVE_FEATHER_DANCE",
+      "MOVE_FEINT",
       "MOVE_FURY_SWIPES",
       "MOVE_HEART_SWAP",
       "MOVE_HYPER_VOICE",
@@ -51937,7 +51937,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_PHYSICAL"
+        "Move": "MOVE_TWINEEDLE"
       },
       {
         "Level": 22,
@@ -52176,7 +52176,7 @@
       },
       {
         "Level": 12,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_SPECIAL"
+        "Move": "MOVE_PIN_MISSILE"
       },
       {
         "Level": 17,
@@ -52184,11 +52184,11 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_PHYSICAL"
+        "Move": "MOVE_SIGNAL_BEAM"
       },
       {
         "Level": 28,
-        "Move": "MOVE_MAX_FLUTTERBY"
+        "Move": "MOVE_INFESTATION"
       },
       {
         "Level": 33,
@@ -52461,7 +52461,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACROBATICS",
       "MOVE_ASSURANCE",
       "MOVE_BABY_DOLL_EYES",
@@ -52493,6 +52492,7 @@
       "MOVE_HORN_DRILL",
       "MOVE_HYDRO_CANNON",
       "MOVE_HYDRO_PUMP",
+      "MOVE_HYDRO_STEAM",
       "MOVE_HYPER_DRILL",
       "MOVE_ICICLE_SPEAR",
       "MOVE_IMPRISON",
@@ -53495,7 +53495,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID",
       "MOVE_ACID_ARMOR",
       "MOVE_AQUA_JET",
@@ -53579,6 +53578,7 @@
       "MOVE_PSYCHIC_NOISE",
       "MOVE_PSYCHO_CUT",
       "MOVE_RAGING_FURY",
+      "MOVE_RAZOR_LEAF",
       "MOVE_REFLECT",
       "MOVE_RELIC_SONG",
       "MOVE_RETURN",
@@ -54441,7 +54441,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACUPRESSURE",
       "MOVE_AIR_CUTTER",
       "MOVE_ALLURING_VOICE",
@@ -54500,6 +54499,7 @@
       "MOVE_PLAY_ROUGH",
       "MOVE_POLTERGEIST",
       "MOVE_POWDER_SNOW",
+      "MOVE_PRISMATIC_LASER",
       "MOVE_PSYCHIC",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_PSYCHIC_NOISE",
@@ -54651,7 +54651,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ALLURING_VOICE",
       "MOVE_APPLE_ACID",
       "MOVE_BITE",
@@ -54730,6 +54729,7 @@
       "MOVE_SPORE",
       "MOVE_STONE_EDGE",
       "MOVE_STORED_POWER",
+      "MOVE_STRANGE_STEAM",
       "MOVE_STRENGTH",
       "MOVE_SUPERSONIC",
       "MOVE_SUPER_FANG",
@@ -55085,8 +55085,8 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AIR_CUTTER",
+      "MOVE_AQUA_JET",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_BITTER_BLADE",
       "MOVE_BONEMERANG",
@@ -55898,7 +55898,6 @@
       "MOVE_MIST"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_AEROBLAST",
       "MOVE_AURORA_BEAM",
       "MOVE_BODY_PRESS",
@@ -55915,6 +55914,7 @@
       "MOVE_HYPERSPACE_HOLE",
       "MOVE_ICICLE_SPEAR",
       "MOVE_IRON_TAIL",
+      "MOVE_JUDGMENT",
       "MOVE_OVERDRIVE",
       "MOVE_POISON_TAIL",
       "MOVE_POWER_WHIP",
@@ -55976,7 +55976,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACROBATICS",
       "MOVE_ACUPRESSURE",
       "MOVE_AEROBLAST",
@@ -56005,6 +56004,7 @@
       "MOVE_FACADE",
       "MOVE_FALSE_SWIPE",
       "MOVE_FEATHER_DANCE",
+      "MOVE_FEINT",
       "MOVE_FEINT_ATTACK",
       "MOVE_FIERY_DANCE",
       "MOVE_FLOATY_FALL",
@@ -58066,8 +58066,8 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AEROBLAST",
+      "MOVE_ANCIENT_POWER",
       "MOVE_AQUA_CUTTER",
       "MOVE_ASTRAL_BARRAGE",
       "MOVE_BRAVE_BIRD",
@@ -58140,7 +58140,6 @@
       "MOVE_RAGE"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_ATTACK_ORDER",
       "MOVE_CELEBRATE",
       "MOVE_CHLOROBLAST",
@@ -58162,6 +58161,7 @@
       "MOVE_POUND",
       "MOVE_PUNISHMENT",
       "MOVE_ROAR",
+      "MOVE_ROCK_THROW",
       "MOVE_SHELTER",
       "MOVE_SLAM",
       "MOVE_SMELLING_SALTS",
@@ -58245,7 +58245,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ANCIENT_POWER",
       "MOVE_AURORA_BEAM",
       "MOVE_BARB_BARRAGE",
@@ -58299,6 +58298,7 @@
       "MOVE_ROCK_SMASH",
       "MOVE_SECRET_POWER",
       "MOVE_SLAM",
+      "MOVE_SNORE",
       "MOVE_SPITE",
       "MOVE_STEAMROLLER",
       "MOVE_STRENGTH",
@@ -58331,10 +58331,10 @@
       "MOVE_V_CREATE"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_AGILITY",
       "MOVE_BRICK_BREAK",
       "MOVE_BUZZY_BUZZ",
+      "MOVE_CHIP_AWAY",
       "MOVE_CLANGOROUS_SOUL",
       "MOVE_COMBAT_TORQUE",
       "MOVE_DUAL_CHOP",
@@ -61619,8 +61619,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
+      "MOVE_ACID",
       "MOVE_AIR_CUTTER",
       "MOVE_ANCIENT_POWER",
       "MOVE_AQUA_CUTTER",
@@ -61657,6 +61656,7 @@
       "MOVE_LOW_SWEEP",
       "MOVE_LUNAR_DANCE",
       "MOVE_MAGIC_POWDER",
+      "MOVE_MALIGNANT_CHAIN",
       "MOVE_MEGA_PUNCH",
       "MOVE_MIST",
       "MOVE_MISTY_TERRAIN",
@@ -61796,7 +61796,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ABSORB",
       "MOVE_ACUPRESSURE",
       "MOVE_BOLT_BEAK",
@@ -61852,6 +61851,7 @@
       "MOVE_SUNNY_DAY",
       "MOVE_SUPERPOWER",
       "MOVE_SURF",
+      "MOVE_SURGING_STRIKES",
       "MOVE_SWORDS_DANCE",
       "MOVE_TAILWIND",
       "MOVE_TEMPER_FLARE",
@@ -63278,7 +63278,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AEROBLAST",
       "MOVE_ANCHOR_SHOT",
       "MOVE_ASSIST",
@@ -63330,6 +63329,7 @@
       "MOVE_MIMIC",
       "MOVE_MIRROR_COAT",
       "MOVE_MIST_BALL",
+      "MOVE_MYSTICAL_POWER",
       "MOVE_NEEDLE_ARM",
       "MOVE_NIGHTMARE",
       "MOVE_NIGHT_SLASH",
@@ -63689,9 +63689,9 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AERIAL_ACE",
       "MOVE_BARRAGE",
+      "MOVE_BONEMERANG",
       "MOVE_BOUNCY_BUBBLE",
       "MOVE_CLAMP",
       "MOVE_CUT",
@@ -63838,7 +63838,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AQUA_JET",
       "MOVE_AQUA_TAIL",
       "MOVE_ATTACK_ORDER",
@@ -63866,6 +63865,7 @@
       "MOVE_EARTH_POWER",
       "MOVE_EMBARGO",
       "MOVE_EXPANDING_FORCE",
+      "MOVE_FICKLE_BEAM",
       "MOVE_FISSURE",
       "MOVE_FLEUR_CANNON",
       "MOVE_FLING",
@@ -64038,7 +64038,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AIR_SLASH",
       "MOVE_AURA_WHEEL",
       "MOVE_AURORA_BEAM",
@@ -64046,6 +64045,7 @@
       "MOVE_BIDE",
       "MOVE_BITE",
       "MOVE_BONE_CLUB",
+      "MOVE_BONE_RUSH",
       "MOVE_BRAVE_BIRD",
       "MOVE_BREAKING_SWIPE",
       "MOVE_BUG_BUZZ",
@@ -64673,12 +64673,12 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACCELEROCK",
       "MOVE_AERIAL_ACE",
       "MOVE_ANCIENT_POWER",
       "MOVE_AQUA_JET",
       "MOVE_BARRAGE",
+      "MOVE_BIDE",
       "MOVE_BODY_SLAM",
       "MOVE_BONEMERANG",
       "MOVE_BRAVE_BIRD",
@@ -64774,7 +64774,7 @@
       "MOVE_AURA_WHEEL"
     ],
     "TutorMoves": [
-      "MOVE_469",
+      "MOVE_BLEAKWIND_STORM",
       "MOVE_BULLDOZE",
       "MOVE_CLANGING_SCALES",
       "MOVE_CRABHAMMER",
@@ -64869,8 +64869,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
-      "MOVE_470",
+      "MOVE_ACROBATICS",
       "MOVE_ACUPRESSURE",
       "MOVE_AERIAL_ACE",
       "MOVE_AQUA_JET",
@@ -64886,6 +64885,7 @@
       "MOVE_CLOSE_COMBAT",
       "MOVE_CONSTRICT",
       "MOVE_CONVERSION_2",
+      "MOVE_CORE_ENFORCER",
       "MOVE_COUNTER",
       "MOVE_CUT",
       "MOVE_DISARMING_VOICE",
@@ -66595,7 +66595,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AEROBLAST",
       "MOVE_AQUA_STEP",
       "MOVE_ASTRAL_BARRAGE",
@@ -66638,6 +66637,7 @@
       "MOVE_INFERNAL_PARADE",
       "MOVE_MAGNET_BOMB",
       "MOVE_MORNING_SUN",
+      "MOVE_MYSTICAL_POWER",
       "MOVE_ODOR_SLEUTH",
       "MOVE_OMINOUS_WIND",
       "MOVE_PHOTON_GEYSER",
@@ -66796,7 +66796,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ABSORB",
       "MOVE_ACID_ARMOR",
       "MOVE_ARMOR_CANNON",
@@ -66849,6 +66848,7 @@
       "MOVE_OMINOUS_WIND",
       "MOVE_PETAL_DANCE",
       "MOVE_POWER_WHIP",
+      "MOVE_PSYBLADE",
       "MOVE_PSYCHIC",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_PSYCHIC_NOISE",
@@ -66890,7 +66890,6 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_AFTER_YOU",
       "MOVE_BITTER_MALICE",
       "MOVE_BOLT_BEAK",
@@ -66909,6 +66908,7 @@
       "MOVE_OCTAZOOKA",
       "MOVE_PETAL_DANCE",
       "MOVE_PHOTON_GEYSER",
+      "MOVE_PRECIPICE_BLADES",
       "MOVE_RAGING_FURY",
       "MOVE_ROAR_OF_TIME",
       "MOVE_SKULL_BASH",
@@ -67060,7 +67060,6 @@
       "MOVE_HEAD_SMASH"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_AQUA_JET",
       "MOVE_AURA_WHEEL",
       "MOVE_BONEMERANG",
@@ -67073,6 +67072,7 @@
       "MOVE_PLUCK",
       "MOVE_POWER_SPLIT",
       "MOVE_RAPID_SPIN",
+      "MOVE_ROLLOUT",
       "MOVE_SANDSEAR_STORM",
       "MOVE_TACKLE",
       "MOVE_TAIL_SLAP",
@@ -70000,7 +70000,6 @@
       "MOVE_FORESIGHT"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_AROMATHERAPY",
       "MOVE_BITTER_MALICE",
       "MOVE_CAMOUFLAGE",
@@ -70008,6 +70007,7 @@
       "MOVE_DRACO_METEOR",
       "MOVE_FAKE_OUT",
       "MOVE_GLITZY_GLOW",
+      "MOVE_ICICLE_CRASH",
       "MOVE_JAW_LOCK",
       "MOVE_MISTY_EXPLOSION",
       "MOVE_PRECIPICE_BLADES",
@@ -72121,13 +72121,13 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ABSORB",
       "MOVE_ACID",
       "MOVE_ANCHOR_SHOT",
       "MOVE_APPLE_ACID",
       "MOVE_ASSIST",
       "MOVE_ATTRACT",
+      "MOVE_BEHEMOTH_BASH",
       "MOVE_BIND",
       "MOVE_BONEMERANG",
       "MOVE_BUG_BITE",
@@ -73256,7 +73256,6 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_BATON_PASS",
       "MOVE_BULLET_SEED",
       "MOVE_CHATTER",
@@ -73266,6 +73265,7 @@
       "MOVE_FLAME_BURST",
       "MOVE_FLIP_TURN",
       "MOVE_GRASS_WHISTLE",
+      "MOVE_HEART_STAMP",
       "MOVE_HOWL",
       "MOVE_HURRICANE",
       "MOVE_HYDRO_STEAM",
@@ -73353,7 +73353,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_SPRAY",
       "MOVE_AROMATHERAPY",
       "MOVE_BEHEMOTH_BASH",
@@ -73384,6 +73383,7 @@
       "MOVE_HEAT_CRASH",
       "MOVE_HIGH_HORSEPOWER",
       "MOVE_HORN_DRILL",
+      "MOVE_HYDRO_STEAM",
       "MOVE_HYPER_DRILL",
       "MOVE_ICICLE_SPEAR",
       "MOVE_INFERNO",
@@ -73922,7 +73922,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ABSORB",
       "MOVE_ANCIENT_POWER",
       "MOVE_AURA_SPHERE",
@@ -74017,6 +74016,7 @@
       "MOVE_STRENGTH",
       "MOVE_STRUGGLE_BUG",
       "MOVE_SUBMISSION",
+      "MOVE_SUNSTEEL_STRIKE",
       "MOVE_SURF",
       "MOVE_TEMPER_FLARE",
       "MOVE_TERRAIN_PULSE",
@@ -74565,7 +74565,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AFTER_YOU",
       "MOVE_APPLE_ACID",
       "MOVE_AQUA_CUTTER",
@@ -74624,6 +74623,7 @@
       "MOVE_MOONBLAST",
       "MOVE_MUD_SLAP",
       "MOVE_MULTI_ATTACK",
+      "MOVE_MYSTICAL_POWER",
       "MOVE_OBSTRUCT",
       "MOVE_OVERDRIVE",
       "MOVE_PAYBACK",
@@ -75133,7 +75133,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AEROBLAST",
       "MOVE_BADDY_BAD",
       "MOVE_BARRIER",
@@ -75208,6 +75207,7 @@
       "MOVE_THIEF",
       "MOVE_THUNDER",
       "MOVE_TOXIC",
+      "MOVE_TRAILBLAZE",
       "MOVE_TRANSFORM",
       "MOVE_TRUMP_CARD",
       "MOVE_WATERFALL",
@@ -76270,9 +76270,8 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_ABSORB",
+      "MOVE_AQUA_JET",
       "MOVE_ATTACK_ORDER",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_BEHEMOTH_BASH",
@@ -76312,6 +76311,7 @@
       "MOVE_MORNING_SUN",
       "MOVE_MUDDY_WATER",
       "MOVE_NIGHT_DAZE",
+      "MOVE_ORIGIN_PULSE",
       "MOVE_PETAL_DANCE",
       "MOVE_POWER_SHIFT",
       "MOVE_PROTECT",
@@ -76950,7 +76950,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AERIAL_ACE",
       "MOVE_ANCIENT_POWER",
       "MOVE_AURA_WHEEL",
@@ -77004,6 +77003,7 @@
       "MOVE_NIGHT_DAZE",
       "MOVE_PLUCK",
       "MOVE_POUND",
+      "MOVE_RETALIATE",
       "MOVE_RETURN",
       "MOVE_ROAR_OF_TIME",
       "MOVE_ROCK_CLIMB",
@@ -77813,7 +77813,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AGILITY",
       "MOVE_BABY_DOLL_EYES",
       "MOVE_BLUE_FLARE",
@@ -77832,6 +77831,7 @@
       "MOVE_EARTHQUAKE",
       "MOVE_ELECTROWEB",
       "MOVE_ELECTRO_BALL",
+      "MOVE_ELECTRO_SHOT",
       "MOVE_FILLET_AWAY",
       "MOVE_FLY",
       "MOVE_FOCUS_BLAST",
@@ -81735,7 +81735,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID_SPRAY",
       "MOVE_AFTER_YOU",
       "MOVE_ASSIST",
@@ -81770,6 +81769,7 @@
       "MOVE_HEAL_BELL",
       "MOVE_HEAT_CRASH",
       "MOVE_HIDDEN_POWER",
+      "MOVE_HORN_ATTACK",
       "MOVE_HOWL",
       "MOVE_HYPERSPACE_HOLE",
       "MOVE_HYPER_BEAM",
@@ -81945,8 +81945,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
-      "MOVE_470",
       "MOVE_ACID",
       "MOVE_ACROBATICS",
       "MOVE_AGILITY",
@@ -81957,6 +81955,7 @@
       "MOVE_ASTRAL_BARRAGE",
       "MOVE_ATTRACT",
       "MOVE_BATON_PASS",
+      "MOVE_BITTER_MALICE",
       "MOVE_BLAZE_KICK",
       "MOVE_BLEAKWIND_STORM",
       "MOVE_BOLT_BEAK",
@@ -82021,6 +82020,7 @@
       "MOVE_SNAP_TRAP",
       "MOVE_SNIPE_SHOT",
       "MOVE_SPARKLING_ARIA",
+      "MOVE_SPECTRAL_THIEF",
       "MOVE_STRENGTH",
       "MOVE_STRING_SHOT",
       "MOVE_SURF",
@@ -85091,12 +85091,12 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACROBATICS",
       "MOVE_AIR_CUTTER",
       "MOVE_AIR_SLASH",
       "MOVE_AMNESIA",
       "MOVE_ARMOR_CANNON",
+      "MOVE_ARM_THRUST",
       "MOVE_AURA_SPHERE",
       "MOVE_BELCH",
       "MOVE_BELLY_DRUM",
@@ -85315,7 +85315,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_ARMOR",
       "MOVE_ATTRACT",
       "MOVE_AURA_SPHERE",
@@ -85345,6 +85344,7 @@
       "MOVE_DRACO_METEOR",
       "MOVE_DRAGON_RUSH",
       "MOVE_DRAGON_TAIL",
+      "MOVE_DYNAMIC_PUNCH",
       "MOVE_ELECTRIC_TERRAIN",
       "MOVE_ELECTRO_DRIFT",
       "MOVE_ENDEAVOR",
@@ -86233,7 +86233,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AURA_SPHERE",
       "MOVE_BEHEMOTH_BLADE",
       "MOVE_BITTER_MALICE",
@@ -86331,6 +86330,7 @@
       "MOVE_THROAT_CHOP",
       "MOVE_TOXIC",
       "MOVE_VACUUM_WAVE",
+      "MOVE_VITAL_THROW",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
       "MOVE_WICKED_BLOW",
@@ -86433,7 +86433,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_ARMOR",
       "MOVE_ACROBATICS",
       "MOVE_AGILITY",
@@ -86537,6 +86536,7 @@
       "MOVE_TAILWIND",
       "MOVE_THOUSAND_WAVES",
       "MOVE_THUNDERBOLT",
+      "MOVE_THUNDEROUS_KICK",
       "MOVE_THUNDER_WAVE",
       "MOVE_UPPER_HAND",
       "MOVE_UPROAR",
@@ -88578,8 +88578,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
       "MOVE_AQUA_CUTTER",
       "MOVE_ATTRACT",
       "MOVE_AURA_WHEEL",
@@ -88623,6 +88621,7 @@
       "MOVE_MATCHA_GOTCHA",
       "MOVE_METEOR_BEAM",
       "MOVE_NATURE_POWER",
+      "MOVE_OVERDRIVE",
       "MOVE_OVERHEAT",
       "MOVE_PAIN_SPLIT",
       "MOVE_PECK",
@@ -88661,6 +88660,7 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_WAVE",
       "MOVE_TRICK_ROOM",
+      "MOVE_VOLT_TACKLE",
       "MOVE_V_CREATE",
       "MOVE_WATERFALL",
       "MOVE_WATER_SHURIKEN",
@@ -89624,7 +89624,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AERIAL_ACE",
       "MOVE_AEROBLAST",
       "MOVE_AIR_SLASH",
@@ -89654,6 +89653,7 @@
       "MOVE_HIDDEN_POWER",
       "MOVE_ICE_BEAM",
       "MOVE_ICE_BURN",
+      "MOVE_ICE_FANG",
       "MOVE_ICICLE_SPEAR",
       "MOVE_JUMP_KICK",
       "MOVE_LAVA_PLUME",
@@ -89796,13 +89796,12 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_ACUPRESSURE",
       "MOVE_AERIAL_ACE",
       "MOVE_AEROBLAST",
       "MOVE_AQUA_JET",
       "MOVE_AQUA_TAIL",
+      "MOVE_BEAK_BLAST",
       "MOVE_BEAT_UP",
       "MOVE_BLOCK",
       "MOVE_BLUE_FLARE",
@@ -89860,6 +89859,7 @@
       "MOVE_MOONBLAST",
       "MOVE_MORNING_SUN",
       "MOVE_MUD_SHOT",
+      "MOVE_MUD_SLAP",
       "MOVE_PETAL_DANCE",
       "MOVE_PLUCK",
       "MOVE_POWER_GEM",
@@ -90901,13 +90901,12 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
       "MOVE_AIR_SLASH",
       "MOVE_APPLE_ACID",
       "MOVE_AQUA_CUTTER",
       "MOVE_ARM_THRUST",
       "MOVE_ASSIST",
+      "MOVE_ASTRAL_BARRAGE",
       "MOVE_AURA_SPHERE",
       "MOVE_BABY_DOLL_EYES",
       "MOVE_BODY_SLAM",
@@ -90959,6 +90958,7 @@
       "MOVE_MUD_SLAP",
       "MOVE_NATURES_MADNESS",
       "MOVE_NEEDLE_ARM",
+      "MOVE_NIGHT_SHADE",
       "MOVE_NIGHT_SLASH",
       "MOVE_PECK",
       "MOVE_PETAL_BLIZZARD",
@@ -91749,12 +91749,12 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_BLAZE_KICK",
       "MOVE_BODY_PRESS",
       "MOVE_BOLT_STRIKE",
       "MOVE_FOCUS_PUNCH",
       "MOVE_FRUSTRATION",
+      "MOVE_HEART_STAMP",
       "MOVE_HIDDEN_POWER",
       "MOVE_LAST_RESORT",
       "MOVE_LUCKY_CHANT",
@@ -92030,7 +92030,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ABSORB",
       "MOVE_ACROBATICS",
       "MOVE_ARMOR_CANNON",
@@ -92089,6 +92088,7 @@
       "MOVE_LIFE_DEW",
       "MOVE_MAT_BLOCK",
       "MOVE_ME_FIRST",
+      "MOVE_MIRROR_SHOT",
       "MOVE_MIST",
       "MOVE_MUDDY_WATER",
       "MOVE_MYSTICAL_FIRE",
@@ -92314,13 +92314,13 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_AEROBLAST",
       "MOVE_AMNESIA",
       "MOVE_ASTONISH",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_DARK_PULSE",
       "MOVE_DRACO_METEOR",
+      "MOVE_DYNAMAX_CANNON",
       "MOVE_FREEZING_GLARE",
       "MOVE_FUTURE_SIGHT",
       "MOVE_GLITZY_GLOW",
@@ -92399,7 +92399,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AGILITY",
       "MOVE_ANCIENT_POWER",
       "MOVE_APPLE_ACID",
@@ -92480,6 +92479,7 @@
       "MOVE_ROLLING_KICK",
       "MOVE_ROOST",
       "MOVE_SHEER_COLD",
+      "MOVE_SIZZLY_SLIDE",
       "MOVE_STEAM_ERUPTION",
       "MOVE_STEEL_BEAM",
       "MOVE_STEEL_WING",
@@ -92766,7 +92766,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AEROBLAST",
       "MOVE_AQUA_RING",
       "MOVE_ASSIST",
@@ -92812,6 +92811,7 @@
       "MOVE_KINGS_SHIELD",
       "MOVE_KNOCK_OFF",
       "MOVE_LASH_OUT",
+      "MOVE_LAST_RESPECTS",
       "MOVE_LUMINA_CRASH",
       "MOVE_MEAN_LOOK",
       "MOVE_METAL_BURST",
@@ -93253,7 +93253,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AEROBLAST",
       "MOVE_AFTER_YOU",
       "MOVE_AGILITY",
@@ -93263,6 +93262,7 @@
       "MOVE_BOLT_BEAK",
       "MOVE_BOLT_STRIKE",
       "MOVE_BULLET_SEED",
+      "MOVE_CLAMP",
       "MOVE_COSMIC_POWER",
       "MOVE_CROSS_POISON",
       "MOVE_CUT",
@@ -93401,7 +93401,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ASTONISH",
       "MOVE_ASTRAL_BARRAGE",
       "MOVE_AURORA_BEAM",
@@ -93427,6 +93426,7 @@
       "MOVE_ELECTRO_SHOT",
       "MOVE_FALSE_SWIPE",
       "MOVE_FEATHER_DANCE",
+      "MOVE_FIERY_WRATH",
       "MOVE_FLAME_WHEEL",
       "MOVE_FLATTER",
       "MOVE_FLING",
@@ -93873,7 +93873,7 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_470",
+      "MOVE_BLOOD_MOON",
       "MOVE_BREAKING_SWIPE",
       "MOVE_CLAMP",
       "MOVE_DIZZY_PUNCH",
@@ -93993,7 +93993,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_ANCHOR_SHOT",
       "MOVE_BEHEMOTH_BASH",
@@ -94026,6 +94025,7 @@
       "MOVE_LOVELY_KISS",
       "MOVE_LUNGE",
       "MOVE_MAGMA_STORM",
+      "MOVE_MAGNITUDE",
       "MOVE_MEGAHORN",
       "MOVE_MIST_BALL",
       "MOVE_POLLEN_PUFF",
@@ -96468,7 +96468,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ASSIST",
       "MOVE_ASSURANCE",
       "MOVE_AURA_SPHERE",
@@ -96510,6 +96509,7 @@
       "MOVE_MUDDY_WATER",
       "MOVE_NIGHT_SHADE",
       "MOVE_NIGHT_SLASH",
+      "MOVE_OCTAZOOKA",
       "MOVE_PSYCHIC",
       "MOVE_RETALIATE",
       "MOVE_RETURN",
@@ -96707,7 +96707,6 @@
       "MOVE_FLIP_TURN"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_AGILITY",
       "MOVE_FORESIGHT",
       "MOVE_GYRO_BALL",
@@ -96715,6 +96714,7 @@
       "MOVE_IVY_CUDGEL",
       "MOVE_MUD_BOMB",
       "MOVE_SPIKY_SHIELD",
+      "MOVE_STEAM_ERUPTION",
       "MOVE_WAKE_UP_SLAP"
     ]
   },
@@ -97778,10 +97778,10 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AVALANCHE",
       "MOVE_BLAZING_TORQUE",
       "MOVE_BRICK_BREAK",
+      "MOVE_BRUTAL_SWING",
       "MOVE_BUBBLE",
       "MOVE_BULLET_SEED",
       "MOVE_CAPTIVATE",
@@ -98244,7 +98244,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_BARRIER",
       "MOVE_BEAT_UP",
       "MOVE_BIND",
@@ -98252,6 +98251,7 @@
       "MOVE_BUBBLE",
       "MOVE_BULLET_SEED",
       "MOVE_CELEBRATE",
+      "MOVE_CHLOROBLAST",
       "MOVE_COMBAT_TORQUE",
       "MOVE_COTTON_SPORE",
       "MOVE_CRUSH_CLAW",
@@ -99190,7 +99190,7 @@
       },
       {
         "Level": 27,
-        "Move": "MOVE_SHATTERED_PSYCHE_SPECIAL"
+        "Move": "MOVE_PSYWAVE"
       },
       {
         "Level": 29,
@@ -99816,7 +99816,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_APPLE_ACID",
       "MOVE_ASSIST",
       "MOVE_AURORA_BEAM",
@@ -99872,6 +99871,7 @@
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
       "MOVE_TRAILBLAZE",
+      "MOVE_VOLT_TACKLE",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
       "MOVE_WILD_CHARGE"
@@ -100844,7 +100844,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID",
       "MOVE_AURA_WHEEL",
       "MOVE_BEHEMOTH_BLADE",
@@ -100903,6 +100902,7 @@
       "MOVE_SURF",
       "MOVE_TAIL_SLAP",
       "MOVE_TAKE_DOWN",
+      "MOVE_THOUSAND_WAVES",
       "MOVE_THUNDER_CAGE",
       "MOVE_TIDY_UP",
       "MOVE_TRIPLE_KICK",
@@ -101080,13 +101080,13 @@
       "MOVE_ZING_ZAP"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_BODY_PRESS",
       "MOVE_DARKEST_LARIAT",
       "MOVE_ENTRAINMENT",
       "MOVE_HEX",
       "MOVE_ICE_BEAM",
       "MOVE_MEGA_KICK",
+      "MOVE_MUD_BOMB",
       "MOVE_PSYCHO_CUT",
       "MOVE_STONE_EDGE",
       "MOVE_TRAILBLAZE"
@@ -101978,10 +101978,10 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AFTER_YOU",
       "MOVE_AIR_CUTTER",
       "MOVE_AMNESIA",
+      "MOVE_BONEMERANG",
       "MOVE_BRINE",
       "MOVE_CHIP_AWAY",
       "MOVE_CHLOROBLAST",
@@ -102451,7 +102451,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACROBATICS",
       "MOVE_ACUPRESSURE",
       "MOVE_AIR_SLASH",
@@ -102506,6 +102505,7 @@
       "MOVE_SKULL_BASH",
       "MOVE_SOLAR_BLADE",
       "MOVE_SPITE",
+      "MOVE_STORM_THROW",
       "MOVE_STRENGTH",
       "MOVE_SUPERPOWER",
       "MOVE_SURF",
@@ -103247,10 +103247,10 @@
       "MOVE_BONE_CLUB"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_BLUE_FLARE",
       "MOVE_BULK_UP",
       "MOVE_DRACO_METEOR",
+      "MOVE_MALIGNANT_CHAIN",
       "MOVE_SEED_FLARE",
       "MOVE_SMELLING_SALTS",
       "MOVE_TAKE_HEART",
@@ -103325,7 +103325,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AFTER_YOU",
       "MOVE_AQUA_JET",
       "MOVE_BEHEMOTH_BASH",
@@ -103369,6 +103368,7 @@
       "MOVE_PAIN_SPLIT",
       "MOVE_PLAY_ROUGH",
       "MOVE_POISON_JAB",
+      "MOVE_POISON_TAIL",
       "MOVE_POLLEN_PUFF",
       "MOVE_PRISMATIC_LASER",
       "MOVE_PSYCHIC_NOISE",
@@ -104486,7 +104486,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACROBATICS",
       "MOVE_AEROBLAST",
       "MOVE_AIR_CUTTER",
@@ -104518,6 +104517,7 @@
       "MOVE_EXTRASENSORY",
       "MOVE_FACADE",
       "MOVE_FAKE_TEARS",
+      "MOVE_FIERY_WRATH",
       "MOVE_FIRE_BLAST",
       "MOVE_FISHIOUS_REND",
       "MOVE_FLAMETHROWER",
@@ -104893,7 +104893,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AEROBLAST",
       "MOVE_AMNESIA",
       "MOVE_ARMOR_CANNON",
@@ -104912,6 +104911,7 @@
       "MOVE_DRAGON_DANCE",
       "MOVE_DRAGON_PULSE",
       "MOVE_DRAINING_KISS",
+      "MOVE_ERUPTION",
       "MOVE_EXTREME_SPEED",
       "MOVE_FICKLE_BEAM",
       "MOVE_FIRE_BLAST",
@@ -105052,8 +105052,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
-      "MOVE_470",
       "MOVE_ABSORB",
       "MOVE_ANCHOR_SHOT",
       "MOVE_ANCIENT_POWER",
@@ -105101,6 +105099,7 @@
       "MOVE_LOCK_ON",
       "MOVE_LUNAR_DANCE",
       "MOVE_MIGHTY_CLEAVE",
+      "MOVE_MYSTICAL_FIRE",
       "MOVE_OMINOUS_WIND",
       "MOVE_OVERHEAT",
       "MOVE_PAYBACK",
@@ -105137,6 +105136,7 @@
       "MOVE_TEMPER_FLARE",
       "MOVE_TRIPLE_AXEL",
       "MOVE_VENOM_DRENCH",
+      "MOVE_V_CREATE",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL"
     ],
@@ -105149,12 +105149,12 @@
       "MOVE_SPORE"
     ],
     "TutorMoves": [
-      "MOVE_469",
       "MOVE_BARRAGE",
       "MOVE_BEHEMOTH_BLADE",
       "MOVE_DARKEST_LARIAT",
       "MOVE_DEFENSE_CURL",
       "MOVE_EARTH_POWER",
+      "MOVE_FUSION_FLARE",
       "MOVE_HEART_SWAP",
       "MOVE_HYPER_BEAM",
       "MOVE_ICE_BURN",
@@ -105535,7 +105535,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
+      "MOVE_ACCELEROCK",
       "MOVE_ANCIENT_POWER",
       "MOVE_ATTACK_ORDER",
       "MOVE_BUG_BITE",
@@ -105694,7 +105694,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACROBATICS",
       "MOVE_ANCHOR_SHOT",
       "MOVE_ARM_THRUST",
@@ -105802,7 +105801,8 @@
       "MOVE_VACUUM_WAVE",
       "MOVE_WATERFALL",
       "MOVE_WATER_SPOUT",
-      "MOVE_WHIRLPOOL"
+      "MOVE_WHIRLPOOL",
+      "MOVE_WICKED_BLOW"
     ],
     "EggMoves": [
       "MOVE_MEMENTO",
@@ -105899,7 +105899,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AQUA_STEP",
       "MOVE_AURA_SPHERE",
       "MOVE_BATON_PASS",
@@ -106015,6 +106014,7 @@
       "MOVE_WATERFALL",
       "MOVE_WAVE_CRASH",
       "MOVE_WHIRLPOOL",
+      "MOVE_WICKED_BLOW",
       "MOVE_ZEN_HEADBUTT"
     ],
     "EggMoves": [
@@ -106452,7 +106452,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACUPRESSURE",
       "MOVE_ASTRAL_BARRAGE",
       "MOVE_BRICK_BREAK",
@@ -106501,6 +106500,7 @@
       "MOVE_SAND_ATTACK",
       "MOVE_SHADOW_BALL",
       "MOVE_SHADOW_CLAW",
+      "MOVE_SHADOW_FORCE",
       "MOVE_SPIRIT_SHACKLE",
       "MOVE_STONE_AXE",
       "MOVE_STORED_POWER",
@@ -106699,12 +106699,12 @@
       "MOVE_BARB_BARRAGE"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_AQUA_TAIL",
       "MOVE_BRUTAL_SWING",
       "MOVE_CONFUSE_RAY",
       "MOVE_EARTHQUAKE",
       "MOVE_FORESTS_CURSE",
+      "MOVE_ORIGIN_PULSE",
       "MOVE_PLUCK",
       "MOVE_SAND_ATTACK",
       "MOVE_SAPPY_SEED",
@@ -108146,7 +108146,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AFTER_YOU",
       "MOVE_APPLE_ACID",
       "MOVE_AQUA_CUTTER",
@@ -108162,6 +108161,7 @@
       "MOVE_CUT",
       "MOVE_DIVE",
       "MOVE_DOUBLE_EDGE",
+      "MOVE_DOUBLE_HIT",
       "MOVE_DRUM_BEATING",
       "MOVE_ENDEAVOR",
       "MOVE_ENERGY_BALL",
@@ -108850,7 +108850,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID",
       "MOVE_AIR_SLASH",
       "MOVE_AQUA_CUTTER",
@@ -108869,6 +108868,7 @@
       "MOVE_DISCHARGE",
       "MOVE_DIVE",
       "MOVE_DREAM_EATER",
+      "MOVE_EERIE_SPELL",
       "MOVE_EMBER",
       "MOVE_EXPANDING_FORCE",
       "MOVE_FIRE_BLAST",
@@ -110256,7 +110256,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AERIAL_ACE",
       "MOVE_AQUA_JET",
       "MOVE_AQUA_RING",
@@ -110337,6 +110336,7 @@
       "MOVE_SOFT_BOILED",
       "MOVE_SOLAR_BEAM",
       "MOVE_SPACIAL_REND",
+      "MOVE_SPIKE_CANNON",
       "MOVE_SPOTLIGHT",
       "MOVE_STEAMROLLER",
       "MOVE_STEAM_ERUPTION",
@@ -110436,7 +110436,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_SPRAY",
       "MOVE_AERIAL_ACE",
       "MOVE_AQUA_RING",
@@ -110491,6 +110490,7 @@
       "MOVE_SYNTHESIS",
       "MOVE_THUNDER",
       "MOVE_THUNDERBOLT",
+      "MOVE_THUNDER_PUNCH",
       "MOVE_TRANSFORM",
       "MOVE_VOLT_TACKLE",
       "MOVE_WATERFALL",
@@ -111403,7 +111403,6 @@
       "MOVE_STOMP"
     ],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_CEASELESS_EDGE",
       "MOVE_DRAGON_RUSH",
       "MOVE_EARTHQUAKE",
@@ -111414,7 +111413,8 @@
       "MOVE_SKILL_SWAP",
       "MOVE_SMELLING_SALTS",
       "MOVE_SWORDS_DANCE",
-      "MOVE_TRIPLE_KICK"
+      "MOVE_TRIPLE_KICK",
+      "MOVE_WATER_GUN"
     ]
   },
   "SPECIES_ALOMOMOLA": {
@@ -111481,9 +111481,9 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_SPRAY",
       "MOVE_AMNESIA",
+      "MOVE_AQUA_CUTTER",
       "MOVE_BLUE_FLARE",
       "MOVE_BRAVE_BIRD",
       "MOVE_BRINE",
@@ -112396,7 +112396,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_BLEAKWIND_STORM",
       "MOVE_BOUNCY_BUBBLE",
       "MOVE_COTTON_GUARD",
@@ -112431,6 +112430,7 @@
       "MOVE_STRENGTH",
       "MOVE_SUPERCELL_SLAM",
       "MOVE_SURF",
+      "MOVE_TACHYON_CUTTER",
       "MOVE_THUNDEROUS_KICK",
       "MOVE_TORCH_SONG",
       "MOVE_TRIPLE_KICK",
@@ -112533,7 +112533,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AIR_CUTTER",
       "MOVE_ARMOR_CANNON",
       "MOVE_ATTRACT",
@@ -112545,6 +112544,7 @@
       "MOVE_CUT",
       "MOVE_DARK_PULSE",
       "MOVE_DIVE",
+      "MOVE_DOUBLE_IRON_BASH",
       "MOVE_DRAGON_BREATH",
       "MOVE_DRILL_RUN",
       "MOVE_EXTRASENSORY",
@@ -113063,7 +113063,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AROMATHERAPY",
       "MOVE_CHARGE_BEAM",
       "MOVE_CHARM",
@@ -113107,6 +113106,7 @@
       "MOVE_PSYCHIC_FANGS",
       "MOVE_PSYCHIC_NOISE",
       "MOVE_PSYCHIC_TERRAIN",
+      "MOVE_PSYCHO_CUT",
       "MOVE_PSYSHOCK",
       "MOVE_RAPID_SPIN",
       "MOVE_ROCK_CLIMB",
@@ -113225,7 +113225,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AERIAL_ACE",
       "MOVE_BLIZZARD",
       "MOVE_BODY_PRESS",
@@ -113252,6 +113251,7 @@
       "MOVE_ICE_SHARD",
       "MOVE_KARATE_CHOP",
       "MOVE_LEECH_SEED",
+      "MOVE_LUSTER_PURGE",
       "MOVE_MAGIC_COAT",
       "MOVE_MINIMIZE",
       "MOVE_ORIGIN_PULSE",
@@ -113669,7 +113669,7 @@
       },
       {
         "Level": 4,
-        "Move": "MOVE_MENACING_MOONRAZE_MAELSTROM"
+        "Move": "MOVE_BLUE_FLARE"
       },
       {
         "Level": 6,
@@ -113741,7 +113741,7 @@
       },
       {
         "Level": 50,
-        "Move": "MOVE_MAX_GUARD"
+        "Move": "MOVE_SHADOW_SNEAK"
       },
       {
         "Level": 52,
@@ -115443,7 +115443,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AQUA_RING",
       "MOVE_ASSIST",
       "MOVE_AURA_SPHERE",
@@ -115499,6 +115498,7 @@
       "MOVE_PLAY_ROUGH",
       "MOVE_QUICK_GUARD",
       "MOVE_RAIN_DANCE",
+      "MOVE_REVENGE",
       "MOVE_REVERSAL",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
@@ -116517,7 +116517,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_SPRAY",
       "MOVE_ACROBATICS",
       "MOVE_AEROBLAST",
@@ -116581,6 +116580,7 @@
       "MOVE_PLASMA_FISTS",
       "MOVE_POISON_POWDER",
       "MOVE_POLTERGEIST",
+      "MOVE_POWER_TRIP",
       "MOVE_POWER_WHIP",
       "MOVE_PSYCHO_BOOST",
       "MOVE_RAIN_DANCE",
@@ -116689,7 +116689,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_ASSIST",
       "MOVE_BARB_BARRAGE",
@@ -116747,6 +116746,7 @@
       "MOVE_SHIFT_GEAR",
       "MOVE_SKY_ATTACK",
       "MOVE_SLASH",
+      "MOVE_SONIC_BOOM",
       "MOVE_SPARK",
       "MOVE_STRENGTH",
       "MOVE_SUBMISSION",
@@ -117015,7 +117015,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACCELEROCK",
       "MOVE_AERIAL_ACE",
       "MOVE_ATTACK_ORDER",
@@ -117056,6 +117055,7 @@
       "MOVE_HEAL_ORDER",
       "MOVE_HIDDEN_POWER",
       "MOVE_HONE_CLAWS",
+      "MOVE_HORN_DRILL",
       "MOVE_HOWL",
       "MOVE_HURRICANE",
       "MOVE_HYPER_BEAM",
@@ -119107,9 +119107,9 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACROBATICS",
       "MOVE_AQUA_CUTTER",
+      "MOVE_ARM_THRUST",
       "MOVE_AURA_SPHERE",
       "MOVE_BLAZING_TORQUE",
       "MOVE_BODY_PRESS",
@@ -119834,7 +119834,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACROBATICS",
       "MOVE_ANCIENT_POWER",
       "MOVE_AVALANCHE",
@@ -119928,6 +119927,7 @@
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDERCLAP",
       "MOVE_THUNDEROUS_KICK",
+      "MOVE_THUNDER_CAGE",
       "MOVE_VICE_GRIP",
       "MOVE_VICTORY_DANCE",
       "MOVE_VITAL_THROW",
@@ -120032,7 +120032,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AERIAL_ACE",
       "MOVE_AIR_SLASH",
       "MOVE_AMNESIA",
@@ -120098,6 +120097,7 @@
       "MOVE_SCORCHING_SANDS",
       "MOVE_SCREECH",
       "MOVE_SHIFT_GEAR",
+      "MOVE_SKY_DROP",
       "MOVE_SLUDGE",
       "MOVE_SMART_STRIKE",
       "MOVE_SPARK",
@@ -120373,9 +120373,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
-      "MOVE_470",
       "MOVE_AURA_SPHERE",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_BEAT_UP",
@@ -120389,6 +120386,7 @@
       "MOVE_BULLDOZE",
       "MOVE_BUZZY_BUZZ",
       "MOVE_CHLOROBLAST",
+      "MOVE_CLAMP",
       "MOVE_CLOSE_COMBAT",
       "MOVE_CURSE",
       "MOVE_CUT",
@@ -120439,6 +120437,7 @@
       "MOVE_REVERSAL",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
+      "MOVE_ROLLING_KICK",
       "MOVE_ROOST",
       "MOVE_SEISMIC_TOSS",
       "MOVE_SKETCH",
@@ -120452,6 +120451,7 @@
       "MOVE_SURF",
       "MOVE_SWIFT",
       "MOVE_TAIL_SLAP",
+      "MOVE_THUNDEROUS_KICK",
       "MOVE_TRIPLE_AXEL",
       "MOVE_TRUMP_CARD",
       "MOVE_TWINEEDLE",
@@ -120469,11 +120469,11 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_DISCHARGE",
       "MOVE_FOCUS_ENERGY",
       "MOVE_FRENZY_PLANT",
       "MOVE_GRASS_WHISTLE",
+      "MOVE_HAMMER_ARM",
       "MOVE_ICY_WIND",
       "MOVE_IRON_DEFENSE",
       "MOVE_MAGMA_STORM",
@@ -121260,7 +121260,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
+      "MOVE_ABSORB",
       "MOVE_ACID",
       "MOVE_ACID_SPRAY",
       "MOVE_AERIAL_ACE",
@@ -121864,7 +121864,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACUPRESSURE",
       "MOVE_AFTER_YOU",
       "MOVE_ASTONISH",
@@ -121903,6 +121902,7 @@
       "MOVE_HIGH_JUMP_KICK",
       "MOVE_LAST_RESORT",
       "MOVE_LUMINA_CRASH",
+      "MOVE_MAGMA_STORM",
       "MOVE_METAL_BURST",
       "MOVE_MIRACLE_EYE",
       "MOVE_NATURAL_GIFT",
@@ -122904,7 +122904,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID",
       "MOVE_AEROBLAST",
       "MOVE_AURORA_VEIL",
@@ -122934,6 +122933,7 @@
       "MOVE_GIGA_IMPACT",
       "MOVE_GUARD_SPLIT",
       "MOVE_HIDDEN_POWER",
+      "MOVE_HORN_DRILL",
       "MOVE_HYPER_BEAM",
       "MOVE_HYPER_VOICE",
       "MOVE_ICE_BURN",
@@ -123064,7 +123064,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACCELEROCK",
       "MOVE_ANCHOR_SHOT",
       "MOVE_AQUA_JET",
@@ -123114,6 +123113,7 @@
       "MOVE_HIGH_HORSEPOWER",
       "MOVE_HYPER_BEAM",
       "MOVE_HYPER_VOICE",
+      "MOVE_JUDGMENT",
       "MOVE_LANDS_WRATH",
       "MOVE_LUCKY_CHANT",
       "MOVE_LUMINA_CRASH",
@@ -123705,7 +123705,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_SPECIAL"
+        "Move": "MOVE_FELL_STINGER"
       },
       {
         "Level": 22,
@@ -123717,7 +123717,7 @@
       },
       {
         "Level": 33,
-        "Move": "MOVE_MAX_FLUTTERBY"
+        "Move": "MOVE_STRUGGLE_BUG"
       },
       {
         "Level": 39,
@@ -124158,7 +124158,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AQUA_STEP",
       "MOVE_ASTONISH",
       "MOVE_AURA_WHEEL",
@@ -124197,6 +124196,7 @@
       "MOVE_FRUSTRATION",
       "MOVE_GIGA_DRAIN",
       "MOVE_GIGA_IMPACT",
+      "MOVE_GUILLOTINE",
       "MOVE_HEAD_CHARGE",
       "MOVE_HEAL_BLOCK",
       "MOVE_HEAL_PULSE",
@@ -125462,7 +125462,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_SPRAY",
       "MOVE_AQUA_STEP",
       "MOVE_BANEFUL_BUNKER",
@@ -125489,6 +125488,7 @@
       "MOVE_HYPER_VOICE",
       "MOVE_ICE_BALL",
       "MOVE_ICY_WIND",
+      "MOVE_LAST_RESORT",
       "MOVE_LEER",
       "MOVE_LOW_KICK",
       "MOVE_MEGA_PUNCH",
@@ -126382,7 +126382,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AFTER_YOU",
       "MOVE_ASTONISH",
       "MOVE_AURA_SPHERE",
@@ -126397,6 +126396,7 @@
       "MOVE_DAZZLING_GLEAM",
       "MOVE_DIVE",
       "MOVE_DIZZY_PUNCH",
+      "MOVE_DRAINING_KISS",
       "MOVE_EMBARGO",
       "MOVE_FACADE",
       "MOVE_FIRE_LASH",
@@ -126870,7 +126870,7 @@
       "MOVE_FLORAL_HEALING"
     ],
     "TutorMoves": [
-      "MOVE_468",
+      "MOVE_DISARMING_VOICE",
       "MOVE_FAKE_OUT",
       "MOVE_HOLD_HANDS",
       "MOVE_MUD_BOMB",
@@ -127119,7 +127119,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_SPRAY",
       "MOVE_AMNESIA",
       "MOVE_AQUA_JET",
@@ -127154,6 +127153,7 @@
       "MOVE_EXPANDING_FORCE",
       "MOVE_EXTREME_SPEED",
       "MOVE_FAKE_OUT",
+      "MOVE_FALSE_SURRENDER",
       "MOVE_FIRE_PUNCH",
       "MOVE_FLAME_CHARGE",
       "MOVE_FLATTER",
@@ -127934,7 +127934,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID_ARMOR",
       "MOVE_AIR_CUTTER",
       "MOVE_BABY_DOLL_EYES",
@@ -127984,6 +127983,7 @@
       "MOVE_SLASH",
       "MOVE_SLUDGE_BOMB",
       "MOVE_SMOKESCREEN",
+      "MOVE_SNIPE_SHOT",
       "MOVE_SPLISHY_SPLASH",
       "MOVE_STEEL_WING",
       "MOVE_STRENGTH",
@@ -128360,7 +128360,7 @@
       },
       {
         "Level": 20,
-        "Move": "MOVE_STOKED_SPARKSURFER"
+        "Move": "MOVE_HEAD_CHARGE"
       },
       {
         "Level": 22,
@@ -128372,7 +128372,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_CATASTROPIKA"
+        "Move": "MOVE_THUNDER_CAGE"
       },
       {
         "Level": 31,
@@ -130434,7 +130434,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ALLURING_VOICE",
       "MOVE_BESTOW",
       "MOVE_BIDE",
@@ -130471,6 +130470,7 @@
       "MOVE_MUD_SLAP",
       "MOVE_MYSTICAL_POWER",
       "MOVE_NATURAL_GIFT",
+      "MOVE_NATURES_MADNESS",
       "MOVE_OBSTRUCT",
       "MOVE_PHANTOM_FORCE",
       "MOVE_PLAY_ROUGH",
@@ -130761,7 +130761,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACUPRESSURE",
       "MOVE_APPLE_ACID",
       "MOVE_AQUA_CUTTER",
@@ -130803,6 +130802,7 @@
       "MOVE_IMPRISON",
       "MOVE_JAW_LOCK",
       "MOVE_KINESIS",
+      "MOVE_LAST_RESPECTS",
       "MOVE_LEAF_BLADE",
       "MOVE_LEAF_STORM",
       "MOVE_MAGICAL_LEAF",
@@ -131789,7 +131789,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_AERIAL_ACE",
       "MOVE_APPLE_ACID",
@@ -131804,6 +131803,7 @@
       "MOVE_BRANCH_POKE",
       "MOVE_BRAVE_BIRD",
       "MOVE_CELEBRATE",
+      "MOVE_CHATTER",
       "MOVE_CUT",
       "MOVE_DARKEST_LARIAT",
       "MOVE_DEFOG",
@@ -131975,7 +131975,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_APPLE_ACID",
       "MOVE_BUG_BUZZ",
       "MOVE_BURN_UP",
@@ -131993,6 +131992,7 @@
       "MOVE_FIERY_WRATH",
       "MOVE_FIRE_LASH",
       "MOVE_FLASH",
+      "MOVE_FLEUR_CANNON",
       "MOVE_FLOWER_TRICK",
       "MOVE_FLY",
       "MOVE_FOCUS_PUNCH",
@@ -132453,13 +132453,13 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
+      "MOVE_ACCELEROCK",
       "MOVE_ACID_ARMOR",
       "MOVE_ACROBATICS",
       "MOVE_AFTER_YOU",
       "MOVE_AGILITY",
       "MOVE_ALLURING_VOICE",
+      "MOVE_ANCIENT_POWER",
       "MOVE_AQUA_TAIL",
       "MOVE_ASTONISH",
       "MOVE_AURA_SPHERE",
@@ -132640,7 +132640,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AQUA_STEP",
       "MOVE_ATTRACT",
       "MOVE_BEAT_UP",
@@ -132684,6 +132683,7 @@
       "MOVE_HEX",
       "MOVE_INFESTATION",
       "MOVE_KARATE_CHOP",
+      "MOVE_LAST_RESPECTS",
       "MOVE_LEECH_SEED",
       "MOVE_LIGHT_SCREEN",
       "MOVE_LUNAR_DANCE",
@@ -133309,7 +133309,6 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_AEROBLAST",
       "MOVE_BLIZZARD",
@@ -133320,6 +133319,7 @@
       "MOVE_FIERY_WRATH",
       "MOVE_FILLET_AWAY",
       "MOVE_FRUSTRATION",
+      "MOVE_KOWTOW_CLEAVE",
       "MOVE_METEOR_MASH",
       "MOVE_ME_FIRST",
       "MOVE_MIND_READER",
@@ -134226,7 +134226,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AQUA_CUTTER",
       "MOVE_BATON_PASS",
       "MOVE_BEAT_UP",
@@ -134282,6 +134281,7 @@
       "MOVE_KNOCK_OFF",
       "MOVE_LASH_OUT",
       "MOVE_LEAF_STORM",
+      "MOVE_MAGMA_STORM",
       "MOVE_MEMENTO",
       "MOVE_MIMIC",
       "MOVE_MIRACLE_EYE",
@@ -135203,7 +135203,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID_SPRAY",
       "MOVE_ACUPRESSURE",
       "MOVE_AERIAL_ACE",
@@ -135222,6 +135221,7 @@
       "MOVE_DIVE",
       "MOVE_DOUBLE_EDGE",
       "MOVE_DRACO_METEOR",
+      "MOVE_DRILL_PECK",
       "MOVE_DUAL_WINGBEAT",
       "MOVE_EXPLOSION",
       "MOVE_FACADE",
@@ -136574,7 +136574,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACCELEROCK",
       "MOVE_ALLURING_VOICE",
       "MOVE_ANCHOR_SHOT",
@@ -136618,6 +136617,7 @@
       "MOVE_PLAY_ROUGH",
       "MOVE_POISON_FANG",
       "MOVE_POLLEN_PUFF",
+      "MOVE_POUNCE",
       "MOVE_POWDER_SNOW",
       "MOVE_PRESENT",
       "MOVE_PSYCHO_BOOST",
@@ -136964,13 +136964,13 @@
       "MOVE_STONE_EDGE"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_COMBAT_TORQUE",
       "MOVE_FAKE_OUT",
       "MOVE_GIGA_IMPACT",
       "MOVE_IVY_CUDGEL",
       "MOVE_LEER",
       "MOVE_LICK",
+      "MOVE_MIGHTY_CLEAVE",
       "MOVE_MOONBLAST",
       "MOVE_MUDDY_WATER",
       "MOVE_SUPERSONIC",
@@ -137912,13 +137912,13 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_BARRIER",
       "MOVE_BITTER_MALICE",
       "MOVE_BLEAKWIND_STORM",
       "MOVE_BOLT_BEAK",
       "MOVE_BOUNCY_BUBBLE",
       "MOVE_BRINE",
+      "MOVE_BUBBLE",
       "MOVE_BUG_BITE",
       "MOVE_BUG_BUZZ",
       "MOVE_CEASELESS_EDGE",
@@ -138790,7 +138790,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_BLAZE_KICK",
       "MOVE_BURNING_JEALOUSY",
       "MOVE_CEASELESS_EDGE",
@@ -138852,6 +138851,7 @@
       "MOVE_SECRET_SWORD",
       "MOVE_SHARPEN",
       "MOVE_SHEER_COLD",
+      "MOVE_SHELL_TRAP",
       "MOVE_SKY_ATTACK",
       "MOVE_SLEEP_POWDER",
       "MOVE_SLUDGE_BOMB",
@@ -139923,7 +139923,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ANCIENT_POWER",
       "MOVE_AQUA_STEP",
       "MOVE_BADDY_BAD",
@@ -139976,6 +139975,7 @@
       "MOVE_SHADOW_BALL",
       "MOVE_SHADOW_BONE",
       "MOVE_SOLAR_BLADE",
+      "MOVE_SPARKLY_SWIRL",
       "MOVE_SPIKES",
       "MOVE_SPLASH",
       "MOVE_STOCKPILE",
@@ -140275,8 +140275,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_AIR_CUTTER",
       "MOVE_AQUA_CUTTER",
       "MOVE_AQUA_JET",
@@ -140291,6 +140289,7 @@
       "MOVE_CLEAR_SMOG",
       "MOVE_CLOSE_COMBAT",
       "MOVE_COACHING",
+      "MOVE_COMBAT_TORQUE",
       "MOVE_COTTON_GUARD",
       "MOVE_CURSE",
       "MOVE_CUT",
@@ -140338,6 +140337,7 @@
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_POLISH",
       "MOVE_ROCK_SMASH",
+      "MOVE_ROLLING_KICK",
       "MOVE_RUINATION",
       "MOVE_SIGNAL_BEAM",
       "MOVE_SKETCH",
@@ -140410,11 +140410,11 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_OCEANIC_OPERETTA"
+        "Move": "MOVE_CLAMP"
       },
       {
         "Level": 28,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_PHYSICAL"
+        "Move": "MOVE_HYDRO_STEAM"
       },
       {
         "Level": 33,
@@ -140580,7 +140580,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AMNESIA",
       "MOVE_AQUA_STEP",
       "MOVE_ARMOR_CANNON",
@@ -140590,6 +140589,7 @@
       "MOVE_BUG_BITE",
       "MOVE_BUG_BUZZ",
       "MOVE_CELEBRATE",
+      "MOVE_CHILLING_WATER",
       "MOVE_CHIP_AWAY",
       "MOVE_CLOSE_COMBAT",
       "MOVE_COTTON_GUARD",
@@ -140754,8 +140754,8 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AMNESIA",
+      "MOVE_ASTONISH",
       "MOVE_BOOMBURST",
       "MOVE_BULLET_SEED",
       "MOVE_BURN_UP",
@@ -141187,7 +141187,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACUPRESSURE",
       "MOVE_AQUA_RING",
       "MOVE_ARMOR_CANNON",
@@ -141195,6 +141194,7 @@
       "MOVE_BATON_PASS",
       "MOVE_BLEAKWIND_STORM",
       "MOVE_BODY_SLAM",
+      "MOVE_BOOMBURST",
       "MOVE_CUT",
       "MOVE_DIVE",
       "MOVE_DOUBLE_EDGE",
@@ -141532,7 +141532,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AERIAL_ACE",
       "MOVE_APPLE_ACID",
       "MOVE_ARM_THRUST",
@@ -141562,6 +141561,7 @@
       "MOVE_GASTRO_ACID",
       "MOVE_GIGA_DRAIN",
       "MOVE_GROWTH",
+      "MOVE_HEAD_SMASH",
       "MOVE_HEAL_BELL",
       "MOVE_HEART_STAMP",
       "MOVE_HURRICANE",
@@ -142474,12 +142474,11 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_AURA_SPHERE",
       "MOVE_BEAT_UP",
       "MOVE_BEHEMOTH_BLADE",
       "MOVE_BELLY_DRUM",
+      "MOVE_BIND",
       "MOVE_BITTER_MALICE",
       "MOVE_BODY_PRESS",
       "MOVE_BODY_SLAM",
@@ -142502,6 +142501,7 @@
       "MOVE_DRAGON_PULSE",
       "MOVE_DRAGON_RAGE",
       "MOVE_DUAL_WINGBEAT",
+      "MOVE_EGG_BOMB",
       "MOVE_ENDEAVOR",
       "MOVE_EXPLOSION",
       "MOVE_FACADE",
@@ -142576,7 +142576,6 @@
       "MOVE_MEGA_KICK"
     ],
     "TutorMoves": [
-      "MOVE_468",
       "MOVE_AVALANCHE",
       "MOVE_BITTER_BLADE",
       "MOVE_BLAZE_KICK",
@@ -142592,6 +142591,7 @@
       "MOVE_POUND",
       "MOVE_PRESENT",
       "MOVE_PSYCHIC_NOISE",
+      "MOVE_RAGE",
       "MOVE_SEISMIC_TOSS",
       "MOVE_TECHNO_BLAST",
       "MOVE_TWINEEDLE",
@@ -143699,7 +143699,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ALLURING_VOICE",
       "MOVE_ATTACK_ORDER",
       "MOVE_AUTOTOMIZE",
@@ -143711,6 +143710,7 @@
       "MOVE_COVET",
       "MOVE_CUT",
       "MOVE_DAZZLING_GLEAM",
+      "MOVE_DISARMING_VOICE",
       "MOVE_DIVE",
       "MOVE_DOOM_DESIRE",
       "MOVE_DOUBLE_SHOCK",
@@ -144056,7 +144056,7 @@
       },
       {
         "Level": 17,
-        "Move": "MOVE_MAX_MINDSTORM"
+        "Move": "MOVE_CONFUSION"
       },
       {
         "Level": 22,
@@ -144872,7 +144872,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AERIAL_ACE",
       "MOVE_AQUA_JET",
       "MOVE_ARMOR_CANNON",
@@ -144885,6 +144884,7 @@
       "MOVE_BUG_BUZZ",
       "MOVE_CALM_MIND",
       "MOVE_CLOSE_COMBAT",
+      "MOVE_COUNTER",
       "MOVE_CUT",
       "MOVE_DIVE",
       "MOVE_DOUBLE_KICK",
@@ -145460,7 +145460,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_BODY_SLAM",
       "MOVE_BREAKING_SWIPE",
       "MOVE_BULLET_PUNCH",
@@ -145477,6 +145476,7 @@
       "MOVE_DRAGON_CLAW",
       "MOVE_DRAGON_HAMMER",
       "MOVE_DRAGON_PULSE",
+      "MOVE_DRAGON_RUSH",
       "MOVE_EMBARGO",
       "MOVE_FIRST_IMPRESSION",
       "MOVE_FLING",
@@ -146810,11 +146810,11 @@
       },
       {
         "Level": 6,
-        "Move": "MOVE_CORKSCREW_CRASH_PHYSICAL"
+        "Move": "MOVE_SHEER_COLD"
       },
       {
         "Level": 12,
-        "Move": "MOVE_SUBZERO_SLAMMER_PHYSICAL"
+        "Move": "MOVE_FREEZE_SHOCK"
       },
       {
         "Level": 17,
@@ -147157,11 +147157,11 @@
       },
       {
         "Level": 12,
-        "Move": "MOVE_TWINKLE_TACKLE_SPECIAL"
+        "Move": "MOVE_ICE_BURN"
       },
       {
         "Level": 17,
-        "Move": "MOVE_MAX_HAILSTORM"
+        "Move": "MOVE_FREEZY_FROST"
       },
       {
         "Level": 22,
@@ -148060,8 +148060,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_470",
+      "MOVE_ACCELEROCK",
       "MOVE_ANCHOR_SHOT",
       "MOVE_BELLY_DRUM",
       "MOVE_BESTOW",
@@ -148118,6 +148117,7 @@
       "MOVE_SLUDGE_WAVE",
       "MOVE_SMACK_DOWN",
       "MOVE_SOAK",
+      "MOVE_SPARK",
       "MOVE_SPARKLY_SWIRL",
       "MOVE_SPICY_EXTRACT",
       "MOVE_SPIDER_WEB",
@@ -148230,7 +148230,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AQUA_JET",
       "MOVE_AQUA_STEP",
       "MOVE_AROMATHERAPY",
@@ -148281,6 +148280,7 @@
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SLIDE",
       "MOVE_ROCK_SMASH",
+      "MOVE_ROCK_THROW",
       "MOVE_ROCK_TOMB",
       "MOVE_ROOST",
       "MOVE_SAPPY_SEED",
@@ -148932,7 +148932,7 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_DEVASTATING_DRAKE_SPECIAL"
+        "Move": "MOVE_GRAV_APPLE"
       },
       {
         "Level": 24,
@@ -149308,7 +149308,6 @@
     ],
     "EggMoves": [],
     "TutorMoves": [
-      "MOVE_470",
       "MOVE_ATTACK_ORDER",
       "MOVE_BADDY_BAD",
       "MOVE_BEHEMOTH_BLADE",
@@ -149324,6 +149323,7 @@
       "MOVE_HYDRO_CANNON",
       "MOVE_HYDRO_PUMP",
       "MOVE_HYPNOSIS",
+      "MOVE_LAST_RESPECTS",
       "MOVE_MAGICAL_LEAF",
       "MOVE_METAL_SOUND",
       "MOVE_MOONLIGHT",
@@ -151375,9 +151375,9 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_SPRAY",
       "MOVE_AEROBLAST",
+      "MOVE_APPLE_ACID",
       "MOVE_ASSURANCE",
       "MOVE_BARRIER",
       "MOVE_BELCH",
@@ -152571,7 +152571,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ASSIST",
       "MOVE_BLEAKWIND_STORM",
       "MOVE_BODY_SLAM",
@@ -152629,6 +152628,7 @@
       "MOVE_SHOCK_WAVE",
       "MOVE_SILK_TRAP",
       "MOVE_SKETCH",
+      "MOVE_SNORE",
       "MOVE_SPARK",
       "MOVE_STRENGTH",
       "MOVE_SUPER_FANG",
@@ -152812,7 +152812,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AERIAL_ACE",
       "MOVE_APPLE_ACID",
       "MOVE_AROMATHERAPY",
@@ -152833,6 +152832,7 @@
       "MOVE_DIVE",
       "MOVE_DOUBLE_TEAM",
       "MOVE_DUAL_WINGBEAT",
+      "MOVE_FLOATY_FALL",
       "MOVE_FLY",
       "MOVE_HEALING_WISH",
       "MOVE_HEX",
@@ -153044,15 +153044,15 @@
       },
       {
         "Level": 22,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_PHYSICAL"
+        "Move": "MOVE_PIN_MISSILE"
       },
       {
         "Level": 28,
-        "Move": "MOVE_SAVAGE_SPIN_OUT_SPECIAL"
+        "Move": "MOVE_TWINEEDLE"
       },
       {
         "Level": 33,
-        "Move": "MOVE_MAX_FLUTTERBY"
+        "Move": "MOVE_STEAMROLLER"
       },
       {
         "Level": 39,
@@ -153124,7 +153124,7 @@
       },
       {
         "Level": 6,
-        "Move": "MOVE_MAX_FLUTTERBY"
+        "Move": "MOVE_PSYWAVE"
       },
       {
         "Level": 12,
@@ -154211,8 +154211,8 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
+      "MOVE_ANCIENT_POWER",
       "MOVE_AURA_SPHERE",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_BESTOW",
@@ -154562,7 +154562,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
+      "MOVE_ACCELEROCK",
       "MOVE_AMNESIA",
       "MOVE_ATTRACT",
       "MOVE_BRUTAL_SWING",
@@ -154673,12 +154673,12 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AFTER_YOU",
       "MOVE_ASSIST",
       "MOVE_AUTOTOMIZE",
       "MOVE_AVALANCHE",
       "MOVE_BARRIER",
+      "MOVE_BITTER_BLADE",
       "MOVE_BLAST_BURN",
       "MOVE_BLAZE_KICK",
       "MOVE_BURNING_JEALOUSY",
@@ -155469,7 +155469,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AURA_SPHERE",
       "MOVE_BONE_CLUB",
       "MOVE_BRINE",
@@ -155495,6 +155494,7 @@
       "MOVE_ICY_WIND",
       "MOVE_LEAF_BLADE",
       "MOVE_MAGIC_POWDER",
+      "MOVE_MAGNITUDE",
       "MOVE_NIGHT_DAZE",
       "MOVE_NIGHT_SLASH",
       "MOVE_NOBLE_ROAR",
@@ -155825,7 +155825,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AGILITY",
       "MOVE_ATTACK_ORDER",
       "MOVE_BLAST_BURN",
@@ -155853,6 +155852,7 @@
       "MOVE_MISTY_EXPLOSION",
       "MOVE_MUDDY_WATER",
       "MOVE_MUD_SPORT",
+      "MOVE_OCTAZOOKA",
       "MOVE_ORIGIN_PULSE",
       "MOVE_PSYBLADE",
       "MOVE_PSYCHIC_FANGS",
@@ -155905,7 +155905,7 @@
       },
       {
         "Level": 10,
-        "Move": "MOVE_STOKED_SPARKSURFER"
+        "Move": "MOVE_SMOG"
       },
       {
         "Level": 15,
@@ -155921,7 +155921,7 @@
       },
       {
         "Level": 28,
-        "Move": "MOVE_MAX_OOZE"
+        "Move": "MOVE_SHELL_SIDE_ARM"
       },
       {
         "Level": 33,
@@ -156944,7 +156944,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_BRUTAL_SWING",
       "MOVE_BUG_BUZZ",
       "MOVE_BURNING_BULWARK",
@@ -156992,6 +156991,7 @@
       "MOVE_STRENGTH",
       "MOVE_SUPERSONIC",
       "MOVE_SURF",
+      "MOVE_SYNCHRONOISE",
       "MOVE_TAIL_GLOW",
       "MOVE_THUNDERBOLT",
       "MOVE_THUNDER_PUNCH",
@@ -157458,7 +157458,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID",
       "MOVE_ACID_SPRAY",
       "MOVE_ALLURING_VOICE",
@@ -157496,6 +157495,7 @@
       "MOVE_PLAY_ROUGH",
       "MOVE_POWDER",
       "MOVE_PROTECT",
+      "MOVE_PURSUIT",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_POLISH",
       "MOVE_ROCK_SMASH",
@@ -157596,7 +157596,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ALLURING_VOICE",
       "MOVE_ASTONISH",
       "MOVE_AURA_SPHERE",
@@ -157662,6 +157661,7 @@
       "MOVE_SHADOW_PUNCH",
       "MOVE_SHARPEN",
       "MOVE_SHEER_COLD",
+      "MOVE_SPRINGTIDE_STORM",
       "MOVE_STRENGTH",
       "MOVE_SUPERSONIC",
       "MOVE_SUPER_FANG",
@@ -157779,7 +157779,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ABSORB",
       "MOVE_ANCHOR_SHOT",
       "MOVE_AQUA_STEP",
@@ -157808,6 +157807,7 @@
       "MOVE_ERUPTION",
       "MOVE_ETERNABEAM",
       "MOVE_EXPLOSION",
+      "MOVE_FAKE_OUT",
       "MOVE_FALSE_SWIPE",
       "MOVE_FEATHER_DANCE",
       "MOVE_FEINT_ATTACK",
@@ -158449,7 +158449,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_AVALANCHE",
       "MOVE_BARB_BARRAGE",
       "MOVE_BIND",
@@ -158509,6 +158508,7 @@
       "MOVE_NATURAL_GIFT",
       "MOVE_OBLIVION_WING",
       "MOVE_POLLEN_PUFF",
+      "MOVE_PSYBEAM",
       "MOVE_PSYCHIC",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_PSYCHIC_NOISE",
@@ -158624,9 +158624,9 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ARM_THRUST",
       "MOVE_ASTRAL_BARRAGE",
+      "MOVE_BONE_RUSH",
       "MOVE_BREAKING_SWIPE",
       "MOVE_CALM_MIND",
       "MOVE_CLANGING_SCALES",
@@ -159346,7 +159346,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ASSIST",
       "MOVE_ATTRACT",
       "MOVE_AVALANCHE",
@@ -159388,6 +159387,7 @@
       "MOVE_SCREECH",
       "MOVE_SEISMIC_TOSS",
       "MOVE_SHADOW_BALL",
+      "MOVE_SHEER_COLD",
       "MOVE_SIMPLE_BEAM",
       "MOVE_SKITTER_SMACK",
       "MOVE_SNIPE_SHOT",
@@ -160154,7 +160154,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AFTER_YOU",
       "MOVE_AURORA_BEAM",
       "MOVE_BELLY_DRUM",
@@ -160181,6 +160180,7 @@
       "MOVE_FREEZING_GLARE",
       "MOVE_FRENZY_PLANT",
       "MOVE_FUTURE_SIGHT",
+      "MOVE_GEAR_GRIND",
       "MOVE_GRASS_KNOT",
       "MOVE_GRAVITY",
       "MOVE_GUILLOTINE",
@@ -160782,7 +160782,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID",
       "MOVE_AQUA_JET",
       "MOVE_ASTONISH",
@@ -160816,6 +160815,7 @@
       "MOVE_LAVA_PLUME",
       "MOVE_LIGHT_OF_RUIN",
       "MOVE_MAGIC_COAT",
+      "MOVE_METAL_CLAW",
       "MOVE_METEOR_BEAM",
       "MOVE_OUTRAGE",
       "MOVE_OVERHEAT",
@@ -161741,7 +161741,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACROBATICS",
       "MOVE_AURA_SPHERE",
       "MOVE_BELLY_DRUM",
@@ -161756,6 +161755,7 @@
       "MOVE_DIVE",
       "MOVE_DRAIN_PUNCH",
       "MOVE_DRUM_BEATING",
+      "MOVE_DYNAMIC_PUNCH",
       "MOVE_ELECTRO_BALL",
       "MOVE_FIRE_SPIN",
       "MOVE_FISSURE",
@@ -162044,13 +162044,13 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_AFTER_YOU",
       "MOVE_APPLE_ACID",
       "MOVE_AQUA_TAIL",
       "MOVE_AROMATHERAPY",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_BEAT_UP",
+      "MOVE_BITE",
       "MOVE_BODY_PRESS",
       "MOVE_BOUNCE",
       "MOVE_BRINE",
@@ -162983,7 +162983,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ABSORB",
       "MOVE_AQUA_RING",
       "MOVE_BELCH",
@@ -163009,6 +163008,7 @@
       "MOVE_PSYCHIC",
       "MOVE_PSYCHIC_FANGS",
       "MOVE_PSYCHIC_NOISE",
+      "MOVE_PSYCHO_BOOST",
       "MOVE_PSYSHOCK",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
@@ -163753,7 +163753,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ALLURING_VOICE",
       "MOVE_APPLE_ACID",
       "MOVE_AQUA_TAIL",
@@ -163817,6 +163816,7 @@
       "MOVE_THUNDER",
       "MOVE_TRICK",
       "MOVE_TRICK_ROOM",
+      "MOVE_VENOSHOCK",
       "MOVE_WATERFALL",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
@@ -163936,7 +163936,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACID_ARMOR",
       "MOVE_AQUA_STEP",
       "MOVE_ATTACK_ORDER",
@@ -163974,6 +163973,7 @@
       "MOVE_ICE_BALL",
       "MOVE_ICE_BEAM",
       "MOVE_ICE_SPINNER",
+      "MOVE_ICICLE_CRASH",
       "MOVE_ICICLE_SPEAR",
       "MOVE_JAW_LOCK",
       "MOVE_LEAF_STORM",
@@ -164235,7 +164235,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
+      "MOVE_ACROBATICS",
       "MOVE_AERIAL_ACE",
       "MOVE_AURA_SPHERE",
       "MOVE_BARRAGE",
@@ -164541,7 +164541,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACROBATICS",
       "MOVE_ANCIENT_POWER",
       "MOVE_AURORA_VEIL",
@@ -164597,6 +164596,7 @@
       "MOVE_LIGHT_OF_RUIN",
       "MOVE_MACH_PUNCH",
       "MOVE_METAL_CLAW",
+      "MOVE_MIRROR_COAT",
       "MOVE_MIRROR_MOVE",
       "MOVE_MUD_SHOT",
       "MOVE_NIGHT_SLASH",
@@ -169319,9 +169319,8 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_ACUPRESSURE",
+      "MOVE_ATTACK_ORDER",
       "MOVE_BODY_SLAM",
       "MOVE_BUG_BITE",
       "MOVE_BUG_BUZZ",
@@ -169338,6 +169337,7 @@
       "MOVE_GLAIVE_RUSH",
       "MOVE_GYRO_BALL",
       "MOVE_ICICLE_SPEAR",
+      "MOVE_INFESTATION",
       "MOVE_LEECH_LIFE",
       "MOVE_LUCKY_CHANT",
       "MOVE_LUNGE",
@@ -175456,7 +175456,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_ACCELEROCK",
       "MOVE_ARMOR_CANNON",
       "MOVE_ASTONISH",
@@ -175517,6 +175516,7 @@
       "MOVE_SUPERSONIC",
       "MOVE_SURF",
       "MOVE_WATERFALL",
+      "MOVE_WATER_GUN",
       "MOVE_WATER_PULSE",
       "MOVE_WHIRLPOOL",
       "MOVE_WHIRLWIND"
@@ -175594,8 +175594,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_AQUA_JET",
       "MOVE_AQUA_STEP",
       "MOVE_BOUNCY_BUBBLE",
@@ -175624,7 +175622,9 @@
       "MOVE_MAT_BLOCK",
       "MOVE_MIMIC",
       "MOVE_NIGHT_SLASH",
+      "MOVE_POISON_FANG",
       "MOVE_POISON_JAB",
+      "MOVE_POISON_STING",
       "MOVE_POWDER",
       "MOVE_RAPID_SPIN",
       "MOVE_ROCK_CLIMB",
@@ -177688,7 +177688,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_APPLE_ACID",
       "MOVE_ASSIST",
       "MOVE_BARB_BARRAGE",
@@ -177710,6 +177709,7 @@
       "MOVE_ENDEAVOR",
       "MOVE_EXPANDING_FORCE",
       "MOVE_EXPLOSION",
+      "MOVE_EXTRASENSORY",
       "MOVE_FACADE",
       "MOVE_FALSE_SURRENDER",
       "MOVE_FALSE_SWIPE",
@@ -178345,7 +178345,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACROBATICS",
       "MOVE_ALLURING_VOICE",
       "MOVE_AQUA_JET",
@@ -178384,6 +178383,7 @@
       "MOVE_LOW_KICK",
       "MOVE_MIRROR_COAT",
       "MOVE_MISTY_EXPLOSION",
+      "MOVE_MIST_BALL",
       "MOVE_MOONBLAST",
       "MOVE_MORNING_SUN",
       "MOVE_MULTI_ATTACK",
@@ -179195,8 +179195,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
-      "MOVE_469",
       "MOVE_BANEFUL_BUNKER",
       "MOVE_BOLT_BEAK",
       "MOVE_BRINE",
@@ -179214,6 +179212,7 @@
       "MOVE_FLAME_CHARGE",
       "MOVE_FLIP_TURN",
       "MOVE_FLY",
+      "MOVE_FROST_BREATH",
       "MOVE_FRUSTRATION",
       "MOVE_HAMMER_ARM",
       "MOVE_HYDRO_CANNON",
@@ -179230,6 +179229,7 @@
       "MOVE_PECK",
       "MOVE_PRECIPICE_BLADES",
       "MOVE_RAIN_DANCE",
+      "MOVE_RAZOR_SHELL",
       "MOVE_REVERSAL",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
@@ -179764,7 +179764,7 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
+      "MOVE_ANCIENT_POWER",
       "MOVE_ARMOR_CANNON",
       "MOVE_ATTRACT",
       "MOVE_AUTOTOMIZE",
@@ -180147,7 +180147,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ASTONISH",
       "MOVE_AVALANCHE",
       "MOVE_BEHEMOTH_BLADE",
@@ -180190,6 +180189,7 @@
       "MOVE_PSYSHIELD_BASH",
       "MOVE_REVELATION_DANCE",
       "MOVE_ROAR",
+      "MOVE_ROAR_OF_TIME",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
       "MOVE_SECRET_SWORD",
@@ -181676,7 +181676,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ABSORB",
       "MOVE_AQUA_RING",
       "MOVE_BARRAGE",
@@ -181686,6 +181685,7 @@
       "MOVE_BREAKING_SWIPE",
       "MOVE_BRINE",
       "MOVE_CHARGE_BEAM",
+      "MOVE_CORE_ENFORCER",
       "MOVE_CUT",
       "MOVE_DIAMOND_STORM",
       "MOVE_DIRE_CLAW",
@@ -182197,7 +182197,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACUPRESSURE",
       "MOVE_BEHEMOTH_BLADE",
       "MOVE_BOUNCY_BUBBLE",
@@ -182248,6 +182247,7 @@
       "MOVE_STRENGTH",
       "MOVE_SUPERCELL_SLAM",
       "MOVE_SURF",
+      "MOVE_TROP_KICK",
       "MOVE_WATERFALL",
       "MOVE_WHIRLPOOL",
       "MOVE_ZEN_HEADBUTT"
@@ -182307,7 +182307,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ACID_SPRAY",
       "MOVE_AERIAL_ACE",
       "MOVE_AURA_SPHERE",
@@ -182373,6 +182372,7 @@
       "MOVE_STICKY_WEB",
       "MOVE_STRENGTH",
       "MOVE_STUN_SPORE",
+      "MOVE_SUBMISSION",
       "MOVE_SUCKER_PUNCH",
       "MOVE_SUPERPOWER",
       "MOVE_SURF",
@@ -182706,7 +182706,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACUPRESSURE",
       "MOVE_AURA_WHEEL",
       "MOVE_BABY_DOLL_EYES",
@@ -182716,6 +182715,7 @@
       "MOVE_CUT",
       "MOVE_DIAMOND_STORM",
       "MOVE_DIVE",
+      "MOVE_DRUM_BEATING",
       "MOVE_ELECTRO_BALL",
       "MOVE_ENERGY_BALL",
       "MOVE_FIERY_WRATH",
@@ -182840,7 +182840,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_470",
       "MOVE_AIR_CUTTER",
       "MOVE_AQUA_RING",
       "MOVE_AXE_KICK",
@@ -182875,6 +182874,7 @@
       "MOVE_MATCHA_GOTCHA",
       "MOVE_MEGA_PUNCH",
       "MOVE_METAL_BURST",
+      "MOVE_METEOR_MASH",
       "MOVE_MIND_READER",
       "MOVE_MIRROR_SHOT",
       "MOVE_NATURE_POWER",
@@ -184497,7 +184497,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_469",
       "MOVE_ABSORB",
       "MOVE_ACID_SPRAY",
       "MOVE_AURA_SPHERE",
@@ -184540,6 +184539,7 @@
       "MOVE_POWER_WHIP",
       "MOVE_PRISMATIC_LASER",
       "MOVE_PSYSHOCK",
+      "MOVE_RAZOR_LEAF",
       "MOVE_REFRESH",
       "MOVE_ROCK_CLIMB",
       "MOVE_ROCK_SMASH",
@@ -186848,7 +186848,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ANCIENT_POWER",
       "MOVE_AROMATHERAPY",
       "MOVE_AURA_SPHERE",
@@ -186890,6 +186889,7 @@
       "MOVE_MYSTICAL_FIRE",
       "MOVE_NATURE_POWER",
       "MOVE_NIGHT_SHADE",
+      "MOVE_ORIGIN_PULSE",
       "MOVE_POWER_SPLIT",
       "MOVE_POWER_UP_PUNCH",
       "MOVE_RAZOR_LEAF",
@@ -186995,7 +186995,6 @@
       }
     ],
     "MachineMoves": [
-      "MOVE_468",
       "MOVE_ACID_SPRAY",
       "MOVE_ASSIST",
       "MOVE_ASTRAL_BARRAGE",
@@ -187048,6 +187047,7 @@
       "MOVE_MOONLIGHT",
       "MOVE_NATURAL_GIFT",
       "MOVE_OBSTRUCT",
+      "MOVE_PAY_DAY",
       "MOVE_POLLEN_PUFF",
       "MOVE_PRISMATIC_LASER",
       "MOVE_PROTECT",
