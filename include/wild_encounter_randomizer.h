@@ -97,6 +97,23 @@ u32 LONG_CALL MegaStoneShop_GetItems(u16 *outItems, u32 maxOut);
 u32 LONG_CALL CompetitiveItemShop_GetItems(u16 *outItems, u32 maxOut);
 
 /**
+ *  @brief deterministically pick a random subset of the second-clerk town shop pool (Poke
+ *         Balls + Mail) for one town's second clerk.
+ *
+ *         same (save seed, townSalt) always yields the same subset, in the same order, within
+ *         a given save file - so each town's second-clerk stock is fixed for that playthrough
+ *         once first checked, but a fresh save file gets different, independent stock. Every
+ *         town draws from the exact same shared pool; townSalt (a small constant unique to
+ *         each town) is what keeps two towns from ending up with identical stock.
+ *
+ *  @param outItems buffer to write the selected item IDs into
+ *  @param maxOut the buffer's capacity (typically that town's original item count)
+ *  @param townSalt a constant unique to the calling town
+ *  @return the number of items actually written to outItems
+ */
+u32 LONG_CALL SecondClerkShop_GetItems(u16 *outItems, u32 maxOut, u32 townSalt);
+
+/**
  *  @brief deterministically pick a replacement species for a trainer's Pokemon.
  *
  *         same (save seed, trainer, party slot, originalSpecies, level) always maps to the

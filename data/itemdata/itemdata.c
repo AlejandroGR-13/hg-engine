@@ -78,7 +78,7 @@ const ITEMDATA __data[] =
 
 [ITEM_MASTER_BALL] =
 {
-    ITEM_PRICE(0),
+    ITEM_PRICE(200000),
     .holdEffect = 0,
     .holdEffectParam = 0,
     .pluckEffect = 0,

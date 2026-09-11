@@ -23,32 +23,63 @@ struct BadgeMartItems {
 
 // note: limited to 203 items (~34 pages)
 //
-// Expanded pool: the entries after the original block below are every "normal shop item" this
-// hack could reasonably sell over the counter - all of POCKET_MEDICINE, POCKET_BERRIES and
-// POCKET_BATTLE_ITEMS, plus a curated batch of evolution stones, type plates, held-item gems,
-// Apricorns, EV-training feathers, misc valuables (Heart Scale, Star Piece, shards, ...) and
-// classic type-boosting/utility held items - deliberately EXCLUDING Poké Balls (progression is
-// tied to badge count already via the entries above, more ball variety doesn't belong here),
-// Mega Stones, and every item in sCompetitiveItemPool, since both of those already have their
-// own dedicated unlock condition appended below in ScrCmd_MartBuy (MegaStoneShop_GetItems /
-// CompetitiveItemShop_GetItems) - listing them here too would just be a redundant duplicate.
-// (They also each get an independent, seeded CHANCE of showing up here early regardless of that
-// unlock condition - see MART_BONUS_MEGA_STONE_CHANCE_PERCENT / MART_BONUS_COMPETITIVE_CHANCE_PERCENT
-// below.) Also deliberately excluded: Rare Candy, every revive (Revive/Max Revive/Revival Herb),
-// and X Attack/X Defense/X Accuracy specifically - these stay tied to their existing sources
-// (Goldenrod/Celadon Dept. Store, Battle Frontier, wild/gift pickups, etc.) instead of being sold
-// freely everywhere; the other X-items (Speed/Sp.Atk/Sp.Def), Dire Hit and Guard Spec are unaffected.
-// Badge requirement is assigned by each item's own shop price (cheapest -> earliest, spread
-// evenly 0-8 badges) rather than hand-picked, since there's no other "rarity" signal to sort by.
-const struct BadgeMartItems sBadgeMart[] = {
+// The badge mart is split in two tables:
+//
+//  - sBadgeMartFixed: always buyable once the badge requirement is met, every playthrough,
+//    a peticion - Poke Balls, Restaurar Todo, PP Up/Max, Capsula/Parche de Habilidad and every
+//    evolution stone never vary from one save to the next.
+//
+//  - sBadgeMartPool: every other "normal shop item" this hack could reasonably sell over the
+//    counter - all of POCKET_MEDICINE, POCKET_BERRIES and POCKET_BATTLE_ITEMS not already in
+//    sBadgeMartFixed, plus type plates, held-item gems, Apricorns, EV-training feathers, misc
+//    valuables (Heart Scale, Star Piece, shards, ...) and classic type-boosting/utility held
+//    items. Only HALF of this table (BadgeMartPool_GetSelection, below) is actually on sale in
+//    any given save - fixed for that save, different from one playthrough to the next, exactly
+//    like the wild encounters - a peticion, para que la tienda tambien varie entre partidas. An
+//    item that misses the roll for a given save simply never appears there, no matter the badge
+//    count.
+//
+// Both tables deliberately EXCLUDE Mega Stones and every item in sCompetitiveItemPool, since
+// both of those already have their own dedicated unlock condition appended below in
+// ScrCmd_MartBuy (MegaStoneShop_GetItems / CompetitiveItemShop_GetItems) - listing them here too
+// would just be a redundant duplicate. (They also each get an independent, seeded CHANCE of
+// showing up here early regardless of that unlock condition - see
+// MART_BONUS_MEGA_STONE_CHANCE_PERCENT / MART_BONUS_COMPETITIVE_CHANCE_PERCENT below.) Also
+// deliberately excluded: Rare Candy, every revive other than Restaurar Todo (Revive/Max
+// Revive/Revival Herb), and X Attack/X Defense/X Accuracy specifically - these stay tied to
+// their existing sources (Goldenrod/Celadon Dept. Store, Battle Frontier, wild/gift pickups,
+// etc.) instead of being sold freely everywhere; the other X-items (Speed/Sp.Atk/Sp.Def), Dire
+// Hit and Guard Spec are unaffected. The items que suben EVs (HP Up, Proteina, Hierro,
+// Carbohidratos, Calcio, Zinc) stay removed entirely a peticion: no deben poder salir en
+// ninguna de las dos tablas. Badge requirement is assigned by each item's own shop price
+// (cheapest -> earliest, spread evenly 0-8 badges) rather than hand-picked, since there's no
+// other "rarity" signal to sort by.
+const struct BadgeMartItems sBadgeMartFixed[] = {
     { ITEM_POKE_BALL, 0 },
     { ITEM_GREAT_BALL, 3 },
     { ITEM_ULTRA_BALL, 5 },
+    { ITEM_FULL_RESTORE, 8 },
+    { ITEM_SUN_STONE, 7 },
+    { ITEM_MOON_STONE, 7 },
+    { ITEM_FIRE_STONE, 7 },
+    { ITEM_THUNDER_STONE, 7 },
+    { ITEM_WATER_STONE, 7 },
+    { ITEM_LEAF_STONE, 7 },
+    { ITEM_SHINY_STONE, 7 },
+    { ITEM_DUSK_STONE, 8 },
+    { ITEM_DAWN_STONE, 8 },
+    { ITEM_ICE_STONE, 8 },
+    { ITEM_PP_UP, 8 },
+    { ITEM_PP_MAX, 8 },
+    { ITEM_ABILITY_CAPSULE, 8 },
+    { ITEM_ABILITY_PATCH, 8 }, // anadido a peticion
+};
+
+const struct BadgeMartItems sBadgeMartPool[] = {
     { ITEM_POTION, 0 },
     { ITEM_SUPER_POTION, 1 },
     { ITEM_HYPER_POTION, 5 },
     { ITEM_MAX_POTION, 7 },
-    { ITEM_FULL_RESTORE, 8 },
     { ITEM_ANTIDOTE, 0 },
     { ITEM_PARALYZE_HEAL, 0 },
     { ITEM_AWAKENING, 1 },
@@ -59,70 +90,41 @@ const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_REPEL, 1 },
     { ITEM_SUPER_REPEL, 3 },
     { ITEM_MAX_REPEL, 5 },
+    // Pool de bayas reducido a la mitad (65 -> 33) a peticion: se quito una de cada dos,
+    // manteniendo la variedad entre los distintos tramos de medallas. (Esto es aparte del
+    // sorteo de la mitad del pool completo por partida, explicado arriba.)
     { ITEM_RAZZ_BERRY, 0 },
-    { ITEM_BLUK_BERRY, 0 },
     { ITEM_NANAB_BERRY, 0 },
-    { ITEM_WEPEAR_BERRY, 0 },
     { ITEM_PINAP_BERRY, 0 },
-    { ITEM_CORNN_BERRY, 0 },
     { ITEM_MAGOST_BERRY, 0 },
-    { ITEM_RABUTA_BERRY, 0 },
     { ITEM_NOMEL_BERRY, 0 },
-    { ITEM_SPELON_BERRY, 0 },
     { ITEM_PAMTRE_BERRY, 0 },
-    { ITEM_WATMEL_BERRY, 0 },
     { ITEM_DURIN_BERRY, 0 },
-    { ITEM_BELUE_BERRY, 0 },
     { ITEM_CHERI_BERRY, 0 },
-    { ITEM_CHESTO_BERRY, 0 },
     { ITEM_PECHA_BERRY, 0 },
-    { ITEM_RAWST_BERRY, 0 },
     { ITEM_ASPEAR_BERRY, 0 },
-    { ITEM_LEPPA_BERRY, 0 },
     { ITEM_ORAN_BERRY, 1 },
-    { ITEM_PERSIM_BERRY, 1 },
     { ITEM_LUM_BERRY, 1 },
-    { ITEM_SITRUS_BERRY, 1 },
     { ITEM_FIGY_BERRY, 1 },
-    { ITEM_WIKI_BERRY, 1 },
     { ITEM_MAGO_BERRY, 1 },
-    { ITEM_AGUAV_BERRY, 1 },
     { ITEM_IAPAPA_BERRY, 1 },
-    { ITEM_POMEG_BERRY, 1 },
     { ITEM_KELPSY_BERRY, 1 },
-    { ITEM_QUALOT_BERRY, 1 },
     { ITEM_HONDEW_BERRY, 1 },
-    { ITEM_GREPA_BERRY, 1 },
     { ITEM_TAMATO_BERRY, 1 },
-    { ITEM_OCCA_BERRY, 1 },
     { ITEM_PASSHO_BERRY, 1 },
-    { ITEM_WACAN_BERRY, 1 },
     { ITEM_RINDO_BERRY, 1 },
-    { ITEM_YACHE_BERRY, 1 },
     { ITEM_CHOPLE_BERRY, 2 },
-    { ITEM_KEBIA_BERRY, 2 },
     { ITEM_SHUCA_BERRY, 2 },
-    { ITEM_COBA_BERRY, 2 },
     { ITEM_PAYAPA_BERRY, 2 },
-    { ITEM_TANGA_BERRY, 2 },
     { ITEM_CHARTI_BERRY, 2 },
-    { ITEM_KASIB_BERRY, 2 },
     { ITEM_HABAN_BERRY, 2 },
-    { ITEM_COLBUR_BERRY, 2 },
     { ITEM_BABIRI_BERRY, 2 },
-    { ITEM_CHILAN_BERRY, 2 },
     { ITEM_LIECHI_BERRY, 2 },
-    { ITEM_GANLON_BERRY, 2 },
     { ITEM_SALAC_BERRY, 2 },
-    { ITEM_PETAYA_BERRY, 2 },
     { ITEM_APICOT_BERRY, 2 },
-    { ITEM_LANSAT_BERRY, 2 },
     { ITEM_STARF_BERRY, 2 },
-    { ITEM_ENIGMA_BERRY, 2 },
     { ITEM_MICLE_BERRY, 3 },
-    { ITEM_CUSTAP_BERRY, 3 },
     { ITEM_JABOCA_BERRY, 3 },
-    { ITEM_ROWAP_BERRY, 3 },
     { ITEM_ROSELI_BERRY, 3 },
     { ITEM_BERRY_JUICE, 3 },
     { ITEM_SWEET_HEART, 3 },
@@ -138,22 +140,15 @@ const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_BLUE_SHARD, 3 },
     { ITEM_YELLOW_SHARD, 3 },
     { ITEM_GREEN_SHARD, 3 },
+    // Pool de gemas reducido a la mitad (18 -> 9) a peticion: se quito una de cada dos tipos.
     { ITEM_FIRE_GEM, 3 },
-    { ITEM_WATER_GEM, 4 },
     { ITEM_ELECTRIC_GEM, 4 },
-    { ITEM_GRASS_GEM, 4 },
     { ITEM_ICE_GEM, 4 },
-    { ITEM_FIGHTING_GEM, 4 },
     { ITEM_POISON_GEM, 4 },
-    { ITEM_GROUND_GEM, 4 },
     { ITEM_FLYING_GEM, 4 },
-    { ITEM_PSYCHIC_GEM, 4 },
     { ITEM_BUG_GEM, 4 },
-    { ITEM_ROCK_GEM, 4 },
     { ITEM_GHOST_GEM, 4 },
-    { ITEM_DRAGON_GEM, 4 },
     { ITEM_DARK_GEM, 4 },
-    { ITEM_STEEL_GEM, 4 },
     { ITEM_FAIRY_GEM, 4 },
     { ITEM_RED_APRICORN, 4 },
     { ITEM_YELLOW_APRICORN, 4 },
@@ -208,32 +203,62 @@ const struct BadgeMartItems sBadgeMart[] = {
     { ITEM_X_SP_DEF, 7 },
     { ITEM_PRETTY_FEATHER, 7 },
     { ITEM_ELIXIR, 7 },
-    { ITEM_SUN_STONE, 7 },
-    { ITEM_MOON_STONE, 7 },
-    { ITEM_FIRE_STONE, 7 },
-    { ITEM_THUNDER_STONE, 7 },
-    { ITEM_WATER_STONE, 7 },
-    { ITEM_LEAF_STONE, 7 },
-    { ITEM_SHINY_STONE, 7 },
-    { ITEM_DUSK_STONE, 8 },
-    { ITEM_DAWN_STONE, 8 },
-    { ITEM_ICE_STONE, 8 },
     { ITEM_PEARL, 8 },
     { ITEM_MAX_ELIXIR, 8 },
     { ITEM_STARDUST, 8 },
-    { ITEM_HP_UP, 8 },
-    { ITEM_PROTEIN, 8 },
-    { ITEM_IRON, 8 },
-    { ITEM_CARBOS, 8 },
-    { ITEM_CALCIUM, 8 },
-    { ITEM_PP_UP, 8 },
-    { ITEM_ZINC, 8 },
-    { ITEM_PP_MAX, 8 },
-    { ITEM_NORMAL_GEM, 8 },
     { ITEM_BIG_PEARL, 8 },
     { ITEM_STAR_PIECE, 8 },
-    { ITEM_ABILITY_CAPSULE, 8 },
 };
+
+// Sortea, de forma fija para toda la partida (misma semilla de siempre - ver
+// WildEncounterRandomizer_GetOrCreateSeed), que MITAD de sBadgeMartPool esta en venta esta vez.
+// Fisher-Yates parcial sobre una copia local (sBadgeMartPool es const, no se puede barajar in
+// place), igual de espiritu que el resto del randomizador del hack, con su propia "sal" para
+// que este sorteo no coincida con el de las mega piedras ni el de los objetos competitivos.
+#define BADGE_MART_POOL_SELECTED_COUNT (NELEMS(sBadgeMartPool) / 2)
+
+static u32 BadgeMartPoolHash(u32 x)
+{
+    x ^= x >> 16;
+    x *= 0x7feb352du;
+    x ^= x >> 15;
+    x *= 0x846ca68bu;
+    x ^= x >> 16;
+    return x;
+}
+
+static u32 BadgeMartPool_GetSelection(struct BadgeMartItems *outSelected, u32 maxOut)
+{
+    struct BadgeMartItems pool[NELEMS(sBadgeMartPool)];
+    u32 numToPick = maxOut;
+    u32 i;
+
+    for (i = 0; i < NELEMS(sBadgeMartPool); i++) {
+        pool[i] = sBadgeMartPool[i];
+    }
+
+    if (numToPick > NELEMS(pool)) {
+        numToPick = NELEMS(pool);
+    }
+
+    {
+        u32 seed = WildEncounterRandomizer_GetOrCreateSeed();
+
+        for (i = 0; i < numToPick; i++) {
+            u32 mixed = BadgeMartPoolHash(seed ^ (i << 16) ^ 0x4D415254u); // "MART" salt
+            u32 j = i + (mixed % (NELEMS(pool) - i));
+            struct BadgeMartItems tmp = pool[i];
+            pool[i] = pool[j];
+            pool[j] = tmp;
+        }
+    }
+
+    for (i = 0; i < numToPick; i++) {
+        outSelected[i] = pool[i];
+    }
+
+    return numToPick;
+}
 
 void LONG_CALL InitMartUI(void *taskManager, FieldSystem *fieldSystem, const u16 *items, int kind, int buySell, int decoWhich, const struct MartItem *priceOverrides);
 
@@ -380,8 +405,77 @@ u16 sMahoganyPostRocketHideout[] = {
     ITEM_GREAT_BALL, ITEM_SUPER_POTION, ITEM_HYPER_POTION, ITEM_ANTIDOTE, ITEM_PARALYZE_HEAL, ITEM_SUPER_REPEL, ITEM_REVIVE, ITEM_AIR_MAIL, 0xFFFF
 };
 
-// how many extra slots ScrCmd_MartBuy's items[] buffer needs beyond sBadgeMart for the
-// optional Mega Stone / competitive item shops (0 when a feature is disabled).
+// Every "...Mart" list above (the second clerk some towns have, next to the main badge-gated
+// clerk) gets its stock randomized here, once per save per boot - a peticion, para que tambien
+// varie entre partidas como el resto de la tienda. Everything else in this file (the badge
+// mart, the Department Store floors, the Pharmacy, Mahogany's pre/post-Rocket stock, the
+// Pokeathlon shop, ...) is intentionally left untouched: this only covers the arrays whose
+// name literally ends in "Mart".
+//
+// This has to stay in this file (rather than living next to SecondClerkShop_GetItems in
+// wild_encounter_randomizer.c) and be called from ScrCmd_MartBuy below, rather than from
+// WildEncounterRandomizer_GetOrCreateSeed: this file is compiled as part of the "field" overlay
+// (see overlays.mk - every src/<subdir> gets its own separately-linked overlay), while
+// wild_encounter_randomizer.c is part of the always-resident main arm9 patch, which is linked
+// BEFORE any overlay - so it has no way to call into, or even just reference the data of, a
+// symbol that only exists in an overlay, vanilla fixed address or not. The one call direction
+// that does link is overlay-to-arm9 (this file already does that below, via
+// WildEncounterRandomizer_GetOrCreateSeed/SecondClerkShop_GetItems), so the randomization has
+// to be triggered from here.
+//
+// Net effect: every town's second-clerk stock is randomized the first time the player opens
+// ANY town's main badge-gated mart that boot - in practice always before reaching a second
+// clerk, since the main clerk is the one selling Poke Balls/Potions from the very start of the
+// game. (The only way to miss this would be talking to a second clerk before ever opening any
+// main clerk anywhere, which the game doesn't otherwise require.)
+static BOOL sSecondClerkMartsRandomized = FALSE;
+
+struct SecondClerkTownMart {
+    u16 *items;
+    u32 count; // objetos reales (sin contar el terminador 0xFFFF)
+    u32 salt;  // constante distinta para cada ciudad, para que no todas sorteen lo mismo
+};
+
+static void SecondClerkMarts_RandomizeIfNeeded(void)
+{
+    if (sSecondClerkMartsRandomized) {
+        return;
+    }
+    sSecondClerkMartsRandomized = TRUE;
+
+    {
+        struct SecondClerkTownMart towns[] = {
+            { sCherrygroveCityMart, 2, 0 },
+            { sVioletCityMart, 3, 1 },
+            { sAzaleaCityMart, 3, 2 },
+            { sEcruteakMart, 3, 3 },
+            { sOlivineMart, 3, 4 },
+            { sBlackthornAndBattleFrontierMart, 3, 5 },
+            { sVermilionAndSafariMart, 4, 6 },
+            { sSaffronMart, 3, 7 },
+            { sLavenderMart, 3, 8 },
+            { sCeruleanMart, 2, 9 },
+            { sFuschiaMart, 3, 10 },
+            { sPewterMart, 3, 11 },
+            { sViridianMart, 3, 12 },
+        };
+        u32 i, j;
+
+        for (i = 0; i < NELEMS(towns); i++) {
+            u16 selected[4]; // el mayor de los "count" de la tabla de arriba
+            u32 selectedCount = SecondClerkShop_GetItems(selected, towns[i].count, towns[i].salt);
+
+            for (j = 0; j < selectedCount; j++) {
+                towns[i].items[j] = selected[j];
+            }
+            towns[i].items[selectedCount] = 0xFFFF;
+        }
+    }
+}
+
+// how many extra slots ScrCmd_MartBuy's items[] buffer needs beyond sBadgeMartFixed +
+// sBadgeMartPool's per-save selection for the optional Mega Stone / competitive item shops
+// (0 when a feature is disabled).
 #ifdef MEGA_STONE_MART_EXPANSION
 #define MART_BUY_MEGA_STONE_SLOTS MEGA_STONE_SHOP_MAX_ITEMS
 #else
@@ -398,7 +492,11 @@ BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx)
 {
     u16 unused UNUSED = ScriptGetVar(ctx);
 
-    u16 items[NELEMS(sBadgeMart) + MART_BUY_MEGA_STONE_SLOTS + MART_BUY_COMPETITIVE_SLOTS + 1];
+    SecondClerkMarts_RandomizeIfNeeded();
+
+    u16 items[NELEMS(sBadgeMartFixed) + BADGE_MART_POOL_SELECTED_COUNT + MART_BUY_MEGA_STONE_SLOTS + MART_BUY_COMPETITIVE_SLOTS + 1];
+    struct BadgeMartItems selectedPool[BADGE_MART_POOL_SELECTED_COUNT];
+    u32 selectedPoolCount;
     struct PlayerProfile *profile = Sav2_PlayerData_GetProfileAddr(ctx->fsys->savedata);
     u8 badgeCount = 0;
     u8 index = 0;
@@ -410,9 +508,20 @@ BOOL ScrCmd_MartBuy(SCRIPTCONTEXT *ctx)
         }
     }
 
-    for (i = 0; i < NELEMS(sBadgeMart); i++) {
-        if (badgeCount >= sBadgeMart[i].required_badges) {
-            items[index] = sBadgeMart[i].item_id;
+    for (i = 0; i < NELEMS(sBadgeMartFixed); i++) {
+        if (badgeCount >= sBadgeMartFixed[i].required_badges) {
+            items[index] = sBadgeMartFixed[i].item_id;
+            index++;
+        }
+    }
+
+    // La mitad de sBadgeMartPool (siempre la misma durante esta partida, distinta en la
+    // siguiente) es la que de verdad esta en venta - el resto ni con las medallas necesarias
+    // aparece, esta partida.
+    selectedPoolCount = BadgeMartPool_GetSelection(selectedPool, BADGE_MART_POOL_SELECTED_COUNT);
+    for (i = 0; i < selectedPoolCount; i++) {
+        if (badgeCount >= selectedPool[i].required_badges) {
+            items[index] = selectedPool[i].item_id;
             index++;
         }
     }

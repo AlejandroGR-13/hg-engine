@@ -217,9 +217,10 @@ u32 LONG_CALL WildEncounterRandomizer_GetOrCreateSeed(void)
 {
 #ifdef ALLOW_SAVE_CHANGES
     struct SAVE_MISC_DATA *saveMiscData = Sav2_Misc_get(SaveBlock2_get());
+    u32 seed;
 
     if (!saveMiscData->wildRandomizerSeedSet) {
-        u32 seed = ((u32)gf_rand() << 16) | (u32)gf_rand();
+        seed = ((u32)gf_rand() << 16) | (u32)gf_rand();
         if (seed == 0) {
             seed = 1; // 0 is reserved to mean "not generated yet", never use it as a real seed
         }
@@ -227,7 +228,9 @@ u32 LONG_CALL WildEncounterRandomizer_GetOrCreateSeed(void)
         saveMiscData->wildRandomizerSeedSet = 1;
     }
 
-    return saveMiscData->wildRandomizerSeed;
+    seed = saveMiscData->wildRandomizerSeed;
+
+    return seed;
 #else
     return 0;
 #endif
@@ -705,4 +708,44 @@ u32 LONG_CALL CompetitiveItemShop_GetItems(u16 *outItems, u32 maxOut)
 
     // different salt than the Mega Stone shop so the two random picks don't line up
     return RandomSubset_Pick(pool, COMPETITIVE_ITEM_POOL_COUNT, outItems, maxOut, 0x9E3779B1u);
+}
+
+// -----------------------------------------------------------------------------------------
+// Second-clerk town shops. Several towns' Poke Mart has a second clerk next to the main
+// badge-gated one (src/field/mart.c's ScrCmd_MartBuy), selling a couple of Mail types and a
+// themed Poke Ball for that town (e.g. Violet City: Tunnel Mail + Heal/Net Ball) - previously
+// a small fixed list per town, now a per-save random draw from a shared pool a peticion, so
+// this shop varies between playthroughs too, same as the wild Pokemon. Every "collector" Poke
+// Ball a Johto/Kanto-era shop could plausibly sell (Poke/Great/Ultra/Master are excluded -
+// those stay tied to badge count via sBadgeMartFixed - as are Safari/Cherish/Dream/Beast/Sport/
+// Park Ball and every later-gen ball past Moon Ball, none of which fit here) plus every Mail
+// type (IS_ITEM_MAIL's full range) make up the pool.
+#define SECOND_CLERK_POOL_CAPACITY 32
+
+static u32 BuildSecondClerkPool(u16 *outPool, u32 capacity)
+{
+    u32 count = 0;
+    u32 item;
+
+    for (item = ITEM_NET_BALL; item <= ITEM_QUICK_BALL && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+    for (item = ITEM_FAST_BALL; item <= ITEM_MOON_BALL && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+    for (item = ITEM_GRASS_MAIL; item <= ITEM_BRICK_MAIL && count < capacity; item++) {
+        outPool[count++] = (u16)item;
+    }
+
+    return count;
+}
+
+u32 LONG_CALL SecondClerkShop_GetItems(u16 *outItems, u32 maxOut, u32 townSalt)
+{
+    u16 pool[SECOND_CLERK_POOL_CAPACITY];
+    u32 poolCount = BuildSecondClerkPool(pool, SECOND_CLERK_POOL_CAPACITY);
+
+    // townSalt (a small constant unique to each town) keeps every town's draw independent
+    // from the others, even though they all share this same pool and save seed.
+    return RandomSubset_Pick(pool, poolCount, outItems, maxOut, 0x53434C4Bu ^ townSalt); // "SCLK" base salt
 }
